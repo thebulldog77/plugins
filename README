@@ -1,0 +1,23 @@
+Wintermute Plug-in Collections (WntrPlugins)
+-----------------------------
+
+1. Introduction
+
+This project represents all of the known plug-ins for Wintermute. Having all of
+the plug-ins centralized allows us to make immediate and rapid changes to code
+given that the code-base changes. This also allows potential plug-in developers
+to extend upon what's already available and experiment with their own creations.
+
+2. Current Status
+
+At the moment, thee directory will only contain a prototypical plug-in called
+'sample'. It will be searched for by Wintermute and loaded merely to test the
+abilities of Wintermute's plug-in framework.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon.
