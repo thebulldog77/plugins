@@ -11,8 +11,8 @@ to extend upon what's already available and experiment with their own creations.
 2. Current Status
 
 At the moment, thee directory will only contain a prototypical plug-in called
-'sample'. It will be searched for by Wintermute and loaded merely to test the
-abilities of Wintermute's plug-in framework.
+'sample'. It will be searched for by Wintermute and loaded merely to
+demonstrate the ability and possibility of implementing code for Wintermute.
 
 3. Reporting and Contributing to the Cause
 
