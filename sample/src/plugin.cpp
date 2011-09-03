@@ -33,7 +33,9 @@ namespace Wintermute {
     namespace Sample {
         void Plugin::initialize () {
             cout << "Hello World!" << endl;
+            Wintermute::Plugins::Factory::unloadPlugin (this->uuid());
         }
+
         void Plugin::deinitialize () {
             cout << "Goodbye World!" << endl;
         }
