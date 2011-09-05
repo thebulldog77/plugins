@@ -10,11 +10,20 @@ to extend upon what's already available and experiment with their own creations.
 
 2. Current Status
 
-At the moment, thee directory will only contain a prototypical plug-in called
-'sample'. It will be searched for by Wintermute and loaded merely to
-demonstrate the ability and possibility of implementing code for Wintermute.
+The PDF file entitled 'Wintermute Plug-in Specification.pdf' is the latest
+version of the specification and requirements of those curious in building
+plug-ins for Wintermute. There's a sample plug-in provided that merely prints a
+message when the plug-in is initialized and uninitialized.
 
-3. Reporting and Contributing to the Cause
+3. Future Work
+
+The graphical user interface plug-in may be dragged into this sub-branch IF the
+developers here at Wintermute consider it to be a good plug-in. It's a bit more
+than a plug-in, currently Wintermute expects it to be on the system. A link to
+the current discussion will be embedded in this document at the latest copy of
+the revision, available at <https://www.github.com/wntr/gui>.
+
+4. Reporting and Contributing to the Cause
 
 We here at the Synthetic Intellect Institute, the makers and maintainers
 of Wintermute, welcome all. If you want to chat with the guys responsible
