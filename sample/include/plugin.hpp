@@ -33,18 +33,9 @@ namespace Wintermute {
                 ~Plugin() { }
                 Plugin(Plugin const &k) : PluginBase(k) { }
 
-                virtual const double version() const;
-                virtual const double compatVersion() const;
-                virtual const QString uuid() const;
-                virtual const QString name() const;
-                virtual const QString author() const;
-                virtual const QString vendorName() const;
-                virtual const QString description() const;
-                virtual const QString webPage() const;
-                virtual const QString dependencies() const;
-                virtual void initialize();
-                virtual void deinitialize();
-                virtual QObject* instance();
+                virtual void initialize() const;
+                virtual void deinitialize() const;
+                virtual QObject* instance() const;
         };
     }
 }

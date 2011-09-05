@@ -31,53 +31,16 @@ using std::endl;
 
 namespace Wintermute {
     namespace Sample {
-        void Plugin::initialize () {
+        void Plugin::initialize () const {
             cout << "Hello World!" << endl;
             Wintermute::Plugins::Factory::unloadPlugin (this->uuid());
         }
 
-        void Plugin::deinitialize () {
+        void Plugin::deinitialize () const {
             cout << "Goodbye World!" << endl;
         }
 
-        QObject* Plugin::instance () { return NULL; }
-
-        const double Plugin::version () const {
-            return 0.01;
-        }
-
-        const double Plugin::compatVersion () const {
-            return 0.01;
-        }
-
-        const QString Plugin::uuid () const {
-            return "00000000-0000-0000-0000-000000000000";
-        }
-
-        const QString Plugin::name() const {
-            return "Sample Plugin";
-        }
-
-        const QString Plugin::author() const {
-            return "John Doe <john.doe@woah.org>";
-        }
-
-        const QString Plugin::vendorName() const {
-            return "John Doe <john.doe@woah.org>";
-        }
-
-        const QString Plugin::description() const {
-            return "Sample plugin.";
-        }
-
-        const QString Plugin::webPage() const {
-            return "http://website";
-        }
-
-        const QString Plugin::dependencies () const {
-            return QString::null;
-        }
-
+        QObject* Plugin::instance () const { return NULL; }
     }
 }
 

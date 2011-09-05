@@ -1,0 +1,13 @@
+## sample plug-in file.
+
+[Version]
+Plugin=@WNTRPLUGIN_VERSION@
+Compat=0.01
+UUID=@WNTRPLUGIN_UUID@
+
+[Description]
+Name=Sample Plugin
+Author=John Doe <john@doe.org>
+Vendor=Jane Done <jane@doe.org>
+Blurb=A sample plug-in showing how Wintermute's plug-in API can be used.
+WebPage=http://www.thesii.org/wiki/Wintermute
