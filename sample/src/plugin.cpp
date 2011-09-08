@@ -45,5 +45,3 @@ namespace Wintermute {
 }
 
 Q_EXPORT_PLUGIN2(WntrGui, Wintermute::Sample::Plugin)
-
-
