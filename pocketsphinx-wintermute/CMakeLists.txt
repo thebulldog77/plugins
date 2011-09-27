@@ -1,0 +1,72 @@
+project(PocketSphinx_Plugin)
+cmake_minimum_required(VERSION 2.8)
+
+set(WINTERMUTE_IS_PLUGIN ON)
+set(POCKETSPHINX_PLUGIN_MAJOR_VERSION 0)
+set(POCKETSPHINX_PLUGIN_MINOR_VERSION 0)
+set(POCKETSPHINX_PLUGIN_MICRO_VERSION 1)
+set(POCKETSPHINX_PLUGIN_UUID "d4e44182-c94f-4b33-868a-432a8026d908")
+set(POCKETSPHINX_PLUGIN_VERSION
+    ${POCKETSPHINX_PLUGIN_MAJOR_VERSION}.${POCKETSPHINX_PLUGIN_MINOR_VERSION}${POCKETSPHINX_PLUGIN_MICRO_VERSION})
+
+list(APPEND CMAKE_MODULE_PATH "cmake/modules")
+
+find_package(WntrVoice 0.01 REQUIRED)
+find_package(PkgConfig REQUIRED)
+find_package(Qt4 COMPONENTS
+    QtCore
+    REQUIRED)
+
+pkg_search_module(SPHINX REQUIRED pocketsphinx)
+
+include(WintermuteDefaults)
+include(WintermuteMacros)
+
+file(GLOB POCKETSPHINX_PLUGIN_SHPP "src/*.hpp")
+file(GLOB POCKETSPHINX_PLUGIN_SCPP "src/*.cpp")
+QT4_WRAP_CPP(MOC_CODE "${POCKETSPHINX_PLUGIN_SHPP}")
+
+include("${QT_USE_FILE}")
+
+#
+# Main variables
+#
+set(POCKETSPHINX_PLUGIN_INCLUDE_DIRS "${WNTRVOICE_INCLUDE_DIRS}"
+    ${SPHINX_INCLUDE_DIRS}
+    ${Qt_INCLUDE_DIRS})
+set(POCKETSPHINX_PLUGIN_LIBRARIES "${WNTRVOICE_LIBRARIES}"
+    ${SPHINX_LIBRARIES}
+    ${QT_LIBRARIES})
+
+
+include_directories(${POCKETSPHINX_PLUGIN_INCLUDE_DIRS})
+
+#
+# Targets
+#
+add_library(pocketsphinx-plugin SHARED
+    ${POCKETSPHINX_PLUGIN_SHPP}
+    ${POCKETSPHINX_PLUGIN_SCPP}
+    ${MOC_CODE})
+
+set_target_properties(pocketsphinx-plugin PROPERTIES
+    VERSION ${GENERIC_LIB_VERSION}
+    SOVERSION ${GENERIC_LIB_SOVERSION})
+
+target_link_libraries(pocketsphinx-plugin
+    ${POCKETSPHINX_PLUGIN_LIBRARIES})
+
+configure_file("${PROJECT_SOURCE_DIR}/spec.in"
+    "${PROJECT_BINARY_DIR}/InstallFiles/pocketsphinx-plugin.spec" @ONLY)
+#
+# Installs
+#
+
+install(TARGETS pocketsphinx-plugin
+    LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}")
+
+install(FILES ${CMAKE_MODULES}
+    DESTINATION "${CMAKE_MODULE_DIR}")
+
+install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/pocketsphinx-plugin.spec"
+    DESTINATION "${WINTER_PLUGINSPEC_INSTALL_DIR}")

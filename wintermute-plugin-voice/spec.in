@@ -1,0 +1,13 @@
+## Plugin specification for Wintermute's voice capabilities.
+
+[Version]
+Plugin=@WNTRVOICE_VERSION@
+Compat=0.01
+UUID=@WNTRVOICE_UUID@
+
+[Description]
+Name=Voice
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Blurb=Provides input and output by means of voice for Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute

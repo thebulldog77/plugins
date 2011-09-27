@@ -1,0 +1,15 @@
+# - Config file for the WntrVoicepackage
+# It defines the following variables
+#  WNTRVOICE_INCLUDE_DIRS - include directories for WntrVoice
+#  WNTRVOICE_LIBRARY_DIRS - library directories for WntrVoice(normally not used!)
+#  WNTRVOICE_LIBRARIES    - libraries to link against
+
+# Tell the user project where to find our headers and libraries
+set(WNTRVOICE_INCLUDE_DIRS "@WNTRVOICE_INCLUDE_DIRS@")
+set(WNTRVOICE_LIBRARY_DIRS "@WNTRVOICE_LIB_DIR@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+#include("@WNTRVOICE_CMAKE_DIR@/WntrVoiceLibraryDepends.cmake")
+
+# These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
+set(WNTRVOICE_LIBRARIES wntrvoice)
