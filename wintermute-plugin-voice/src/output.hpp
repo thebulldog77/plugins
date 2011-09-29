@@ -21,44 +21,155 @@
 #ifndef POCKETSPHINX_OUTPUT_HPP
 #define POCKETSPHINX_OUTPUT_HPP
 
-#include <QObject>
 #include <QList>
+#include <QThread>
 
 namespace Wintermute {
     namespace Voice {
         struct Synthesizer;
         struct SynthesizedVoice;
 
+        /**
+         * @brief
+         *
+         * @typedef SynthesizerList         */
         typedef QList<Synthesizer*> SynthesizerList;
+        /**
+         * @brief
+         *
+         * @typedef SynthesizedVoiceList         */
         typedef QList<SynthesizedVoice*> SynthesizedVoiceList;
 
+        /**
+         * @brief
+         *
+         * @class SynthesizedVoice output.hpp "src/output.hpp"
+         */
         class SynthesizedVoice : public QObject {
             Q_OBJECT
             Q_PROPERTY(QString Locale READ locale WRITE setLocale)
 
             private:
-                QString m_locale;
+                QString m_locale; /**< TODO */
 
             public:
                 Q_DISABLE_COPY(SynthesizedVoice)
+                /**
+                 * @brief
+                 *
+                 * @fn SynthesizedVoice
+                 * @param
+                 */
                 SynthesizedVoice(const QString& = QString::null);
+                /**
+                 * @brief
+                 *
+                 * @fn locale
+                 */
                 const QString locale() const;
+                /**
+                 * @brief
+                 *
+                 * @fn setLocale
+                 * @param
+                 */
                 void setLocale(const QString&);
-                static const SynthesizedVoice Null;
+                static const SynthesizedVoice Null; /**< TODO */
         };
 
-        class Synthesizer : public QObject {
+        /**
+         * @brief
+         *
+         * @class Synthesizer output.hpp "src/output.hpp"
+         */
+        class Synthesizer : protected QThread {
             Q_OBJECT
             Q_DISABLE_COPY(Synthesizer)
             Q_PROPERTY(SynthesizedVoice Voice READ voice WRITE setVoice)
 
-            private:
-                SynthesizedVoice m_voice;
+            signals:
+                /**
+                 * @brief
+                 *
+                 * @fn speakingStopped
+                 */
+                void speakingStopped();
+                /**
+                 * @brief
+                 *
+                 * @fn speakingStarted
+                 */
+                void speakingStarted();
+                /**
+                 * @brief
+                 *
+                 * @fn voiceChanged
+                 */
+                void voiceChanged();
+                /**
+                 * @brief
+                 *
+                 * @fn voiceChanged
+                 * @param
+                 */
+                void voiceChanged(const SynthesizedVoice&);
+
+            protected:
+                SynthesizedVoice m_voice; /**< TODO */
+                /**
+                 * @brief
+                 *
+                 * @fn run
+                 */
+                virtual void run() = 0;
 
             public:
+                /**
+                 * @brief
+                 *
+                 * @fn Synthesizer
+                 * @param
+                 */
                 Synthesizer(const SynthesizedVoice& = SynthesizedVoice::Null);
+                /**
+                 * @brief
+                 *
+                 * @fn ~Synthesizer
+                 */
+                virtual ~Synthesizer();
+                /**
+                 * @brief
+                 *
+                 * @fn voice
+                 */
                 const SynthesizedVoice voice() const;
+                /**
+                 * @brief
+                 *
+                 * @fn setVoice
+                 * @param
+                 */
                 void setVoice(const SynthesizedVoice&);
+                /**
+                 * @brief
+                 *
+                 * @fn waitWhileSpeaking
+                 * @param
+                 */
+                virtual void waitWhileSpeaking(const QString&) const = 0;
+                /**
+                 * @brief
+                 *
+                 * @fn beginSpeaking
+                 * @param
+                 */
+                virtual void beginSpeaking(const QString&) const = 0;
+                /**
+                 * @brief
+                 *
+                 * @fn stopSpeaking
+                 */
+                virtual void stopSpeaking() const = 0;
         };
     }
 }

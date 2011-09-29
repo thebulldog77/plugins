@@ -20,27 +20,24 @@
  */
 
 #include "plugin.hpp"
-#include <iostream>
+#include "sphinx.hpp"
 #include <QtPlugin>
-
-using namespace std;
-
-using std::cout;
-using std::endl;
+#include <QDebug>
 
 namespace Wintermute {
-    namespace Sample {
-        void Plugin::initialize () const {
-            cout << "Hello World!" << endl;
-            Wintermute::Plugins::Factory::unloadPlugin (this->uuid());
-        }
+    namespace Voice {
+        namespace PocketSphinx {
+            void Plugin::initialize () const {
+                SphinxRecognizer l_sphinx;
+                qDebug() << l_sphinx.waitToListen ();
+            }
 
-        void Plugin::deinitialize () const {
-            cout << "Goodbye World!" << endl;
-        }
+            void Plugin::deinitialize () const {
+            }
 
-        QObject* Plugin::instance () const { return NULL; }
+            QObject* Plugin::instance () const { return NULL; }
+        }
     }
 }
 
-Q_EXPORT_PLUGIN2(WntrGui, Wintermute::Sample::Plugin)
+Q_EXPORT_PLUGIN2(PocketSphinx-Plugin, Wintermute::Voice::PocketSphinx::Plugin)

@@ -11,7 +11,7 @@ set(MARYTTS_PLUGIN_VERSION
 
 list(APPEND CMAKE_MODULE_PATH "cmake/modules")
 
-find_package(WntrVoice REQUIRED)
+find_package(WntrVoice 0.01 REQUIRED QUIET)
 find_package(Qt4 COMPONENTS
     QtCore
     REQUIRED)

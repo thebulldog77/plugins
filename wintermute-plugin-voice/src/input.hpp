@@ -22,6 +22,7 @@
 #define POCKETSPHINX_INPUT_HPP
 
 #include <QObject>
+#include <QThread>
 
 namespace Wintermute {
     namespace Voice {
@@ -29,9 +30,25 @@ namespace Wintermute {
 
         typedef QList<Recognizer*> RecognizerList;
 
-        class Recognizer : public QObject {
+        class Recognizer : protected QThread {
             Q_OBJECT
             Q_DISABLE_COPY(Recognizer)
+
+            signals:
+                void textHeard(const QString&) const;
+
+            public:
+                Recognizer();
+                virtual ~Recognizer();
+                virtual const QString& waitToListen() const = 0;
+                const bool isListening() const;
+
+            protected:
+                virtual void run () const = 0;
+
+            public slots:
+                virtual void beginListening() const = 0;
+                virtual void stopListening() const = 0;
         };
     }
 }

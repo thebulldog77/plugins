@@ -21,20 +21,23 @@
 #include <QtPlugin>
 
 namespace Wintermute {
-    namespace Sample {
-        struct Plugin;
+    namespace Voice {
+        namespace PocketSphinx {
+            struct Plugin;
 
-        using Wintermute::Plugins::PluginBase;
+            using Wintermute::Plugins::AbstractPlugin;
 
-        class Plugin : public PluginBase {
-            public:
-                Plugin() : PluginBase() { }
-                ~Plugin() { }
-                Plugin(Plugin const &k) : PluginBase(k) { }
+            class Plugin : public AbstractPlugin {
+                Q_OBJECT
+                public:
+                    Plugin() : AbstractPlugin() { }
+                    ~Plugin() { }
+                    Plugin(Plugin const &k) : AbstractPlugin(k) { }
 
-                virtual void initialize() const;
-                virtual void deinitialize() const;
-                virtual QObject* instance() const;
-        };
+                    virtual void initialize() const;
+                    virtual void deinitialize() const;
+                    virtual QObject* instance() const;
+            };
+        }
     }
 }

@@ -33,12 +33,9 @@ namespace Wintermute {
     namespace Voice {
         namespace MaryTTS {
             void Plugin::initialize () const {
-                cout << "Hello World!" << endl;
-                Wintermute::Plugins::Factory::unloadPlugin (this->uuid());
             }
 
             void Plugin::deinitialize () const {
-                cout << "Goodbye World!" << endl;
             }
 
             QObject* Plugin::instance () const { return NULL; }
@@ -46,4 +43,4 @@ namespace Wintermute {
     }
 }
 
-Q_EXPORT_PLUGIN2(WntrGui, Wintermute::Voice::MaryTTS::Plugin)
+Q_EXPORT_PLUGIN2(MaryTTS-Plugin, Wintermute::Voice::MaryTTS::Plugin)

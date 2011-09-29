@@ -9,7 +9,7 @@ set(WNTRVOICE_INCLUDE_DIRS "@WNTRVOICE_INCLUDE_DIRS@")
 set(WNTRVOICE_LIBRARY_DIRS "@WNTRVOICE_LIB_DIR@")
 
 # Our library dependencies (contains definitions for IMPORTED targets)
-#include("@WNTRVOICE_CMAKE_DIR@/WntrVoiceLibraryDepends.cmake")
+include("@WNTRVOICE_CMAKE_DIR@/WntrVoiceLibraryDepends.cmake" OPTIONAL)
 
 # These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
 set(WNTRVOICE_LIBRARIES wntrvoice)

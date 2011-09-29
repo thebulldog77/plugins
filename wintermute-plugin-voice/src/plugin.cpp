@@ -40,4 +40,4 @@ namespace Wintermute {
     }
 }
 
-Q_EXPORT_PLUGIN2(WntrGui, Wintermute::Voice::Plugin)
+Q_EXPORT_PLUGIN2(WntrVoice, Wintermute::Voice::Plugin)

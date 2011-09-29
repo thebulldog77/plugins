@@ -14,7 +14,7 @@ list(APPEND CMAKE_MODULE_PATH "cmake/modules")
 find_package(Wintermute 0.01 REQUIRED)
 find_package(Qt4 COMPONENTS
     QtCore
-    Phonon
+    QT_DONT_USE_QTGUI
     REQUIRED)
 
 include(WintermuteDefaults)
@@ -29,16 +29,13 @@ include("${QT_USE_FILE}")
 #
 # Main variables
 #
-set(WNTRVOICE_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/wntrvoice")
+set(WNTRVOICE_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/voice")
 set(WNTRVOICE_INCLUDE_DIRS "${WINTERMUTE_INCLUDE_DIRS}"
     ${WNTRVOICE_INCLUDE_DIR}
     ${Qt_INCLUDE_DIRS})
 set(WNTRVOICE_LIBRARIES ${QT_LIBRARIES})
 set(WNTRVOICE_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/WntrVoice" CACHE PATH "CMake directory.")
 
-#
-#
-#
 include_directories(${WNTRVOICE_INCLUDE_DIRS})
 
 #
@@ -53,8 +50,7 @@ set_target_properties(wntrvoice PROPERTIES
     VERSION ${GENERIC_LIB_VERSION}
     SOVERSION ${GENERIC_LIB_SOVERSION})
 
-target_link_libraries(wntrvoice
-    ${WNTRVOICE_LIBRARIES})
+target_link_libraries(wntrvoice ${WNTRVOICE_LIBRARIES})
 
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
     "${PROJECT_BINARY_DIR}/InstallFiles/wntrvoice.spec" @ONLY)
@@ -67,24 +63,22 @@ configure_file("cmake/WntrVoiceConfig.cmake.in"
 
 configure_file("cmake/WntrVoiceConfigVersion.cmake.in"
     "${PROJECT_BINARY_DIR}/InstallFiles/WntrVoiceConfigVersion.cmake" @ONLY)
-#
+
 # Installs
-#
 
 install(TARGETS wntrvoice
     EXPORT WntrVoiceLibraryDepends
     LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}"
     RENAME WNTRVOICE_UUID)
 
-install(EXPORT WntrVoiceLibraryDepends
-    DESTINATION "${WNTRVOICE_CMAKE_DIR}")
-
 install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/wntrvoice.pc"
     DESTINATION "${WINTER_LIB_INSTALL_DIR}/pkgconfig/")
 
-install(FILES
-    "${PROJECT_BINARY_DIR}/InstallFiles/WntrVoiceConfig.cmake"
+install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/WntrVoiceConfig.cmake"
     "${PROJECT_BINARY_DIR}/InstallFiles/WntrVoiceConfigVersion.cmake"
+    DESTINATION "${WNTRVOICE_CMAKE_DIR}")
+
+install(EXPORT WntrVoiceLibraryDepends
     DESTINATION "${WNTRVOICE_CMAKE_DIR}")
 
 install(FILES ${WNTRVOICE_SHPP}

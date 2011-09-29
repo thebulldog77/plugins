@@ -19,11 +19,37 @@
 
 #ifndef POCKETSPHINX_PLUGIN_SPHINX_HPP
 #define POCKETSPHINX_PLUGIN_SPHINX_HPP
-#include <voice.hpp>
+
+/// @bug This shouldn't be defined here; it should be done via command-line. But I'm not sure how we can get pkg-config to do that in a digressible manner.
+#define MODELDIR "/usr/share/pocketsphinx/model"
+
+#include <input.hpp>
+#include <pocketsphinx.h>
 
 namespace Wintermute {
     namespace Voice {
+        struct SphinxRecognizer;
 
+        class SphinxRecognizer : public Recognizer {
+            Q_OBJECT
+            Q_DISABLE_COPY(SphinxRecognizer)
+
+            public:
+                SphinxRecognizer();
+                virtual~SphinxRecognizer();
+                virtual const QString& waitToListen () const;
+
+            private:
+                mutable ps_decoder_t* ps;
+                mutable cmd_ln_t* config;
+                void initialize() const;
+                void deinitialize() const;
+                virtual void run() const;
+
+            public slots:
+                virtual void beginListening () const;
+                virtual void stopListening () const;
+        };
     }
 }
 

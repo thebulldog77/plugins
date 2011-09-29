@@ -27,5 +27,29 @@
 namespace Wintermute {
     namespace Voice {
         const SynthesizedVoice SynthesizedVoice::Null = SynthesizedVoice();
+        System* System::s_inst = NULL;
+
+        System::System() : m_voices(), m_recogs() {
+            s_inst = this;
+        }
+
+        System::~System () {
+
+        }
+
+        void System::start () {
+            emit s_inst->started ();
+        }
+
+        void System::stop () {
+            emit s_inst->stopped ();
+        }
+
+        System* System::instance () {
+            if (!s_inst)
+                s_inst = new System;
+
+            return s_inst;
+        }
     }
 }

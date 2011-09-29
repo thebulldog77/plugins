@@ -17,10 +17,54 @@
  * Boston, MA  02110-1301  USA
  */
 
-#include <pocketsphinx.h>
+#include "sphinx.hpp"
+#include <QDebug>
 
  namespace Wintermute {
     namespace Voice {
+        SphinxRecognizer::SphinxRecognizer() : Recognizer() {
 
+        }
+
+        SphinxRecognizer::~SphinxRecognizer() {
+
+        }
+
+        void SphinxRecognizer::initialize() const {
+            config = cmd_ln_init (NULL,ps_args(),TRUE,
+                                  "-hmm" , MODELDIR "/hmm/en_US/hub4wsj_sc_8k",
+                                  "-lm"  , MODELDIR "/lm/en/turtle.DMP",
+                                  "-dict", MODELDIR "/lm/en/turtle.dic",
+                                  NULL);
+
+            if (config == NULL){
+                qDebug() << "(voice) [PocketSphinx] Unable to load configuration.";
+                return;
+            }
+
+            ps = ps_init (config);
+
+            if (ps == NULL){
+                qDebug() << "(voice) [PocketSphinx] Unable to initialize decoder.";
+                return;
+            }
+        }
+
+        void SphinxRecognizer::run () const {
+
+        }
+
+        void SphinxRecognizer::beginListening () const {
+
+        }
+
+        void SphinxRecognizer::stopListening () const {
+
+        }
+
+        const QString& SphinxRecognizer::waitToListen () const{
+            initialize ();
+        }
     }
  }
+

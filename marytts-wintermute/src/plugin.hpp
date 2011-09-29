@@ -26,13 +26,14 @@ namespace Wintermute {
         namespace MaryTTS {
             struct Plugin;
 
-            using Wintermute::Plugins::PluginBase;
+            using Wintermute::Plugins::AbstractPlugin;
 
-            class Plugin : public PluginBase {
+            class Plugin : public AbstractPlugin {
+                Q_OBJECT
                 public:
-                    Plugin() : PluginBase() { }
+                    Plugin() : AbstractPlugin() { }
                     ~Plugin() { }
-                    Plugin(Plugin const &k) : PluginBase(k) { }
+                    Plugin(Plugin const &k) : AbstractPlugin(k) { }
 
                     virtual void initialize() const;
                     virtual void deinitialize() const;

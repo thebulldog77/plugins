@@ -48,6 +48,10 @@ namespace Wintermute {
             public:
                 ~System();
                 static System* instance();
+
+            public slots:
+                static void start();
+                static void stop();
         };
     }
 }

@@ -34,10 +34,18 @@ namespace Wintermute {
 
         Synthesizer::Synthesizer(const Synthesizer &p_synth) : m_voice(p_synth.m_voice) { }
 
+        Synthesizer::~Synthesizer () {
+
+        }
+
         Synthesizer::Synthesizer(const SynthesizedVoice &p_voice) : m_voice(p_voice) { }
 
         const SynthesizedVoice Synthesizer::voice () const { return m_voice; }
 
-        void Synthesizer::setVoice (const SynthesizedVoice &p_voice) { m_voice = p_voice; }
+        void Synthesizer::setVoice (const SynthesizedVoice &p_voice) {
+            m_voice = p_voice;
+            emit voiceChanged ();
+            emit voiceChanged (m_voice);
+        }
     }
 }

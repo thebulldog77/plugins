@@ -1,11 +1,11 @@
 project(WntrPlugins)
 cmake_minimum_required(VERSION 2.8)
 
-find_package(WntrVoice QUIET)
+include(WintermuteDefaults)
+include(WintermuteMacros)
 
-if (WntrVoice_FOUND)
-	add_subdirectory(pocketsphinx-wintermute)
-	add_subdirectory(marytts-wintermute)
-endif(WntrVoice_FOUND)
+## TODO: Find a way to add WntrVoice (wintermute-plugin-voice) without clashing with a possibly
+##       already installed copy of it.
 
-add_subdirectory(wintermute-plugin-voice)
+add_subdirectory(pocketsphinx-wintermute)
+add_subdirectory(marytts-wintermute)
