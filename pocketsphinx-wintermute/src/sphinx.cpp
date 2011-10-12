@@ -23,11 +23,11 @@
  namespace Wintermute {
     namespace Voice {
         SphinxRecognizer::SphinxRecognizer() : Recognizer() {
-
+                qDebug() << "(voice) [PocketSphinx] Initializing..";
         }
 
         SphinxRecognizer::~SphinxRecognizer() {
-
+                qDebug() << "(voice) [PocketSphinx] Deinitializing...";
         }
 
         void SphinxRecognizer::initialize() const {
