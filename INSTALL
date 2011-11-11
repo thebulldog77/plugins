@@ -1,0 +1,24 @@
+Installing Plug-ins for Wintermute
+--------------------------------------------------------------------------------
+
+Installing plug-ins for Wintermute is typically a one-tier process but can be a
+double-tier if its dependant API hasn't been installed yet. Each folder names
+a specific API of Wintermute (vision for computer vision, semantics for the Ange
+lNet) and its child plug-ins. 
+
+Those who wish to quickly build Wintermute's frontend will need to do the follow
+ing:
+
+    1. Navigate to the folder with all of the APIs in a terminal.
+    
+    2. Run the following commands:
+        $ cd visual/wintermute-plugin-frontend
+        $ mkdir -p build && cd build
+        $ make
+        # make install
+        $ cd ../gui-wintermute
+        $ make
+        # make install
+        
+    3. Run Wintermute by entering:
+        $ wintermute

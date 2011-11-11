@@ -31,15 +31,9 @@ namespace Wintermute {
         MainWindow* Core::s_wndw = NULL;
 
         void Core::start () {
-            const bool l_isGuiEnabled = Wintermute::Core::arguments ()->value ("gui").toBool ();
-            if (l_isGuiEnabled){
-                s_wndw = new MainWindow;
-                s_wndw->show ();
-                qDebug() << "(gui) [Core] Initialized.";
-            } else {
-                qDebug() << "(gui) [Core] GUI disabled.";
-                QApplication::quit ();
-            }
+            qDebug() << "(gui) [Core] Initialized.";
+            s_wndw = new MainWindow;
+            s_wndw->show ();
         }
 
         void Core::stop () {

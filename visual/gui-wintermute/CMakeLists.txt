@@ -28,6 +28,8 @@ find_package(Qt4 4.4.3 COMPONENTS
 
 file(GLOB WNTRGUI_SHPP "src/*.hpp")
 file(GLOB WNTRGUI_SCPP "src/*.cpp")
+list(APPEND WNTRGUI_SCPP "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/frontend/qrc_res.cxx")
+message("${WNTRGUI_SCPP}")
 file(GLOB WNTRGUI_UIC "ui/*.ui")
 file(GLOB WNTRGUI_QRC "ui/*.qrc")
 file(GLOB CMAKE_MODULES "${PROJECT_SOURCE_DIR}/cmake/Modules/*.cmake")
