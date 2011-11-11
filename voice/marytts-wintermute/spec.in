@@ -1,0 +1,18 @@
+## Mary TTS Plugin for Wintermute
+
+[Version]
+Plugin=@MARYTTS_PLUGIN_VERSION@
+UUID=@MARYTTS_PLUGIN_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=marytts-wintermute
+
+[Description]
+Name=Mary TTS Plugin for Wintermute
+Author=Wintermute Development <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing speech synthesis via MARY TTS <http://mary.dfki.de>.
+WebPage=http://www.thesii.org/wiki/Wintermute
+
+[Dependencies]
+Plugins=0811f9f2-ba0a-4f04-9965-00a05629c11e == 0.01
+Packages=libopenmary == 0.01

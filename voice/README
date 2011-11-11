@@ -1,0 +1,29 @@
+Wintermute Voice API (WntrVoice)
+-----------------------------
+
+1. Introduction
+
+This subproject covers Wintermute's ability to transform audio into text and visa
+versa. The API merely serves as a means of simplifying said processes so that it's
+done in parallel and in a "don't ask, don't tell" fashion. The API allows individuals
+to mask text with prosody and annotations so that the output stream sounds exactly as
+intended. The input text would also be working closely with WntrLing in order to provide
+a semantically correct sentence, avoiding ambiguity.
+
+2. Future Work
+
+Work is being done to add support for more of the well-known and familiar speech
+synthesizers like eSpeak and Festival, for users with low-power systems or who
+wish not to use MARY, the recommended and default speech synthesizer of Wintermute.
+Other people may use Julius in conjunction of using Simon, as opposed to CMU Sphinx,
+also the recommended and default speech recognizer of Wintermute. With an addition of
+tools, we expect to get more (and potentially, varying) experience results from users
+about Wintermute.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon.

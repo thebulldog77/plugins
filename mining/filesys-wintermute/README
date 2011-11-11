@@ -1,0 +1,10 @@
+File System Management for Wintermute
+--------------------------------------------------------------------------------
+
+1. Introduction
+
+As defined in the document "File Systems and Wintermute" by the Synthetic Intell
+ect Institute, Wintermute needs to have full control over the file system. In fa
+ct, Wintermute will have to not organize files; it'll have to remove the "file
+dialog" paradigm presented since the advent of "file cabients" on computers.
+

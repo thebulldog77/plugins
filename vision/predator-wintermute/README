@@ -1,0 +1,22 @@
+Predator Adaptor for Wintermute
+-----------------------------
+
+1. Introduction
+
+This project provides Wintermute with the Predator algorithm, a object-tracking
+recognition system designed using GNU Octave.
+
+2. Future Work
+
+Work will be done to integrate the OpenTLD code based on the Predator
+algorithm for live face and object recognition. This code will be a derivation
+of the original work done by using Octave, now instead by using OpenCV and
+Qt.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon.

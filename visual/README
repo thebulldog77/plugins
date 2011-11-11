@@ -1,0 +1,10 @@
+Visual Plug-ins of Wintermute
+--------------------------------------------------------------------------------
+
+1. Introduction
+
+Wintermute, with its three core plug-ins, operates solely as a daemon applicatio
+n. It works in the background, only providing mininal interactions with its outs
+ide environment. However, the Frontend API (WntrFrontend) provides Wintermute wi
+th an abstract layer of presenting information to (and receiving information fro
+m) the user in a graphical manner.

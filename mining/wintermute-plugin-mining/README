@@ -1,0 +1,25 @@
+Wintermute Mining API (WntrMining)
+-----------------------------
+
+1. Introduction
+
+This subproject covers Wintermute's ability to intelligently produce semantic in
+formation from multiple, abstract resources. The API is designed to be as flexib
+le and dynamic, yet stable and concrete so that backends about file logging and 
+world news could both be used in an effective manner. This symbosis of informati
+on brings out the concepts of knowledge, and can potentially produce autonomous
+knowledge engineering tools for Wintermute.
+
+2. Future Work
+
+The API for the Mining API is still in the drafts, but it's clear that this plug
+in alone will rely on WntrData for its need to properly draft semantic informati
+on into an ontology.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon.

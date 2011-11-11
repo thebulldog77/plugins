@@ -1,0 +1,23 @@
+Wintermute's Data Mining API (WntrMining)
+-----------------------------
+
+1. Introduction
+
+This subproject consists of the Wintermute Data Mining API (WntrMining). It provides
+the abstract classes required to have an efficient data mining interface and backend,
+as well as a means to use all known data miners in an aggregated fashion.
+
+2. Future Work
+
+Work will be done to import data from Wikipedia, Zeitgeist and NEPOMUK; as provided
+by the plugins in this directory. Other sources of information, like the system 
+itself and the files on connected devices are also mined and managed by plug-ins
+found here.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon.

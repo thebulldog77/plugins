@@ -1,0 +1,15 @@
+## Angel-level semantic interface for Wintermute
+
+[Version]
+Plugin=@ANGEL_WINTERMUTE_VERSION@
+UUID=@ANGEL_WINTERMUTE_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=angel-wintermute
+
+[Description]
+Name=Wintermute Semantics (Angel-level)
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing the representation of a Angel-level Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+
