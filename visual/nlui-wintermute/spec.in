@@ -3,7 +3,7 @@
 [Version]
 Plugin=@WNTRNLUI_VERSION@
 UUID=@WNTRNLUI_UUID@
-Compat=@WINTERMUTE_VERSION@
+Compat=@Wintermute_VERSION@
 Library=nlui-wintermute
 
 [Description]

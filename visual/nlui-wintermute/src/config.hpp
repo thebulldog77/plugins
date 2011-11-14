@@ -25,10 +25,10 @@
 #ifndef _WNTRGUI_CONFIG_HPP__
 #define _WNTRGUI_CONFIG_HPP__
 
-#cmakedefine DEBUG
+/* #undef DEBUG */
 
-#define WNTRNLUI_VERSION @WNTRGUI_VERSION@
-#define WNTRNLUI_UUID "@WNTRNLUI_UUID@"
+#define WNTRNLUI_VERSION 
+#define WNTRNLUI_UUID "e930a2a4-0502-11e1-b72f-37afdea700ba"
 
 #endif // __CONFIG_HPP__
 

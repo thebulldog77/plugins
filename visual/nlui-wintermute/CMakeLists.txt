@@ -1,4 +1,4 @@
-project(WntrNlui)
+project(Nlui-Wintermute)
 cmake_minimum_required(VERSION 2.8)
 
 set(WINTERMUTE_IS_PLUGIN ON)
@@ -17,7 +17,7 @@ include(WintermuteMacros)
 
 find_package(WntrFrontend 0.01 REQUIRED)
 find_package(Wintermute 0.01 REQUIRED)
-find_package(Qt4 4.4.3 COMPONENTS
+find_package(Qt4 COMPONENTS
      QtGui
      QtDBus
      QtCore

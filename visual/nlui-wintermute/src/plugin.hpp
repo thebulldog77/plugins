@@ -29,9 +29,9 @@
 #include "config.hpp"
 
 namespace Wintermute {
-    namespace Graphics {
+    namespace NLUI {
         struct Plugin;
-        struct Core;
+
         /**
         * @brief
         * @class Plugin plugin.hpp "gui/plugin.hpp"

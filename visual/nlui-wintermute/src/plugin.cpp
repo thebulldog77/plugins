@@ -20,29 +20,21 @@
  * Boston, MA  02110-1301  USA
  */
 
-#include "gui.hpp"
 #include "plugin.hpp"
 #include <QObject>
 #include <QtPlugin>
 #include <QStringList>
-#include <wntrdata.hpp>
-#include <wntrling.hpp>
 
 namespace Wintermute {
-    namespace Graphics {
+    namespace NLUI {
         Plugin::Plugin() { }
 
         Plugin::~Plugin() { }
 
         void Plugin::initialize () const {
-            Data::System::instance ();
-            Data::System::start ();
-            Core::start ();
         }
 
         void Plugin::deinitialize () const {
-            Data::System::stop ();
-            Core::stop ();
         }
 
         QObject* Plugin::instance () {
@@ -52,5 +44,5 @@ namespace Wintermute {
     }
 }
 
-Q_EXPORT_PLUGIN2(WntrGui, Wintermute::Graphics::Plugin)
+Q_EXPORT_PLUGIN2(NLUI-Wintermute, Wintermute::NLUI::Plugin)
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

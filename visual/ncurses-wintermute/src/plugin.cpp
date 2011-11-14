@@ -21,22 +21,26 @@
  */
 
 #include "plugin.hpp"
+#include "ncurses.hpp"
+#include "core.hpp"
 #include <QObject>
 #include <QtPlugin>
 #include <QStringList>
 
 namespace Wintermute {
-    namespace Graphics {
+    namespace nCurses {
         Plugin::Plugin() { }
 
         Plugin::~Plugin() { }
 
         void Plugin::initialize () const {
-            Core::start ();
+            connect(Wintermute::Core::instance(),SIGNAL(started()),
+                    Wintermute::Curses::Curses::instance(),SLOT(start()));
+            connect(Wintermute::Core::instance(),SIGNAL(started()),
+                    Wintermute::Curses::Curses::instance(),SLOT(stop()));
         }
 
         void Plugin::deinitialize () const {
-            Core::stop ();
         }
 
         QObject* Plugin::instance () {

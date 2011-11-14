@@ -24,11 +24,12 @@
 
 namespace Wintermute {
     static WINDOW* s_mnWndw = NULL;
+    Curses* Curses::s_inst = NULL;
     
     Text::Text() : QObject() { }    
     
     Text::Text(const Text& p_txtObj) : QObject(p_txtObj.parent()), m_txt(p_txtObj.m_txt),
-                                       m_algn(p_txtObj.algn) { }
+                                       m_algn(p_txtObj.m_algn) { }
                                        
     Text::Text(const QString& p_str) : QObject(), m_txt(p_str), m_algn(Text::Left) { }
     
@@ -38,11 +39,9 @@ namespace Wintermute {
     
     void Text::setText(const QString& p_str) { m_txt = p_str; }
     
-    const Alignment& Text::alignment() const { return m_algn; }
+    const Text::Alignment& Text::alignment() const { return m_algn; }
     
     const QString& Text::text() const { return m_txt; }
-    
-    Text::~Text() { }
     
     Curses::Curses() : QObject(), m_pn(Curses::Welcome) { }
     
@@ -59,12 +58,6 @@ namespace Wintermute {
     
     const int Curses::windowHeight() { }
     
-    void Curses::_start() { }
-    
-    void Curses::_stop() { }
-    
-    void Curses::_read(QString& p_input) { }
-    
     void Curses::_update() { }
     
     void Curses::start() { }
@@ -73,7 +66,7 @@ namespace Wintermute {
     
     void Curses::clear(const Panes& p_pn) { }
     
-    void Curses::getText(QString& p_input) { }
+    void Curses::getText(QString& p_input) const { }
     
     void Curses::setText(const Text& p_txtObj) { }    
     
@@ -90,7 +83,7 @@ namespace Wintermute {
     
     }
             
-    const Panes& Curses::pane() const { return m_pn; }
+    const Curses::Panes& Curses::pane() const { return m_pn; }
     
     Curses::~Curses() { }
 }

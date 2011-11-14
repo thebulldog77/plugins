@@ -42,21 +42,17 @@ namespace Wintermute {
     class Text : public QObject {
         Q_OBJECT
         
-        enum Alignment {
-            Left = 0,
-            Right,
-            Center
-        };
-        
         Q_ENUMS(Alignment)
         Q_PROPERTY(const Alignment& Alignment READ alignment WRITE setAlignment)
         Q_PROPERTY(const QString& Text READ text WRITE setText)
         
-        private:
-            Alignment m_algn;
-            QString m_txt;
-        
         public:
+            enum Alignment {
+                Left = 0,
+                Right,
+                Center
+            };
+
             Text();
             Text(const Text& );
             Text(const QString& );
@@ -67,6 +63,10 @@ namespace Wintermute {
             
             const Alignment& alignment() const;            
             const QString& text() const;
+
+        private:
+            Alignment m_algn;
+            QString m_txt;
     };
 
     /**
@@ -84,42 +84,40 @@ namespace Wintermute {
         Q_PROPERTY(const Panes& Pane READ pane WRITE setPane)
         Q_DISABLE_COPY(Curses)
         
-        enum Panes {
-            Help = 0,
-            Settings,
-            TEaR,
-            Ling,
-            Onto,
-            Welcome,
-            Dialog
-        };        
-
-        private:
-            void _start();
-            void _stop();
-            void _read(QString&) const;
-            void _update();
-            static Curses* s_inst;
-            Panes m_pn;
-
         public:
+            enum Panes {
+                Help = 0,
+                Settings,
+                TEaR,
+                Ling,
+                Onto,
+                Welcome,
+                Dialog
+            };
+
             Curses();
             ~Curses();
             static Curses* instance();
             static const int windowWidth();
             static const int windowHeight();
             
-            void start();
-            void stop();
-            void clear(const Panes& = Welcome);
             void getText(QString& ) const;
             void setText(const Text& );
             void setStatus(const QString& );
             void setProgress(const double& );
             const int showDialog(const QString&, const QMap<int,QString>&, const int = 0);
-
             const Panes& pane() const;
             void setPane(const Panes& );
+
+        public slots:
+            void start();
+            void stop();
+            void clear(const Panes& = Welcome);
+
+        private:
+            void _update();
+            static Curses* s_inst;
+            Panes m_pn;
     };
 }
 #endif

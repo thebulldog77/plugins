@@ -21,15 +21,20 @@
  * Boston, MA  02110-1301  USA
  */
 
-#include "src/configui.hpp"
+#include "configui.hpp"
 #include "ui_configui.h"
 #include <wntrling.hpp>
+#include <plugins.hpp>
+#include <QDBusMessage>
+#include <QDBusConnection>
 #include <QDir>
 #include <QMenu>
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QFileDialog>
+#include <QCheckBox>
 #include <QProgressDialog>
+#include <QListWidgetItem>
 #include <QTreeWidgetItem>
 #include <QTableWidgetItem>
 
@@ -90,9 +95,6 @@ namespace Wintermute {
 
         void ConfigurationDialog::on_tabWidget_currentChanged(int index) {
             QApplication::setOverrideCursor (Qt::WaitCursor);
-            ui->progressBar->setMaximum (0);
-            ui->progressBar->setMinimum (0);
-            ui->progressBar->show ();
             switch (index){
                 case 0: {
                     // Get symbol count.
@@ -116,9 +118,29 @@ namespace Wintermute {
 
                 case 2: {
                 } break;
+
+                case 3: {
+                    ui->listWidgetPlugins->clear();
+                    QDBusMessage l_callAll = QDBusMessage::createMethodCall ("org.thesii.Wintermute","/Factory","org.thesii.Wintermute.Factory","allPlugins");
+                    QDBusMessage l_callLoaded = QDBusMessage::createMethodCall ("org.thesii.Wintermute","/Factory","org.thesii.Wintermute.Factory","loadedPlugins");
+                    QDBusMessage l_replyAll = QDBusConnection::sessionBus ().call(l_callAll,QDBus::BlockWithGui);
+                    QDBusMessage l_replyLoaded = QDBusConnection::sessionBus ().call(l_callLoaded,QDBus::BlockWithGui);
+                    QStringList l_all, l_loaded;
+                    l_all = l_replyAll.arguments().at(0).toStringList();
+                    l_loaded = l_replyLoaded.arguments().at(0).toStringList();
+
+                    foreach (const QString& l_uuid, l_all){
+                        QListWidgetItem* l_item = new QListWidgetItem();
+                        l_item->setText(Wintermute::Plugins::Factory::attribute(l_uuid,"Description/Name").toString());
+                        l_item->setData(0,l_uuid);
+                        ui->listWidgetPlugins->addItem(l_item);
+                    }
+
+                    ui->listWidgetPlugins->sortItems();
+                    ui->listWidgetPlugins->setCurrentRow(0);
+                }
             }
 
-            ui->progressBar->hide ();
             QApplication::setOverrideCursor (Qt::ArrowCursor);
         }
 
@@ -277,6 +299,45 @@ namespace Wintermute {
                 ui->uriLineEdit->setText(l_dlg.selectedFiles ().at (0));
             else
                 ui->uriLineEdit->clear ();
+        }
+
+        void ConfigurationDialog::on_checkBoxEnabled_clicked(){
+            const QString& l_uuid = ui->listWidgetPlugins->item(ui->listWidgetPlugins->currentRow())->data(0).toString();
+            const bool l_val = (ui->checkBoxEnabled->checkState() == Qt::Checked);
+            Plugins::Factory::setAttribute(l_uuid,"Version/Enabled",l_val);
+            qDebug() << Plugins::Factory::attribute(l_uuid,"Version/Enabled");
+        }
+
+        void ConfigurationDialog::on_checkBoxAutoStart_clicked(){
+            const QString& l_uuid = ui->listWidgetPlugins->item(ui->listWidgetPlugins->currentRow())->data(0).toString();
+            QSettings* l_settings = new QSettings("Synthetic Intellect Institute","Wintermute");
+            QStringList l_plgnLst = l_settings->value("Plugins/AutoStart").toStringList();
+
+            if (ui->checkBoxAutoStart->checkState() == Qt::Checked)
+                l_plgnLst << l_uuid;
+            else
+                l_plgnLst.removeAll(l_uuid);
+
+            qDebug() << "(gui) [ConfigurationDialog] Removed" << l_plgnLst.removeDuplicates() << "duplicates.";
+            l_settings->setValue("Plugins/AutoStart",l_plgnLst);
+            qDebug() << l_plgnLst;
+        }
+
+
+        void ConfigurationDialog::on_listWidgetPlugins_itemSelectionChanged() {
+            QSettings* l_settings = new QSettings("Synthetic Intellect Institute","Wintermute");
+            const QStringList l_plgnLst = l_settings->value("Plugins/AutoStart").toStringList();
+
+            const QString& l_uuid = ui->listWidgetPlugins->item(ui->listWidgetPlugins->currentRow())->data(0).toString();
+            ui->lblVersion->setText(Plugins::Factory::attribute(l_uuid,"Version/Plugin").toString());
+            ui->lblName->setText(Plugins::Factory::attribute(l_uuid,"Description/Name").toString());
+            ui->lblVendor->setText(Plugins::Factory::attribute(l_uuid,"Description/Vendor").toString());
+            ui->lblAuthor->setText(Plugins::Factory::attribute(l_uuid,"Description/Author").toString());
+            ui->lblWebPage->setText(Plugins::Factory::attribute(l_uuid,"Description/WebPage").toString());
+            ui->txtDescription->setText(Plugins::Factory::attribute(l_uuid,"Description/Blurb").toString());
+
+            ui->checkBoxAutoStart->setChecked(l_plgnLst.contains(l_uuid));
+            ui->checkBoxEnabled->setChecked(Plugins::Factory::attribute(l_uuid,"Plugin/Enabled").toBool());
         }
 
         ConfigurationDialog::~ConfigurationDialog(){

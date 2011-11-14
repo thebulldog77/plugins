@@ -22,13 +22,10 @@
  * Required for the Wintermute GUI plugin.
  */
 
-#ifndef _WNTRGUI_CONFIG_HPP__
-#define _WNTRGUI_CONFIG_HPP__
+#ifndef _NCURSESWINTERMUTE_CONFIG_HPP__
+#define _NCURSESWINTERMUTE_CONFIG_HPP__
 
-#cmakedefine DEBUG
-
-#define WNTRNLUI_VERSION @WNTRGUI_VERSION@
-#define WNTRNLUI_UUID "@WNTRNLUI_UUID@"
+/* #undef DEBUG */
 
 #endif // __CONFIG_HPP__
 

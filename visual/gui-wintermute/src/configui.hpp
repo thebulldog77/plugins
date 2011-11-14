@@ -53,8 +53,10 @@ namespace Wintermute {
             void on_pushButtonDelete_all();
             void on_pushButtonDelete_selected();
             void on_btnLingSaveURI_clicked();
-
             void on_btnLingSerialDo_clicked();
+            void on_listWidgetPlugins_itemSelectionChanged();
+            void on_checkBoxEnabled_clicked();
+            void on_checkBoxAutoStart_clicked();
 
         private:
             Ui::ConfigurationDialog *ui;

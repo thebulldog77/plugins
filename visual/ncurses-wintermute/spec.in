@@ -3,7 +3,7 @@
 [Version]
 Plugin=@NCURSES_WINTERMUTE_VERSION@
 UUID=@NCURSES_WINTERMUTE_UUID@
-Compat=@WINTERMUTE_VERSION@
+Compat=@Wintermute_VERSION@
 Library=ncurses-wintermute
 
 [Description]
@@ -13,5 +13,5 @@ Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
 Blurb=A plug-in providing a nCurses command-line interface for Wintermute.
 WebPage=http://www.thesii.org/wiki/Wintermute
 
-[Dependencies]
+[Depends]
 Plugins=78345566-cb12-11e0-b159-f51bb9111288 != *

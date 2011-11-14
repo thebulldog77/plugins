@@ -22,5 +22,7 @@
 #include <frontend/api.hpp>
 
 namespace Wintermute {
-    namespace 
+    namespace NLUI {
+
+    }
 }
