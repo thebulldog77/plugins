@@ -1,17 +1,14 @@
-## nCurses command-line interface
+## Wintermute's Voice API
 
 [Version]
-Plugin=@NCURSES_WINTERMUTE_VERSION@
-UUID=@NCURSES_WINTERMUTE_UUID@
-Compat=@WINTERMUTE_VERSION@
-Library=ncurses-wintermute
+Plugin=@WNTRVOICE_VERSION@
+UUID=@WNTRVOICE_UUID@
+Compat=@WntrVoice_VERSION@
+Library=wintermute-plugin-voice
 
 [Description]
-Name=nCurses Command-line Interface
+Name=Voice API
 Author=Jacky Alcine <jacky.alcine@thesii.org>
 Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
-Blurb=A plug-in providing a nCurses command-line interface for Wintermute.
+Blurb=A plug-in providing the API representing Wintermute's audio input & output.
 WebPage=http://www.thesii.org/wiki/Wintermute
-
-[Dependencies]
-Plugins=78345566-cb12-11e0-b159-f51bb9111288 != *

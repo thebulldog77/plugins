@@ -32,15 +32,15 @@ namespace Wintermute {
 
         void SynthesizedVoice::setLocale (const QString &p_locale) { m_locale = p_locale; }
 
-        Synthesizer::Synthesizer(const Synthesizer &p_synth) : m_voice(p_synth.m_voice) { }
+        AbstractSynthesizer::AbstractSynthesizer(const AbstractSynthesizer &p_synth) : m_voice(p_synth.m_voice) { }
 
-        Synthesizer::~Synthesizer () { }
+        AbstractSynthesizer::~AbstractSynthesizer () { }
 
-        Synthesizer::Synthesizer(const SynthesizedVoice &p_voice) : m_voice(p_voice) { }
+        AbstractSynthesizer::AbstractSynthesizer(const SynthesizedVoice &p_voice) : m_voice(p_voice) { }
 
-        const SynthesizedVoice Synthesizer::voice () const { return m_voice; }
+        const SynthesizedVoice AbstractSynthesizer::voice () const { return m_voice; }
 
-        void Synthesizer::setVoice (const SynthesizedVoice &p_voice) {
+        void AbstractSynthesizer::setVoice (const SynthesizedVoice &p_voice) {
             m_voice = p_voice;
             emit voiceChanged ();
             emit voiceChanged (m_voice);

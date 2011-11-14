@@ -1,8 +1,7 @@
 /**
- * @file    input.cpp
- * @author  Wintermute Developers <wintermute-devel@lists.launchpad.net>
+ * @file plugin.hpp
  *
- * This is free software; you can redistribute it and/or modify
+ * Wintermute Linguistics is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
@@ -18,18 +17,30 @@
  * Boston, MA  02110-1301  USA
  */
 
-#include "input.hpp"
+#ifndef SYNTHESIZER_HPP
+#define SYNTHESIZER_HPP
+
+#include <QObject>
+#include <output.hpp>
+
+using namespace Wintermute::Voice;
 
 namespace Wintermute {
-    namespace Voice {
-        AbstractRecognizer::AbstractRecognizer() : QThread() {
-            connect(this,SIGNAL(destroyed()),this,SLOT(terminate()));
-        }
+    namespace SpeechDispatcher {
+        class Synthesizer : public AbstractSynthesizer {
+            Q_OBJECT
+            Q_DISABLE_COPY(Synthesizer)
 
-        AbstractRecognizer::~AbstractRecognizer () {}
+            public:
+                Synthesizer();
+                explicit Synthesizer(const SynthesizedVoice& = SynthesizedVoice::Null);
 
-        const bool AbstractRecognizer::isListening () const {
-            return this->isRunning ();
-        }
+            signals:
+
+            public slots:
+
+        };
     }
 }
+
+#endif // SYNTHESIZER_HPP

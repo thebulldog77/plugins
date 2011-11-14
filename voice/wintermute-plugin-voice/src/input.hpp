@@ -18,28 +18,28 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef POCKETSPHINX_INPUT_HPP
-#define POCKETSPHINX_INPUT_HPP
+#ifndef SPEECHD_INPUT_HPP
+#define SPEECHD_INPUT_HPP
 
 #include <QObject>
 #include <QThread>
 
 namespace Wintermute {
     namespace Voice {
-        struct Recognizer;
+        struct AbstractRecognizer;
 
-        typedef QList<Recognizer*> RecognizerList;
+        typedef QList<AbstractRecognizer*> RecognizerList;
 
-        class Recognizer : protected QThread {
+        class AbstractRecognizer : protected QThread {
             Q_OBJECT
-            Q_DISABLE_COPY(Recognizer)
+            Q_DISABLE_COPY(AbstractRecognizer)
 
             signals:
                 void textHeard(const QString&) const;
 
             public:
-                Recognizer();
-                virtual ~Recognizer();
+                AbstractRecognizer();
+                virtual ~AbstractRecognizer();
                 virtual const QString& waitToListen() const = 0;
                 const bool isListening() const;
 

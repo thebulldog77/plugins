@@ -22,7 +22,7 @@
 
  namespace Wintermute {
     namespace Voice {
-        SphinxRecognizer::SphinxRecognizer() : Recognizer() {
+        SphinxRecognizer::SphinxRecognizer() : AbstractRecognizer() {
 
         }
 
@@ -58,7 +58,7 @@
 
         }
 
-        void SphinxRecognizer::stopListening () const {
+        void SphinxRecognizer::stopListening (QString& p_str) const {
 
         }
 

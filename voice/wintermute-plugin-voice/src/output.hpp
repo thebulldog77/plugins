@@ -18,22 +18,22 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef POCKETSPHINX_OUTPUT_HPP
-#define POCKETSPHINX_OUTPUT_HPP
+#ifndef SPEECHD_OUTPUT_HPP
+#define SPEECHD_OUTPUT_HPP
 
 #include <QList>
 #include <QThread>
 
 namespace Wintermute {
     namespace Voice {
-        struct Synthesizer;
+        struct AbstractSynthesizer;
         struct SynthesizedVoice;
 
         /**
          * @brief Represents a list of Synthesizer objects.
          * @typedef SynthesizerList
          */
-        typedef QList<Synthesizer*> SynthesizerList;
+        typedef QList<AbstractSynthesizer*> SynthesizerList;
         /**
          * @brief Represents a list of Synthesizer voices.
          * @typedef SynthesizedVoiceList
@@ -79,9 +79,9 @@ namespace Wintermute {
          * @brief Represents an object that can produce an audio stream basedon text.
          * @class Synthesizer output.hpp "src/output.hpp"
          */
-        class Synthesizer : protected QThread {
+        class AbstractSynthesizer : protected QThread {
             Q_OBJECT
-            Q_DISABLE_COPY(Synthesizer)
+            Q_DISABLE_COPY(AbstractSynthesizer)
             Q_PROPERTY(SynthesizedVoice Voice READ voice WRITE setVoice)
 
             signals:
@@ -125,12 +125,12 @@ namespace Wintermute {
                  * @fn Synthesizer
                  * @param
                  */
-                Synthesizer(const SynthesizedVoice& = SynthesizedVoice::Null);
+                AbstractSynthesizer(const SynthesizedVoice& = SynthesizedVoice::Null);
                 /**
                  * @brief
                  * @fn ~Synthesizer
                  */
-                virtual ~Synthesizer();
+                virtual ~AbstractSynthesizer();
                 /**
                  * @brief
                  * @fn voice
@@ -167,4 +167,4 @@ namespace Wintermute {
     }
 }
 
-#endif // end POCKETSPHINX_OUTPUT_HPP
+#endif // end SPEECHD_OUTPUT_HPP

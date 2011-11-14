@@ -22,7 +22,7 @@
 
 namespace Wintermute {
     namespace Voice {
-        namespace PocketSphinx {
+        namespace SpeechDispatcher {
             struct Plugin;
 
             using Wintermute::Plugins::AbstractPlugin;

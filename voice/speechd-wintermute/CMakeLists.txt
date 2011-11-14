@@ -1,73 +1,65 @@
-project(PocketSphinx_Plugin)
+project(SpeechDispatcher-Wintermute)
 cmake_minimum_required(VERSION 2.8)
 
 set(WINTERMUTE_IS_PLUGIN ON)
-set(POCKETSPHINX_PLUGIN_MAJOR_VERSION 0)
-set(POCKETSPHINX_PLUGIN_MINOR_VERSION 0)
-set(POCKETSPHINX_PLUGIN_MICRO_VERSION 1)
-set(POCKETSPHINX_PLUGIN_UUID "d4e44182-c94f-4b33-868a-432a8026d908")
-set(POCKETSPHINX_PLUGIN_VERSION
-    ${POCKETSPHINX_PLUGIN_MAJOR_VERSION}.${POCKETSPHINX_PLUGIN_MINOR_VERSION}${POCKETSPHINX_PLUGIN_MICRO_VERSION})
+set(SPEECHD_PLUGIN_MAJOR_VERSION 0)
+set(SPEECHD_PLUGIN_MINOR_VERSION 0)
+set(SPEECHD_PLUGIN_MICRO_VERSION 1)
+set(SPEECHD_PLUGIN_UUID "d4e44182-c94f-4b33-868a-432a8026d908")
+set(SPEECHD_PLUGIN_VERSION
+    ${SPEECHD_PLUGIN_MAJOR_VERSION}.${SPEECHD_PLUGIN_MINOR_VERSION}${SPEECHD_PLUGIN_MICRO_VERSION})
 
 list(APPEND CMAKE_MODULE_PATH "cmake/modules")
 
+find_library(SPEECHD speechd)
 find_package(WntrVoice 0.01 REQUIRED QUIET)
-find_package(PkgConfig REQUIRED)
 find_package(Qt4 COMPONENTS
     QtCore
     REQUIRED)
 
-pkg_search_module(SPHINX REQUIRED pocketsphinx)
-
 include(WintermuteDefaults)
 include(WintermuteMacros)
 
-file(GLOB POCKETSPHINX_PLUGIN_SHPP "src/*.hpp")
-file(GLOB POCKETSPHINX_PLUGIN_SCPP "src/*.cpp")
-QT4_WRAP_CPP(MOC_CODE "${POCKETSPHINX_PLUGIN_SHPP}")
+file(GLOB SPEECHD_PLUGIN_SHPP "src/*.hpp")
+file(GLOB SPEECHD_PLUGIN_SCPP "src/*.cpp")
+QT4_WRAP_CPP(MOC_CODE "${SPEECHD_PLUGIN_SHPP}")
 
 include("${QT_USE_FILE}")
 
-#
-# Main variables
-#
-set(POCKETSPHINX_PLUGIN_INCLUDE_DIRS "${WNTRVOICE_INCLUDE_DIRS}"
-    ${SPHINX_INCLUDE_DIRS}
+## Main variables
+set(SPEECHD_PLUGIN_INCLUDE_DIRS "${WNTRVOICE_INCLUDE_DIRS}"
     ${Qt_INCLUDE_DIRS})
-set(POCKETSPHINX_PLUGIN_LIBRARIES "${WNTRVOICE_LIBRARIES}"
-    ${SPHINX_LIBRARIES}
+set(SPEECHD_PLUGIN_LIBRARIES "${WNTRVOICE_LIBRARIES}"
+    ${SPEECHD}
     ${QT_LIBRARIES})
 
 
 
-include_directories(${POCKETSPHINX_PLUGIN_INCLUDE_DIRS})
+include_directories(${SPEECHD_PLUGIN_INCLUDE_DIRS})
 
-#
-# Targets
-#
-add_library(pocketsphinx-plugin SHARED
-    ${POCKETSPHINX_PLUGIN_SHPP}
-    ${POCKETSPHINX_PLUGIN_SCPP}
+## Targets
+add_library(speechd-plugin SHARED
+    ${SPEECHD_PLUGIN_SHPP}
+    ${SPEECHD_PLUGIN_SCPP}
     ${MOC_CODE})
 
-set_target_properties(pocketsphinx-plugin PROPERTIES
+set_target_properties(speechd-plugin PROPERTIES
     VERSION ${GENERIC_LIB_VERSION}
     SOVERSION ${GENERIC_LIB_SOVERSION})
 
-target_link_libraries(pocketsphinx-plugin
-    ${POCKETSPHINX_PLUGIN_LIBRARIES})
+target_link_libraries(speechd-plugin
+    ${SPEECHD_PLUGIN_LIBRARIES})
 
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
-    "${PROJECT_BINARY_DIR}/InstallFiles/pocketsphinx-plugin.spec" @ONLY)
-#
-# Installs
-#
+    "${PROJECT_BINARY_DIR}/InstallFiles/${SPEECHD_PLUGIN_UUID}.spec" @ONLY)
 
-install(TARGETS pocketsphinx-plugin
+## Installs
+
+install(TARGETS speechd-plugin
     LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}")
 
 install(FILES ${CMAKE_MODULES}
     DESTINATION "${CMAKE_MODULE_DIR}")
 
-install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/pocketsphinx-plugin.spec"
+install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/${SPEECHD_PLUGIN_UUID}.spec"
     DESTINATION "${WINTER_PLUGINSPEC_INSTALL_DIR}")

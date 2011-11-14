@@ -1,10 +1,10 @@
 ## PocketSphinx capabilities for Wintermute.
 
 [Version]
-Plugin=@POCKETSPHINX_PLUGIN_VERSION@
-UUID=@POCKETSPHINX_PLUGIN_UUID@
+Plugin=@SPEECHD_PLUGIN_VERSION@
+UUID=@SPEECHD_PLUGIN_UUID@
 Compat=@WINTERMUTE_VERSION@
-Library=pocketsphinx-wintermute
+Library=speechd-wintermute
 
 [Description]
 Name=PocketSphinx

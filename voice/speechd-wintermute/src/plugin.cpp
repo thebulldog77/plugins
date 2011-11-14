@@ -20,20 +20,15 @@
  */
 
 #include "plugin.hpp"
-#include "sphinx.hpp"
 #include <QtPlugin>
 #include <QDebug>
 
 namespace Wintermute {
     namespace Voice {
-        namespace PocketSphinx {
-            void Plugin::initialize () const {
-                SphinxRecognizer l_sphinx;
-                qDebug() << l_sphinx.waitToListen ();
-            }
+        namespace SpeechDispatcher {
+            void Plugin::initialize () const { }
 
-            void Plugin::deinitialize () const {
-            }
+            void Plugin::deinitialize () const { }
 
             QObject* Plugin::instance () const { return NULL; }
         }
