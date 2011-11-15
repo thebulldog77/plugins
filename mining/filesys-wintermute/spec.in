@@ -1,0 +1,15 @@
+## File system management and mining for Wintermute
+
+[Version]
+Plugin=@FILESYSWINTERMUTE_VERSION@
+UUID=@FILESYSWINTERMUTE_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=filesys-wintermute
+
+[Description]
+Name=File System Management
+Author=Wintermute Development <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing full file-system control and access for Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+

@@ -1,0 +1,17 @@
+## Speech Synthesis plugin provided by Speech Dispatcher
+
+[Version]
+Plugin=@SPEECHD_PLUGIN_VERSION@
+UUID=@SPEECHD_PLUGIN_UUID@
+Compat=@Wintermute_VERSION@
+Library=speechd-wintermute
+
+[Description]
+Name=Speech Synthesis (provided by Speech Dispatcher)
+Author=Jacky Alcine <jacky.alcine@thesii.org>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in adding speech synthesis capabilities by means of Speech Dispatcher.
+WebPage=http://www.thesii.org/wiki/Wintermute
+
+[Dependencies]
+Plugins=78345566-cb12-11e0-b159-f51bb9111288 != *

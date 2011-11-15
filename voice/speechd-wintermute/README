@@ -1,0 +1,22 @@
+Speech Dispatcher support for Wintermute
+--------------------------------------------------------------------
+
+1. Introduction
+
+Speech Dispatcher (http://www.freebsoft.org/speechd) is a means of providing
+a device independent layer for speech synthesis. Using back-ends, it provides
+support for many other speech synthesizers. Wintermute uses Speech Dispatcher
+to allow users of "lite" systems (i.e.: Lubuntu) to have text read to them on
+the screen and implement vocal cues.
+
+2. Current Implementation
+
+Very little work has been done to implement this plug-in as of yet.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon. 

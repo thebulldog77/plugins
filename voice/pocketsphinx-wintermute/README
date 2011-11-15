@@ -1,0 +1,24 @@
+PocketSphinx for Wintermute [Voice Backend : Input] (WntrVoice Backend)
+--------------------------------------------------------------------
+
+1. Introduction
+
+MARY (http://mary.dfki.de) provides a powerful, efficient, and open-source
+speech synthesizer written in Java with a collection of effective voice
+models under OSI-approved licenses like the MIT or BSD license. Wintermute
+uses this speech synthesizer by default for all of its synthesizing needs.
+
+2. Current Implementation
+
+Since MARY runs as a web server and returns either a WAV, MP3 or an AAC file
+as its result or plain-text on an error, we don't do have to do much in-house
+work. Also, the means of communicating with the server on the HTTP level is
+handled by libmarytts, a library crafed to communicate with it.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon. 

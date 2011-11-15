@@ -1,0 +1,17 @@
+## Mining backend of the NEPOMUK system for Wintermute.
+
+[Version]
+Plugin=@NEPOMUKWINTERMUTE_VERSION@
+UUID=@NEPOMUKWINTERMUTE_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=nepomuk-wintermute
+
+[Description]
+Name=NEPOMUK (Mining Backend)
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing NEPOMUK as a back-end for the Mining API.
+WebPage=http://www.thesii.org/wiki/Wintermute
+
+[Dependencies]
+Plugins=5011b904-72d9-4a6b-a7b3-bf1f6fefb6a0 == 0.01

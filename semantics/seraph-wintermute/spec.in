@@ -1,0 +1,15 @@
+## Seraph-level semantic interface for Wintermute
+
+[Version]
+Plugin=@SERAPH_WINTERMUTE_VERSION@
+UUID=@SERAPH_WINTERMUTE_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=seraph-wintermute
+
+[Description]
+Name=Wintermute Semantics (Seraph-level)
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing the representation of a Seraph-level Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+

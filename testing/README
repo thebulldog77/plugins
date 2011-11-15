@@ -1,0 +1,27 @@
+Wintermute Testing
+-----------------------------
+
+1. Introduction
+
+This projects contains a bunch of tests, regression utilities and other means of
+testing to ensure that Wintermute's plug-in system is working in tip-top shape.
+
+2. Mission
+
+The idea of this plug-in to have it work in two parts:
+
+
+    1) Pre-Build: Before it builds, it searches for proper utilities needed to b
+                  uild a plug-in for Wintermute. Utilities like Qt's development
+                  suite and dependencies for other plug-ins, if extending their
+                  functionality. The results are dumped for development usage.
+                  
+    2) Build:     While it's building, any typical error related to mismatching 
+                  code (i.e.: using legacy code), would be reported and dumped
+                  for development usage.
+                  
+    3) Run-time:  Any errors related to having Wintermute stop operating (i.e: a
+                  segfault in a plug-in or the core due to bad code) would be ca
+                  ught and dumped for usage.
+                  
+                  

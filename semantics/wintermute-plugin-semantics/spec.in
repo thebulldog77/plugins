@@ -1,0 +1,15 @@
+## Semantics API for Wintermute
+
+[Version]
+Plugin=@WNTRSEMANTICS_VERSION@
+UUID=@WNTRSEMANTICS_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=ncurses-wintermute
+
+[Description]
+Name=Semantics Framework of Wintermute
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing the underlying semantic framework of Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+

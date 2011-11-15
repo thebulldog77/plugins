@@ -1,0 +1,15 @@
+# - Config file for the WntrMining package
+# It defines the following variables
+#  WNTRMINING_INCLUDE_DIRS - include directories for WntrMining
+#  WNTRMINING_LIBRARY_DIRS - library directories for WntrMining(normally not used!)
+#  WNTRMINING_LIBRARIES    - libraries to link against
+
+# Tell the user project where to find our headers and libraries
+set(WNTRMINING_INCLUDE_DIRS "@WNTRMINING_INCLUDE_DIRS@")
+set(WNTRMINING_LIBRARY_DIRS "@WNTRMINING_LIB_DIR@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+include("@WNTRMINING_CMAKE_DIR@/WntrMiningLibraryDepends.cmake" OPTIONAL)
+
+# These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
+set(WNTRMINING_LIBRARIES wntrmining)

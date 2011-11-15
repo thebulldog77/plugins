@@ -1,0 +1,15 @@
+## Mining API for Wintermute
+
+[Version]
+Plugin=@WNTRMINING_VERSION@
+UUID=@WNTRMINING_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=wintermute-plugin-mining
+
+[Description]
+Name=Mining API
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=Provides a Mining API for Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+

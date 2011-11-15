@@ -1,0 +1,18 @@
+## Testbed Plugin for Wintermute.
+
+[Version]
+Plugin=@WNTRTESTBED_VERSION@
+UUID=@WNTRTESTBED_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=ncurses-wintermute
+
+[Description]
+Name=Testbed for Wintermute.
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing a testbed for each aspect of Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+
+[Dependencies]
+Packages=
+Plugins=

@@ -8,13 +8,13 @@ the plug-ins centralized allows us to make immediate and rapid changes to code
 given that the code-base changes. This also allows potential plug-in developers
 to extend upon what's already available and experiment with their own creations.
 
-2. Future Work
+2. Layout
 
-The graphical user interface plug-in may be dragged into this sub-branch IF the
-developers here at Wintermute consider it to be a good plug-in. It's a bit more
-than a plug-in, currently Wintermute expects it to be on the system. A link to
-the current discussion will be embedded in this document at the latest copy of
-the revision, available at <https://www.github.com/wntr/gui>.
+Certain folders contain subprojects that represent a base plugin that provides an
+API (i.e: WntrVoice, WntrVision) and its backends that provide functionality to it.
+There's over 15 plug-ins available in these folders, but the average user may only
+take advantage of 9 or 10 of them. The rest add miscellaneous functionality to
+Wintermute that may not be directly useful but otherwise improve performance.
 
 3. Reporting and Contributing to the Cause
 

@@ -1,0 +1,13 @@
+Wintermute AngelNet Architecture (WntrNtwk expansion)
+-----------------------------
+
+1. Introduction
+
+This folder contains the plug-ins representing different executions levels of Wi
+ntermute. These plug-ins edit the capabilities and work-flow of Wintermute and 
+are typically run before a lot of other plug-ins. These plug-ins define Wintermu
+te's level within the AngelNet hierarchy.
+
+These plug-ins are crucial to the execution of Wintermute to the point where at
+least _one_ of these plug-ins have to be running in order for Wintermute to full
+y reach its potential.

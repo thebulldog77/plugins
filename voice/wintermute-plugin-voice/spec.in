@@ -1,0 +1,14 @@
+## Wintermute's Voice API
+
+[Version]
+Plugin=@WNTRVOICE_VERSION@
+UUID=@WNTRVOICE_UUID@
+Compat=@WntrVoice_VERSION@
+Library=wintermute-plugin-voice
+
+[Description]
+Name=Voice API
+Author=Jacky Alcine <jacky.alcine@thesii.org>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing the API representing Wintermute's audio input & output.
+WebPage=http://www.thesii.org/wiki/Wintermute

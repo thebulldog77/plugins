@@ -1,0 +1,17 @@
+## System information for Wintermute.
+
+[Version]
+Plugin=@SYSINFOWINTERMUTE_VERSION@
+UUID=@SYSINFOWINTERMUTE_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=sysinfo-wintermute
+
+[Description]
+Name=System Information for Wintermute
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing information about the system to Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+
+[Dependencies]
+Plugins=5011b904-72d9-4a6b-a7b3-bf1f6fefb6a0 == 0.01
