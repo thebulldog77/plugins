@@ -1,0 +1,28 @@
+Wintermute's Vision API (WntrVision + backends)
+-----------------------------
+
+1. Introduction
+
+This subproject consists of the Wintermute Vision API (WntrVision) and its accompanying
+backends. WntrVision attempts to provide information to Wintermute about its
+environment from web cameras or other live video streams. The source of
+input is not limited to that, but potentially can originate from there.
+The API provides a way of using computer vision in an abstracted way (an backend
+for text, another for facial recognition, etc.), thus giving it the flexibility
+to provide as much data as possible in a parallel fashion due to the fact that
+plugins run independently of each other.
+
+2. Future Work
+
+Work will be done to integrate the OpenTLD code based on the Predator
+algorithm for live face and object recognition. This code will be a derivation
+of the original work done by using Octave, now instead by using OpenCV and
+Qt.
+
+3. Reporting and Contributing to the Cause
+
+We here at the Synthetic Intellect Institute, the makers and maintainers
+of Wintermute, welcome all. If you want to chat with the guys responsible
+for Wintermute or the Institute, drop us a message at <contact@thesii.org> or
+send us a message to our mailing list at <sii@lists.launchpad.net>. We hope to
+hear (or see or read) from you soon.

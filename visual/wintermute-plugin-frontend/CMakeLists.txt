@@ -24,10 +24,13 @@ find_package(Qt4 4.4.3 COMPONENTS
 file(GLOB WNTRFRONTEND_SHPP "src/*.hpp")
 file(GLOB WNTRFRONTEND_SCPP "src/*.cpp")
 file(GLOB WNTRFRONTEND_QRC "ui/*.qrc")
+file(GLOB WNTRFRONTEND_UI "ui/*.ui")
+file(GLOB WNTRFRONTEND_UI_FILES "ui/*")
 file(GLOB CMAKE_MODULES "${PROJECT_SOURCE_DIR}/cmake/Modules/*.cmake")
 
 ## Qt4
 QT4_WRAP_CPP(WNTRFRONTEND_SCPP "${WNTRFRONTEND_SHPP}")
+QT4_WRAP_UI(WNTRFRONTEND_SCPP "${WNTRFRONTEND_UI}")
 QT4_ADD_RESOURCES(WNTRFRONTEND_SQRC "${WNTRFRONTEND_QRC}")
 include("${QT_USE_FILE}")
 
@@ -38,54 +41,57 @@ set(WNTRFRONTEND_LIB_DIR "${WINTER_PLUGIN_INSTALL_DIR}")
 set(WNTRFRONTEND_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/frontend")
 set(WNTRFRONTEND_INCLUDE_DIRS "${WINTERMUTE_INCLUDE_DIRS}"
 		${WNTRFRONTEND_INCLUDE_DIR}
+                "${WINTER_PLUGIN_DATA_INSTALL_DIR}/frontend"
 		${Qt_INCLUDE_DIRS})
 set(WNTRFRONTEND_LIBRARIES ${QT_LIBRARIES} ${WINTERMUTE_LIBRARIES} ${WNTRFRONTEND_LIBRARIES})
 set(WNTRFRONTEND_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/WntrFrontend" CACHE PATH "CMake directory.")
 
-
 include_directories(${WNTRFRONTEND_INCLUDE_DIRS})
 
 ## Targets
-add_library(wntrfrontend SHARED ${WNTRFRONTEND_SCPP} ${WNTRFRONTEND_SQRC})
+add_library(wintermute-plugin-frontend SHARED ${WNTRFRONTEND_SCPP} ${WNTRFRONTEND_SQRC})
 
-set_target_properties(wntrfrontend PROPERTIES
-		VERSION ${GENERIC_LIB_VERSION}
-		SOVERSION ${GENERIC_LIB_SOVERSION})
+set_target_properties(wintermute-plugin-frontend PROPERTIES
+    VERSION ${GENERIC_LIB_VERSION}
+    SOVERSION ${GENERIC_LIB_SOVERSION})
 
-target_link_libraries(wntrfrontend ${WNTRFRONTEND_LIBRARIES})
+target_link_libraries(wintermute-plugin-frontend ${WNTRFRONTEND_LIBRARIES})
 
 ## Configs
 configure_file("${PROJECT_SOURCE_DIR}/config.hpp.in"
-		"${PROJECT_SOURCE_DIR}/src/config.hpp")
+    "${PROJECT_SOURCE_DIR}/src/config.hpp")
 
 configure_file("cmake/WntrFrontendConfig.cmake.in"
-		"${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfig.cmake" @ONLY)
+    "${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfig.cmake" @ONLY)
 
 configure_file("cmake/WntrFrontendConfigVersion.cmake.in"
-		"${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfigVersion.cmake" @ONLY)
+    "${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfigVersion.cmake" @ONLY)
 
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
-	 "${PROJECT_BINARY_DIR}/InstallFiles/${WNTRFRONTEND_UUID}.spec" @ONLY)
+     "${PROJECT_BINARY_DIR}/InstallFiles/${WNTRFRONTEND_UUID}.spec" @ONLY)
 
 ## Installs
-install(TARGETS wntrfrontend
-		EXPORT WntrFrontendLibraryDepends
-		LIBRARY DESTINATION "${WNTRFRONTEND_LIB_DIR}"
-		RENAME WNTRFRONTEND_UUID)
+install(TARGETS wintermute-plugin-frontend
+    EXPORT WntrFrontendLibraryDepends
+    LIBRARY DESTINATION "${WNTRFRONTEND_LIB_DIR}"
+    RENAME WNTRFRONTEND_UUID)
 
 install(EXPORT WntrFrontendLibraryDepends
-		DESTINATION "${WNTRFRONTEND_CMAKE_DIR}")
+    DESTINATION "${WNTRFRONTEND_CMAKE_DIR}")
 
 install(FILES
-		"${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfig.cmake"
-		"${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfigVersion.cmake"
-		DESTINATION "${WNTRFRONTEND_CMAKE_DIR}")
+    "${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfig.cmake"
+    "${PROJECT_BINARY_DIR}/InstallFiles/WntrFrontendConfigVersion.cmake"
+    DESTINATION "${WNTRFRONTEND_CMAKE_DIR}")
 
-install(FILES ${WNTRFRONTEND_SHPP} ${WNTRFRONTEND_SQRC}
-		DESTINATION "${WNTRFRONTEND_INCLUDE_DIR}")
+install(FILES ${WNTRFRONTEND_SHPP}
+    DESTINATION "${WNTRFRONTEND_INCLUDE_DIR}")
 
 install(FILES ${CMAKE_MODULES}
-		DESTINATION "${CMAKE_MODULE_DIR}")
+    DESTINATION "${CMAKE_MODULE_DIR}")
 
 install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/${WNTRFRONTEND_UUID}.spec"
-		DESTINATION "${WINTER_PLUGINSPEC_INSTALL_DIR}")
+    DESTINATION "${WINTER_PLUGINSPEC_INSTALL_DIR}")
+
+install(FILES ${WNTRFRONTEND_UI_FILES}
+    DESTINATION "${WINTER_PLUGIN_DATA_INSTALL_DIR}/frontend")

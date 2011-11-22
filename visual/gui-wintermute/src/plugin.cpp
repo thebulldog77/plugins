@@ -27,6 +27,7 @@
 #include <QStringList>
 #include <wntrdata.hpp>
 #include <wntrling.hpp>
+#include <frontend/api.hpp>
 
 namespace Wintermute {
     namespace Graphics {
@@ -34,15 +35,16 @@ namespace Wintermute {
 
         Plugin::~Plugin() { }
 
+        /// @todo Register its component to the Frontend component.
         void Plugin::initialize () const {
-            Data::System::instance ();
-            Data::System::start ();
-            Core::start ();
+            Core::start(const_cast<Plugin*>(this));
+            Frontend::Framework::instance()->addBackend(Core::backend());
         }
 
+        /// @todo Unregister its component from the Frontend component.
         void Plugin::deinitialize () const {
-            Data::System::stop ();
-            Core::stop ();
+            Frontend::Framework::instance()->removeBackend(Core::backend());
+            Core::stop();
         }
 
         QObject* Plugin::instance () {

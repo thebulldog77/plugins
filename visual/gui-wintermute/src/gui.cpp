@@ -29,11 +29,12 @@
 namespace Wintermute {
     namespace Graphics {
         MainWindow* Core::s_wndw = NULL;
+        Backend* Core::s_bcknd = NULL;
 
-        void Core::start () {
+        void Core::start (AbstractPlugin* p_plgn) {
             qDebug() << "(gui) [Core] Initialized.";
             s_wndw = new MainWindow;
-            s_wndw->show ();
+            s_bcknd = new Backend(p_plgn);
         }
 
         void Core::stop () {
@@ -42,6 +43,9 @@ namespace Wintermute {
             Wintermute::Core::endProgram();
         }
 
+        Backend* Core::backend() {
+            return s_bcknd;
+        }
     }
 }
 

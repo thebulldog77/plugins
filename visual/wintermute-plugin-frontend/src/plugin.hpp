@@ -33,7 +33,7 @@ namespace Wintermute {
         struct Plugin;
         /**
         * @brief
-        * @class Plugin plugin.hpp "gui/plugin.hpp"
+        * @class Plugin plugin.hpp "src/plugin.hpp"
         */
         class Plugin : public Wintermute::Plugins::AbstractPlugin {
             Q_OBJECT

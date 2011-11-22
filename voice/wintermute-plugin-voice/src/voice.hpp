@@ -19,19 +19,18 @@
 
 #include "input.hpp"
 #include "output.hpp"
+#include <backend.hpp>
 #include <QObject>
 
 namespace Wintermute {
     namespace Voice {
         struct System;
 
-        class System : public QObject {
+        class System : private Backends::AbstractFramework {
             Q_OBJECT
             Q_DISABLE_COPY(System)
 
             signals:
-                void started();
-                void stopped();
                 void talkingStarted();
                 void talkingStopped();
                 void listeningStarted();
@@ -39,19 +38,19 @@ namespace Wintermute {
                 void phraseHeard(const QString&);
                 void phraseSaid(const QString&);
 
-            private:
-                System();
-                SynthesizedVoiceList m_voices;
-                RecognizerList m_recogs;
-                static System* s_inst;
-
             public:
                 ~System();
                 static System* instance();
 
-            public slots:
-                static void start();
-                static void stop();
+            protected:
+                virtual void initialize();
+                virtual void deinitialize();
+
+            private:
+                System();
+                SynthesizedVoicesList m_voices;
+                RecognizerList m_recogs;
+                static System* s_inst;
         };
     }
 }

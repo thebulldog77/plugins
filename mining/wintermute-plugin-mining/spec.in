@@ -1,5 +1,9 @@
 ## Mining API for Wintermute
 
+[Plugin]
+Enabled=true
+Type=API
+
 [Version]
 Plugin=@WNTRMINING_VERSION@
 UUID=@WNTRMINING_UUID@

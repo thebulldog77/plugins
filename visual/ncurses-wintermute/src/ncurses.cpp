@@ -21,6 +21,7 @@
  */
 
 #include "ncurses.hpp"
+#include <curses.h>
 
 namespace Wintermute {
     static WINDOW* s_mnWndw = NULL;
@@ -60,11 +61,17 @@ namespace Wintermute {
     
     void Curses::_update() { }
     
-    void Curses::start() { }
+    void Curses::start() {
+        initscr();
+    }
     
-    void Curses::stop() { }
+    void Curses::stop() {
+        endwin();
+    }
     
-    void Curses::clear(const Panes& p_pn) { }
+    void Curses::clear(const Panes& p_pn) {
+        ::clear();
+    }
     
     void Curses::getText(QString& p_input) const { }
     

@@ -1,0 +1,15 @@
+# - Config file for the Zeitgeist-Wintermute package
+# It defines the following variables
+#  ZEITGEISTWINTERMUTE_INCLUDE_DIRS - include directories for Zeitgeist-Wintermute
+#  ZEITGEISTWINTERMUTE_LIBRARY_DIRS - library directories for Zeitgeist-Wintermute (not normally used!)
+#  ZEITGEISTWINTERMUTE_LIBRARIES    - libraries to link against
+
+# Tell the user project where to find our headers and libraries
+set(ZEITGEISTWINTERMUTE_INCLUDE_DIRS "@ZEITGEISTWINTERMUTE_INCLUDE_DIRS@")
+set(ZEITGEISTWINTERMUTE_LIBRARY_DIRS "@ZEITGEISTWINTERMUTE_LIB_DIR@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+include("@ZEITGEISTWINTERMUTE_CMAKE_DIR@/ZeitgeistWintermuteLibraryDepends.cmake" OPTIONAL)
+
+# These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
+set(ZEITGEISTWINTERMUTE_LIBRARIES zeitgeist-wintermute)

@@ -11,13 +11,14 @@ set(POCKETSPHINX_PLUGIN_VERSION
 
 list(APPEND CMAKE_MODULE_PATH "cmake/modules")
 
+find_package(Wintermute 0.01 REQUIRED)
 find_package(WntrVoice 0.01 REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(Qt4 COMPONENTS
     QtCore
     REQUIRED)
 
-pkg_search_module(SPHINX REQUIRED speechd)
+pkg_search_module(SPHINX REQUIRED pocketsphinx)
 
 include(WintermuteDefaults)
 include(WintermuteMacros)
@@ -44,15 +45,15 @@ include_directories(${POCKETSPHINX_PLUGIN_INCLUDE_DIRS})
 #
 # Targets
 #
-add_library(speechd-plugin SHARED
+add_library(pocketsphinx-wintermute SHARED
     ${POCKETSPHINX_PLUGIN_SHPP}
     ${POCKETSPHINX_PLUGIN_SCPP})
 
-set_target_properties(speechd-plugin PROPERTIES
+set_target_properties(pocketsphinx-wintermute PROPERTIES
     VERSION ${GENERIC_LIB_VERSION}
     SOVERSION ${GENERIC_LIB_SOVERSION})
 
-target_link_libraries(speechd-plugin
+target_link_libraries(pocketsphinx-wintermute
     ${POCKETSPHINX_PLUGIN_LIBRARIES})
 
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
@@ -66,7 +67,7 @@ configure_file("cmake/PocketSphinxPluginConfigVersion.cmake.in"
 
 ## Installs
 
-install(TARGETS speechd-plugin
+install(TARGETS pocketsphinx-wintermute
     EXPORT PocketSphinxPluginLibraryDepends
     LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}")
 

@@ -19,52 +19,39 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifndef __API_HPP__
+#define __API_HPP__
+
 #include <QObject>
 #include <QString>
+#include <backend.hpp>
+#include <wntr/plugins.hpp>
+
+using Wintermute::Backends::AbstractBackend;
+using Wintermute::Backends::AbstractFramework;
 
 namespace Wintermute {
     namespace Frontend {
-        struct AbstractBackend;
-        struct System;
+        struct Framework;
 
-        class System : public QObject {
+        class Framework : public AbstractFramework {
             Q_OBJECT
-            Q_DISABLE_COPY(System)
-
-            signals:
-                void started();
-                void stopped();
-                void addedNewBackend(AbstractBackend& );
-                void addedNewBackend(const QString& );
-                void removedBackend(AbstractBackend& );
-                void removedBackend(const QString& );
-
-            private:
-                static System* s_inst;
-                System(QObject* = 0);
-                ~System();
+            Q_DISABLE_COPY(Framework)
 
             public:
-                static System* instance();
-                static void registerBackend(AbstractBackend&);
-                static void unregisterBackend(AbstractBackend& );
+                Framework(QObject* = 0);
+                virtual ~Framework();
+                static Framework* instance();
 
             public slots:
                 static void showAbout();
-                static void start();
-                static void stop();
-        };
 
-        class AbstractBackend : public QObject {
-            Q_OBJECT
-            Q_PROPERTY(const bool Active READ active)
-
-            public:
-                AbstractBackend(QObject* = 0);
-                ~AbstractBackend();
-                const bool active() const;
-                void start();
-                void stop();
+            private:
+                static Framework* s_inst;
+                virtual void initialize();
+                virtual void deinitialize();
         };
     }
 }
+
+#endif /* __API_HPP__ */

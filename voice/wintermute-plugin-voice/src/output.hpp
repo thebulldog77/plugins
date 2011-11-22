@@ -38,7 +38,7 @@ namespace Wintermute {
          * @brief Represents a list of Synthesizer voices.
          * @typedef SynthesizedVoiceList
          */
-        typedef QList<SynthesizedVoice*> SynthesizedVoiceList;
+        typedef QList<SynthesizedVoice*> SynthesizedVoicesList;
 
         /**
          * @brief Represents a voice for a Synthesizer.

@@ -24,8 +24,8 @@
    <string>Wintermute</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="res.qrc">
-    <normaloff>:/img/logo</normaloff>:/img/logo</iconset>
+   <iconset resource="/usr/share/wintermute/plugins/frontend/res.qrc">
+    <normaloff>:/img/wm-logo</normaloff>:/img/wm-logo</iconset>
   </property>
   <property name="toolTip">
    <string/>
@@ -379,7 +379,7 @@ color: button-text;</string>
  </widget>
  <layoutdefault spacing="4" margin="4"/>
  <resources>
-  <include location="res.qrc"/>
+  <include location="/usr/share/wintermute/plugins/frontend/res.qrc"/>
  </resources>
  <connections/>
  <designerdata>

@@ -19,7 +19,33 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#include <wntr/plugins/frontend/api.hpp>
+#ifndef __BACKEND_HPP__
+#define __BACKEND_HPP__
+#include <frontend/api.hpp>
+#include <wntr/plugins.hpp>
+
+using Wintermute::Backends::AbstractBackend;
+using Wintermute::Plugins::AbstractPlugin;
 
 namespace Wintermute {
+    namespace Graphics {
+        struct Backend;
+
+        class Backend : public AbstractBackend {
+            Q_OBJECT
+            Q_DISABLE_COPY(Backend)
+
+            public:
+                Backend(AbstractPlugin* );
+                virtual ~Backend();
+                virtual const QString id() const;
+                virtual const bool isActive() const;
+
+            private:
+                virtual void initialize();
+                virtual void deinitialize();
+        };
+    }
 }
+
+#endif /* __BACKEND_HPP__ */

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>346</width>
-    <height>220</height>
+    <width>386</width>
+    <height>241</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -21,7 +21,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
-    <normaloff>:/img/logo</normaloff>:/img/logo</iconset>
+    <normaloff>:/img/wm-logo</normaloff>:/img/wm-logo</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -32,9 +32,9 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>190</y>
-     <width>126</width>
+     <x>9</x>
+     <y>208</y>
+     <width>373</width>
      <height>26</height>
     </rect>
    </property>
@@ -55,7 +55,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>10</y>
+     <y>8</y>
      <width>201</width>
      <height>36</height>
     </rect>
@@ -78,7 +78,7 @@
     <rect>
      <x>0</x>
      <y>30</y>
-     <width>341</width>
+     <width>389</width>
      <height>16</height>
     </rect>
    </property>
@@ -94,8 +94,8 @@
     <rect>
      <x>135</x>
      <y>55</y>
-     <width>206</width>
-     <height>106</height>
+     <width>245</width>
+     <height>129</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -115,7 +115,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>45</y>
+     <y>60</y>
      <width>121</width>
      <height>116</height>
     </rect>
@@ -127,7 +127,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="res.qrc">:/img/logo</pixmap>
+    <pixmap resource="res.qrc">:/img/wm-logo</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -155,9 +155,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>5</x>
-     <y>165</y>
-     <width>341</width>
+     <x>4</x>
+     <y>184</y>
+     <width>381</width>
      <height>21</height>
     </rect>
    </property>

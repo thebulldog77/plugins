@@ -8,8 +8,10 @@
 set(WNTRVOICE_INCLUDE_DIRS "@WNTRVOICE_INCLUDE_DIRS@")
 set(WNTRVOICE_LIBRARY_DIRS "@WNTRVOICE_LIB_DIR@")
 
-# Our library dependencies (contains definitions for IMPORTED targets)
-include("@WNTRVOICE_CMAKE_DIR@/WntrVoiceLibraryDepends.cmake" OPTIONAL)
+if (NOT WNTRVOICE_BUILD)
+	# Our library dependencies (contains definitions for IMPORTED targets)
+	include("@WNTRVOICE_CMAKE_DIR@/WntrVoiceLibraryDepends.cmake" OPTIONAL)
+endif()
 
 # These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
-set(WNTRVOICE_LIBRARIES wntrvoice)
+set(WNTRVOICE_LIBRARIES wintermute-plugin-voice)

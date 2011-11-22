@@ -28,16 +28,17 @@
 
 namespace Wintermute {
     namespace Frontend {
+
         Plugin::Plugin() { }
 
         Plugin::~Plugin() { }
 
         void Plugin::initialize () const {
-            System::start();
+            Framework::instance()->start();
         }
 
         void Plugin::deinitialize () const {
-            System::stop();
+            Framework::instance()->stop();
         }
 
         QObject* Plugin::instance () {

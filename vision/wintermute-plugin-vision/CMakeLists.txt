@@ -33,22 +33,22 @@ set(WNTRVISION_LIBRARIES "${WINTERMUTE_LIBRARIES}"
 include_directories(${WNTRVISION_INCLUDE_DIRS})
 
 ## Targets
-add_library(wntrvision SHARED
+add_library(wintermute-plugin-vision SHARED
     ${WNTRVISION_SHPP}
     ${WNTRVISION_SCPP})
 
-set_target_properties(wntrvision PROPERTIES
+set_target_properties(wintermute-plugin-vision PROPERTIES
     VERSION ${GENERIC_LIB_VERSION}
     SOVERSION ${GENERIC_LIB_SOVERSION})
 
-target_link_libraries(wntrvision
+target_link_libraries(wintermute-plugin-vision
     ${WNTRVISION_LIBRARIES})
 
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
     "${PROJECT_BINARY_DIR}/InstallFiles/${WNTRVISION_UUID}.spec" @ONLY)
 
 ## Installs
-install(TARGETS wntrvision
+install(TARGETS wintermute-plugin-vision
     LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}")
 
 install(FILES ${CMAKE_MODULES}
