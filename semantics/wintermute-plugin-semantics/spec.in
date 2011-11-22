@@ -3,8 +3,8 @@
 [Version]
 Plugin=@WNTRSEMANTICS_VERSION@
 UUID=@WNTRSEMANTICS_UUID@
-Compat=@WINTERMUTE_VERSION@
-Library=ncurses-wintermute
+Compat=@Wintermute_VERSION@
+Library=wntrsemantics
 
 [Description]
 Name=Semantics Framework of Wintermute

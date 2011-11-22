@@ -20,3 +20,34 @@
  */
  
 #include "backend.hpp"
+#include "config.hpp"
+#include "gui.hpp"
+#include <wntr/plugins.hpp>
+#include <wntr/core.hpp>
+#include <QDebug>
+
+using Wintermute::Plugins::AbstractPlugin;
+
+namespace Wintermute {
+    namespace Graphics {
+        Backend::Backend(AbstractPlugin* p_plgn) : AbstractBackend(p_plgn) { }
+
+        void Backend::initialize() {
+            qDebug() << "(gui) [Backend] Initializing...";
+            Graphics::Core::s_wndw->show();
+            qDebug() << "(gui) [Backend] Initializied.";
+        }
+
+        void Backend::deinitialize() {
+            qDebug() << "(gui) [Backend] Deinitializing...";
+            Graphics::Core::s_wndw->close();
+            qDebug() << "(gui) [Backend] Deinitializied.";
+        }
+
+        const QString Backend::id() const { return WNTRGUI_UUID; }
+
+        const bool Backend::isActive() const { return Graphics::Core::s_wndw != NULL; }
+
+        Backend::~Backend() { }
+    }
+}

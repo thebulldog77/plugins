@@ -28,6 +28,7 @@
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QDir>
+#include <QLCDNumber>
 #include <QMenu>
 #include <QMessageBox>
 #include <QInputDialog>
@@ -97,19 +98,10 @@ namespace Wintermute {
             QApplication::setOverrideCursor (Qt::WaitCursor);
             switch (index){
                 case 0: {
-                    // Get symbol count.
-                    const QString l_strSymbolCount(QString::number (Data::Linguistics::Lexical::Cache::countSymbols()));
-                    const QString l_strLinkCount(QString::number (Data::Linguistics::Lexical::Cache::countFlags()));
-                    const QString l_strConcepts(QString::number (Data::Ontology::Resource::countConcepts()));
-                    const QString l_strOntologies(QString::number (Data::Ontology::Repository::countOntologies()));
-                    QString l_args = "%1 symbols\n";
-                    l_args += "%2 links\n";
-                    l_args += "%3 concepts\n";
-                    l_args += "%4 ontologies\n";
-                    ui->lblOverview->setText(l_args.arg (l_strSymbolCount,
-                                                         l_strLinkCount,
-                                                         l_strConcepts,
-                                                         l_strOntologies));
+                    ui->lcdWord->display(Data::Linguistics::Lexical::Cache::countSymbols());
+                    ui->lcdOnto->display(Data::Ontology::Resource::countConcepts());
+                    ui->lcdConc->display(Data::Ontology::Repository::countOntologies());
+                    ui->lcdLink->display(Data::Linguistics::Lexical::Cache::countFlags());
                 } break;
 
                 case 1: {
@@ -305,7 +297,7 @@ namespace Wintermute {
             const QString& l_uuid = ui->listWidgetPlugins->item(ui->listWidgetPlugins->currentRow())->data(0).toString();
             const bool l_val = (ui->checkBoxEnabled->checkState() == Qt::Checked);
             Plugins::Factory::setAttribute(l_uuid,"Version/Enabled",l_val);
-            qDebug() << Plugins::Factory::attribute(l_uuid,"Version/Enabled");
+            qDebug() << Plugins::Factory::attribute(l_uuid,"Version/Enabled") << l_val;
         }
 
         void ConfigurationDialog::on_checkBoxAutoStart_clicked(){
@@ -336,8 +328,37 @@ namespace Wintermute {
             ui->lblWebPage->setText(Plugins::Factory::attribute(l_uuid,"Description/WebPage").toString());
             ui->txtDescription->setText(Plugins::Factory::attribute(l_uuid,"Description/Blurb").toString());
 
+            if (Plugins::Factory::attribute(l_uuid,"Plugin/Type") == "Backend")
+                ui->checkBoxAutoStart->setEnabled(false);
+            else
+                ui->checkBoxAutoStart->setEnabled(true);
+
             ui->checkBoxAutoStart->setChecked(l_plgnLst.contains(l_uuid));
             ui->checkBoxEnabled->setChecked(Plugins::Factory::attribute(l_uuid,"Plugin/Enabled").toBool());
+        }
+
+        void ConfigurationDialog::on_pushButtonPlgnActn_clicked() {
+            const QString& l_str = ui->comboBoxAction->currentText();
+            const QString& l_uuid = ui->listWidgetPlugins->item(ui->listWidgetPlugins->currentRow())->data(0).toString();
+
+            if (l_str == "Start"){
+                QDBusMessage l_callStart = QDBusMessage::createMethodCall ("org.thesii.Wintermute","/Factory","org.thesii.Wintermute.Factory","loadPlugin");
+                l_callStart << l_uuid;
+                QDBusConnection::sessionBus ().call(l_callStart,QDBus::BlockWithGui);
+            } else if (l_str == "Stop"){
+                QDBusMessage l_callStop = QDBusMessage::createMethodCall ("org.thesii.Wintermute","/Factory","org.thesii.Wintermute.Factory","unloadPlugin");
+                l_callStop << l_uuid;
+                QDBusConnection::sessionBus ().call(l_callStop,QDBus::BlockWithGui);
+            } else if (l_str == "Restart") {
+                QDBusMessage l_callStart = QDBusMessage::createMethodCall ("org.thesii.Wintermute","/Factory","org.thesii.Wintermute.Factory","loadPlugin");
+                QDBusMessage l_callStop = QDBusMessage::createMethodCall ("org.thesii.Wintermute","/Factory","org.thesii.Wintermute.Factory","unloadPlugin");
+                l_callStart << l_uuid;
+                l_callStop << l_uuid;
+                QDBusConnection::sessionBus ().call(l_callStop,QDBus::BlockWithGui);
+                QDBusConnection::sessionBus ().call(l_callStart,QDBus::BlockWithGui);
+            }
+
+            on_tabWidget_currentChanged(3);
         }
 
         ConfigurationDialog::~ConfigurationDialog(){

@@ -12,4 +12,7 @@ set(WNTRFRONTEND_LIBRARY_DIRS "@WNTRFRONTEND_LIB_DIR@")
 include("@WNTRFRONTEND_CMAKE_DIR@/WntrFrontendLibraryDepends.cmake")
 
 # These are IMPORTED targets created by WntrFrontendLibraryDepends.cmake
-set(WNTRFRONTEND_LIBRARIES wntrfrontend)
+set(WNTRFRONTEND_LIBRARIES wintermute-plugin-frontend)
+
+# This variable helps people link to the binary resources of Wintermute.
+set(WNTRFRONTEND_DEFAULT_QRC "@WINTER_PLUGIN_DATA_INSTALL_DIR@/frontend/res.qrc")

@@ -21,12 +21,12 @@
  */
 
 #include "mainwindow.hpp"
-#include "aboutdialog.hpp"
 #include "configui.hpp"
 #include "ui_main.h"
 #include "gui.hpp"
 #include <wntrling.hpp>
 #include <wntrntwk.hpp>
+#include <aboutdialog.hpp>
 #include <QtDebug>
 #include <QString>
 #include <QFile>

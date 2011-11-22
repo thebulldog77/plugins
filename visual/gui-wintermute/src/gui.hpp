@@ -25,7 +25,9 @@
 
 #include <QObject>
 #include <QThread>
+#include <wntr/plugins.hpp>
 #include "mainwindow.hpp"
+#include "backend.hpp"
 
 namespace Wintermute {
     namespace Graphics {
@@ -33,27 +35,29 @@ namespace Wintermute {
 
         /**
          * @brief
-         *
          * @class Core gui.hpp "gui/gui.hpp"
          */
+
         class Core : public QObject {
+            friend class Backend;
             Q_OBJECT
             public:
                 /**
-                 * @brief
-                 *
+                 * @brief Starts the graphics core.
                  * @fn Initialize
                  */
-                static void start();
+                static void start(AbstractPlugin* );
                 /**
-                 * @brief
-                 *
+                 * @brief Stops the graphics core.
                  * @fn Deinitialize
                  */
                 static void stop();
 
+                static Backend* backend();
+
             private:
                 static MainWindow* s_wndw;
+                static Backend* s_bcknd;
         };
     }
 }

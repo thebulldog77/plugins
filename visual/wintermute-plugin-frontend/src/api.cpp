@@ -20,23 +20,43 @@
  */
 
 #include "api.hpp"
+#include <QDebug>
+#include <wntr/core.hpp>
+#include <wntr/plugins.hpp>
+
+using Wintermute::Plugins::Factory;
 
 namespace Wintermute {
-        namespace Frontend {
-                System* System::s_inst = NULL;
+    namespace Frontend {
+        Framework* Framework::s_inst = 0;
 
-                System::System(QObject *p_obj) : QObject(p_obj) { }
-                void System::showAbout (){}
-                void System::start () { }
-                void System::stop () { }
-                void System::registerBackend (AbstractBackend &p_bcknd) { }
-                void System::unregisterBackend (AbstractBackend &p_bcknd) { }
-                System* System::instance () { return s_inst; }
-                System::~System () {}
+        Framework::Framework(QObject *p_prnt) : AbstractFramework(Factory::currentPlugin(),p_prnt) {}
 
-                AbstractBackend::AbstractBackend(QObject *p_obj) : QObject(p_obj) { }
-                const bool AbstractBackend::active () const {}
-                AbstractBackend::~AbstractBackend () {}
+        void Framework::initialize() {
+            qDebug() << "(frontend) [Frontend] Starting backends..";
 
+            foreach (AbstractBackend* l_bcknd, this->m_cmpLst.values())
+                l_bcknd->start();
+
+            qDebug() << "(frontend) [Frontend] Backends started.";
         }
+
+        void Framework::deinitialize() {
+            qDebug() << "(frontend) [Frontend] Stopping backends..";
+            foreach (AbstractBackend* l_bcknd, this->m_cmpLst.values())
+                l_bcknd->stop();
+            qDebug() << "(frontend) [Frontend] Backends stopped..";
+        }
+
+        void Framework::showAbout() { }
+
+        Framework* Framework::instance() {
+            if (!s_inst)
+                s_inst = new Framework(Core::instance());
+
+            return s_inst;
+        }
+
+        Framework::~Framework() { }
+    }
 }

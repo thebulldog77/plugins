@@ -1,10 +1,14 @@
 ## Wintermute Frontend API
 
+[Plugin]
+Enabled=true
+Type=API
+
 [Version]
 Plugin=@WNTRFRONTEND_VERSION@
 UUID=@WNTRFRONTEND_UUID@
-Compat=@WINTERMUTE_VERSION@
-Library=wntrfrontend
+Compat=@Wintermute_VERSION@
+Library=wintermute-plugin-frontend
 
 [Description]
 Name=Frontend API

@@ -12,4 +12,4 @@ set(WNTRMINING_LIBRARY_DIRS "@WNTRMINING_LIB_DIR@")
 include("@WNTRMINING_CMAKE_DIR@/WntrMiningLibraryDepends.cmake" OPTIONAL)
 
 # These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
-set(WNTRMINING_LIBRARIES wntrmining)
+set(WNTRMINING_LIBRARIES wintermute-plugin-mining)

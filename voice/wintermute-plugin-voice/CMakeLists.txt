@@ -17,14 +17,7 @@ find_package(Qt4 REQUIRED)
 include(WintermuteDefaults)
 include(WintermuteMacros)
 
-file(GLOB WNTRVOICE_SHPP "src/*.hpp")
-file(GLOB WNTRVOICE_SCPP "src/*.cpp")
-file(GLOB CMAKE_MODULES "${PROJECT_SOURCE_DIR}/cmake/Modules/*.cmake")
-QT4_WRAP_CPP(MOC_CODE "${WNTRVOICE_SHPP}")
-
-include("${QT_USE_FILE}")
-
-## Main variables
+## Variables
 set(WNTRVOICE_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/voice")
 set(WNTRVOICE_INCLUDE_DIRS "${WINTERMUTE_INCLUDE_DIRS}"
     ${WNTRVOICE_INCLUDE_DIR}
@@ -32,19 +25,8 @@ set(WNTRVOICE_INCLUDE_DIRS "${WINTERMUTE_INCLUDE_DIRS}"
 set(WNTRVOICE_LIBRARIES ${QT_LIBRARIES} ${WINTERMUTE_LIBRARIES})
 set(WNTRVOICE_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/WntrVoice" CACHE PATH "CMake directory.")
 
-include_directories(${WNTRVOICE_INCLUDE_DIRS})
-
-## Targets
-add_library(wntrvoice SHARED
-    ${WNTRVOICE_SHPP}
-    ${WNTRVOICE_SCPP}
-    ${MOC_CODE})
-
-set_target_properties(wntrvoice PROPERTIES
-    VERSION ${GENERIC_LIB_VERSION}
-    SOVERSION ${GENERIC_LIB_SOVERSION})
-
-target_link_libraries(wntrvoice ${WNTRVOICE_LIBRARIES})
+include("${QT_USE_FILE}")
+add_subdirectory(src)
 
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
     "${PROJECT_BINARY_DIR}/InstallFiles/${WNTRVOICE_UUID}.spec" @ONLY)
@@ -54,23 +36,11 @@ configure_file("cmake/WntrVoiceConfig.cmake.in"
 
 configure_file("cmake/WntrVoiceConfigVersion.cmake.in"
     "${PROJECT_BINARY_DIR}/InstallFiles/WntrVoiceConfigVersion.cmake" @ONLY)
-
-# Installs
-
-install(TARGETS wntrvoice
-    EXPORT WntrVoiceLibraryDepends
-    LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}"
-    RENAME WNTRVOICE_UUID)
-
+    
+## Installs
 install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/WntrVoiceConfig.cmake"
     "${PROJECT_BINARY_DIR}/InstallFiles/WntrVoiceConfigVersion.cmake"
     DESTINATION "${WNTRVOICE_CMAKE_DIR}")
-
-install(EXPORT WntrVoiceLibraryDepends
-    DESTINATION "${WNTRVOICE_CMAKE_DIR}")
-
-install(FILES ${WNTRVOICE_SHPP}
-    DESTINATION "${WNTRVOICE_INCLUDE_DIR}")
 
 install(FILES ${CMAKE_MODULES}
     DESTINATION "${CMAKE_MODULE_DIR}")

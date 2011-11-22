@@ -1,5 +1,9 @@
 ## Zeitgeist for Wintermute.
 
+[Plugin]
+Enabled=true
+Type=Backend
+
 [Version]
 Plugin=@ZEITGEISTWINTERMUTE_VERSION@
 UUID=@ZEITGEISTWINTERMUTE_UUID@
@@ -11,7 +15,7 @@ Name=Zeitgeist for Wintermute
 Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
 Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
 Blurb=A plug-in providing information from Zeitgeist to Wintermute.
-WebPage=http://www.thesii.org/wiki/Wintermute
+WebPage=http://www.thesii.org/wiki/Wintermute:Plugin:ZeitgeistWintermute
 
 [Dependencies]
 Plugins=5011b904-72d9-4a6b-a7b3-bf1f6fefb6a0 == 0.01

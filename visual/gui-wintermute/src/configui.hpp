@@ -57,6 +57,7 @@ namespace Wintermute {
             void on_listWidgetPlugins_itemSelectionChanged();
             void on_checkBoxEnabled_clicked();
             void on_checkBoxAutoStart_clicked();
+            void on_pushButtonPlgnActn_clicked();
 
         private:
             Ui::ConfigurationDialog *ui;

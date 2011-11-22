@@ -1,17 +1,21 @@
 ## nCurses command-line interface
 
+[Plugin]
+Enabled=true
+Type=API
+
 [Version]
-Plugin=@NCURSES_WINTERMUTE_VERSION@
-UUID=@NCURSES_WINTERMUTE_UUID@
-Compat=@WINTERMUTE_VERSION@
-Library=ncurses-wintermute
+Plugin=@WNTRVISION_VERSION@
+UUID=@WNTRVISION_UUID@
+Compat=@Wintermute_VERSION@
+Library=wintermute-plugin-vision
 
 [Description]
-Name=nCurses Command-line Interface
+Name=Vision API
 Author=Jacky Alcine <jacky.alcine@thesii.org>
 Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
-Blurb=A plug-in providing a nCurses command-line interface for Wintermute.
-WebPage=http://www.thesii.org/wiki/Wintermute
+Blurb=A plug-in providing computer vision capabilities to Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute:Plugin:VisionAPI
 
 [Dependencies]
 Plugins=78345566-cb12-11e0-b159-f51bb9111288 != *

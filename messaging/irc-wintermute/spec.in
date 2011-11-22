@@ -1,0 +1,17 @@
+## The adaptive computer vision algorithm, Predator for Wintermute.
+
+[Version]
+Plugin=@PREDATORWINTERMUTE_VERSION@
+UUID=@PREDATORWINTERMUTE_UUID@
+Compat=@WINTERMUTE_VERSION@
+Library=ncurses-wintermute
+
+[Description]
+Name=Predaotr
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing the computer vision abilities of Predator to Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute
+
+[Dependencies]
+Plugins=bc2cd1e8-1d04-42e4-a765-acb6858b4459 == 0.01
