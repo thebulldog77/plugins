@@ -1,5 +1,9 @@
 ## Natural Language User Interface for Wintermute.
 
+[Plugin]
+Enabled=true
+Type=Backend
+
 [Version]
 Plugin=@WNTRNLUI_VERSION@
 UUID=@WNTRNLUI_UUID@
