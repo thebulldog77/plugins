@@ -34,8 +34,8 @@ namespace Wintermute {
                 ~Plugin() { }
                 Plugin(Plugin const &k) : AbstractPlugin(k) { }
 
-                virtual void initialize() const;
-                virtual void deinitialize() const;
+                virtual void start() const;
+                virtual void stop() const;
                 virtual QObject* instance() const;
         };
     }

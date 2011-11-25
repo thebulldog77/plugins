@@ -1,6 +1,6 @@
 /**
- * @file plugin.hpp
- * This file is part of Wintermute Frontend.
+ * wntrgui.cpp
+ * This file is part of Wintermute Graphics.
  *
  * Copyright (C) 2011 - Wintermute Developers <wintermute-devel@lists.launchpad.net>
  *
@@ -20,32 +20,33 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef _PLUGIN_HPP_
-#define _PLUGIN_HPP_
-
-#include <QtPlugin>
-#include <QString>
-#include <wntr/plugins.hpp>
-#include "config.hpp"
+#include <wntr/core.hpp>
+#include <wntr/config.hpp>
+#include <QMessageBox>
+#include <QtDebug>
+#include "gui.hpp"
 
 namespace Wintermute {
-    namespace Frontend {
-        struct Plugin;
-        /**
-        * @brief
-        * @class Plugin plugin.hpp "src/plugin.hpp"
-        */
-        class Plugin : public Wintermute::Plugins::AbstractPlugin {
-            Q_OBJECT
+    namespace Graphics {
+        MainWindow* Core::s_wndw = NULL;
+        Backend* Core::s_bcknd = NULL;
 
-            public:
-                Plugin();
-                virtual ~Plugin();
-                virtual void start() const;
-                virtual void stop() const;
-        };
+        void Core::start (AbstractPlugin* p_plgn) {
+            qDebug() << "(gui) [Core] Initialized.";
+            s_wndw = new MainWindow;
+            s_bcknd = new Backend(p_plgn);
+        }
+
+        void Core::stop () {
+            qDebug() << "(gui) [Core] Deinitialized.";
+            s_wndw->deleteLater ();
+            Wintermute::Core::endProgram();
+        }
+
+        Backend* Core::backend() {
+            return s_bcknd;
+        }
     }
 }
 
-#endif /** _PLUGIN_HPP */
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

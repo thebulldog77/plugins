@@ -18,8 +18,8 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef SPEECHD_OUTPUT_HPP
-#define SPEECHD_OUTPUT_HPP
+#ifndef POCKETSPHINX_OUTPUT_HPP
+#define POCKETSPHINX_OUTPUT_HPP
 
 #include <QList>
 #include <QThread>
@@ -82,6 +82,7 @@ namespace Wintermute {
         class AbstractSynthesizer : protected QThread {
             Q_OBJECT
             Q_DISABLE_COPY(AbstractSynthesizer)
+
             Q_PROPERTY(SynthesizedVoice Voice READ voice WRITE setVoice)
 
             signals:

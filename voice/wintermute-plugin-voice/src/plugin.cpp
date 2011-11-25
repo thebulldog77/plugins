@@ -30,10 +30,10 @@ using std::endl;
 
 namespace Wintermute {
     namespace Voice {
-        void Plugin::initialize () const {
+        void Plugin::start () const {
         }
 
-        void Plugin::deinitialize () const {
+        void Plugin::stop () const {
         }
 
         QObject* Plugin::instance () const { return NULL; }

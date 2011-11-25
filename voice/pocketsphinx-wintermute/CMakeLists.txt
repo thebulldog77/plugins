@@ -38,7 +38,7 @@ set(POCKETSPHINX_PLUGIN_LIBRARIES "${PocketSphinxPlugin_LIBRARIES}"
     ${SPHINX_LIBRARIES}
     ${WNTRVOICE_LIBRARIES}
     ${QT_LIBRARIES})
-set(POCKETSPHINX_PLUGIN_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/speechd-wintermute")
+set(POCKETSPHINX_PLUGIN_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/pocketsphinx-wintermute")
 
 include_directories(${POCKETSPHINX_PLUGIN_INCLUDE_DIRS})
 

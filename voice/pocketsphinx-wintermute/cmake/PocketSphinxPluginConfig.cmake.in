@@ -1,15 +1,15 @@
 # - Config file for the PocketSphinx plugin for Wintermute.
 # It defines the following variables
-#  SPEECHD_PLUGIN_INCLUDE_DIRS - include directories for SPEECHD_PLUGIN
-#  SPEECHD_PLUGIN_LIBRARY_DIRS - library directories for SPEECHD_PLUGIN(normally not used!)
-#  SPEECHD_PLUGIN_LIBRARIES    - libraries to link against
+#  POCKETSPHINX_PLUGIN_INCLUDE_DIRS - include directories for POCKETSPHINX_PLUGIN
+#  POCKETSPHINX_PLUGIN_LIBRARY_DIRS - library directories for POCKETSPHINX_PLUGIN(normally not used!)
+#  POCKETSPHINX_PLUGIN_LIBRARIES    - libraries to link against
 
 # Tell the user project where to find our headers and libraries
-set(SPEECHD_PLUGIN_INCLUDE_DIRS "@SPEECHD_PLUGIN_INCLUDE_DIRS@")
-set(SPEECHD_PLUGIN_LIBRARY_DIRS "@SPEECHD_PLUGIN_LIB_DIR@")
+set(POCKETSPHINX_PLUGIN_INCLUDE_DIRS "@POCKETSPHINX_PLUGIN_INCLUDE_DIRS@")
+set(POCKETSPHINX_PLUGIN_LIBRARY_DIRS "@POCKETSPHINX_PLUGIN_LIB_DIR@")
 
 # Our library dependencies (contains definitions for IMPORTED targets)
-include("@SPEECHD_PLUGIN_CMAKE_DIR@/PocketSphinxPluginLibraryDepends.cmake" OPTIONAL)
+include("@POCKETSPHINX_PLUGIN_CMAKE_DIR@/PocketSphinxPluginLibraryDepends.cmake" OPTIONAL)
 
-# These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
-set(SPEECHD_PLUGIN_LIBRARIES SPEECHD_PLUGIN)
+# These are IMPORTED targets created by PocketSphinxLibraryDepends.cmake
+set(POCKETSPHINX_PLUGIN_LIBRARIES pocketsphinx-wintermute)

@@ -18,8 +18,8 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef SPEECHD_INPUT_HPP
-#define SPEECHD_INPUT_HPP
+#ifndef POCKETSPHINX_INPUT_HPP
+#define POCKETSPHINX_INPUT_HPP
 
 #include <QObject>
 #include <QThread>

@@ -1,6 +1,6 @@
 /**
- * @file plugin.hpp
- * This file is part of Wintermute Frontend.
+ * @author plugin.hpp
+ * This file is part of Wintermute Graphics.
  *
  * Copyright (C) 2011 - Wintermute Developers <wintermute-devel@lists.launchpad.net>
  *
@@ -29,11 +29,12 @@
 #include "config.hpp"
 
 namespace Wintermute {
-    namespace Frontend {
+    namespace Graphics {
         struct Plugin;
+        struct Core;
         /**
         * @brief
-        * @class Plugin plugin.hpp "src/plugin.hpp"
+        * @class Plugin plugin.hpp "gui/plugin.hpp"
         */
         class Plugin : public Wintermute::Plugins::AbstractPlugin {
             Q_OBJECT

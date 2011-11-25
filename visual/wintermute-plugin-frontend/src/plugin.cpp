@@ -33,16 +33,12 @@ namespace Wintermute {
 
         Plugin::~Plugin() { }
 
-        void Plugin::initialize () const {
+        void Plugin::start () const {
             Framework::instance()->start();
         }
 
-        void Plugin::deinitialize () const {
+        void Plugin::stop () const {
             Framework::instance()->stop();
-        }
-
-        QObject* Plugin::instance () {
-            return NULL;
         }
 
     }

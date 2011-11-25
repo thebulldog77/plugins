@@ -1,6 +1,6 @@
 /**
- * @file plugin.hpp
- * This file is part of Wintermute Frontend.
+ * plugins.cpp
+ * This file is part of Wintermute Graphics.
  *
  * Copyright (C) 2011 - Wintermute Developers <wintermute-devel@lists.launchpad.net>
  *
@@ -20,32 +20,34 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef _PLUGIN_HPP_
-#define _PLUGIN_HPP_
-
+#include "gui.hpp"
+#include "plugin.hpp"
+#include <QObject>
 #include <QtPlugin>
-#include <QString>
-#include <wntr/plugins.hpp>
-#include "config.hpp"
+#include <QStringList>
+#include <wntrdata.hpp>
+#include <wntrling.hpp>
+#include <frontend/api.hpp>
 
 namespace Wintermute {
-    namespace Frontend {
-        struct Plugin;
-        /**
-        * @brief
-        * @class Plugin plugin.hpp "src/plugin.hpp"
-        */
-        class Plugin : public Wintermute::Plugins::AbstractPlugin {
-            Q_OBJECT
+    namespace Graphics {
+        Plugin::Plugin() { }
 
-            public:
-                Plugin();
-                virtual ~Plugin();
-                virtual void start() const;
-                virtual void stop() const;
-        };
+        Plugin::~Plugin() { }
+
+        /// @todo Register its component to the Frontend component.
+        void Plugin::start () const {
+            Core::start(const_cast<Plugin*>(this));
+            Frontend::Framework::instance()->addBackend(Core::backend());
+        }
+
+        /// @todo Unregister its component from the Frontend component.
+        void Plugin::stop () const {
+            Frontend::Framework::instance()->removeBackend(Core::backend());
+            Core::stop();
+        }
     }
 }
 
-#endif /** _PLUGIN_HPP */
+Q_EXPORT_PLUGIN2(Gui-Wintermute, Wintermute::Graphics::Plugin)
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

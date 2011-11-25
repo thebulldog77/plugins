@@ -27,15 +27,12 @@
 namespace Wintermute {
     namespace Voice {
         namespace PocketSphinx {
-            void Plugin::initialize () const {
+            void Plugin::start () const {
                 SphinxRecognizer l_sphinx;
                 qDebug() << l_sphinx.waitToListen ();
             }
 
-            void Plugin::deinitialize () const {
-            }
-
-            QObject* Plugin::instance () const { return NULL; }
+            void Plugin::stop () const { }
         }
     }
 }
