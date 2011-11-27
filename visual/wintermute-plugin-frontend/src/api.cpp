@@ -20,6 +20,8 @@
  */
 
 #include "api.hpp"
+#include "aboutdialog.hpp"
+
 #include <QDebug>
 #include <wntr/core.hpp>
 #include <wntr/plugins.hpp>
@@ -30,7 +32,9 @@ namespace Wintermute {
     namespace Frontend {
         Framework* Framework::s_inst = 0;
 
-        Framework::Framework(QObject *p_prnt) : AbstractFramework(Factory::currentPlugin(),p_prnt) {}
+        Framework::Framework(QObject *p_prnt) : AbstractFramework(Factory::currentPlugin(),p_prnt) {
+
+        }
 
         void Framework::initialize() {
             qDebug() << "(frontend) [Frontend] Starting backends..";
@@ -48,7 +52,10 @@ namespace Wintermute {
             qDebug() << "(frontend) [Frontend] Backends stopped..";
         }
 
-        void Framework::showAbout() { }
+        void Framework::showAboutDialog() {
+            AboutDialog* l_abtDlg = new AboutDialog;
+            l_abtDlg->exec();
+        }
 
         Framework* Framework::instance() {
             if (!s_inst)

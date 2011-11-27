@@ -3,6 +3,7 @@
 [Plugin]
 Enabled=true
 Type=Backend
+API=5f0741d0-026b-11e1-8f4e-5999c633b9c0
 
 [Version]
 Plugin=@WNTRGUI_VERSION@

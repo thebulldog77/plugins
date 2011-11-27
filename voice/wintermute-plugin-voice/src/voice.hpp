@@ -26,6 +26,10 @@ namespace Wintermute {
     namespace Voice {
         struct System;
 
+        /**
+         * @brief
+         * @name System
+         */
         class System : private Backends::AbstractFramework {
             Q_OBJECT
             Q_DISABLE_COPY(System)
@@ -41,6 +45,12 @@ namespace Wintermute {
             public:
                 ~System();
                 static System* instance();
+
+            public slots:
+                void startSpeaking();
+                void stopSpeaking();
+                void startListening();
+                void stopListening();
 
             protected:
                 virtual void initialize();

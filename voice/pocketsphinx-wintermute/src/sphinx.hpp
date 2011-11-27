@@ -17,8 +17,8 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef SPEECHD_PLUGIN_SPHINX_HPP
-#define SPEECHD_PLUGIN_SPHINX_HPP
+#ifndef POCKETSPHINX_PLUGIN_SPHINX_HPP
+#define POCKETSPHINX_PLUGIN_SPHINX_HPP
 
 /// @bug This shouldn't be defined here; it should be done via command-line. But I'm not sure how we can get pkg-config to do that in a digressible manner.
 #define MODELDIR "/usr/share/speechd/model"
@@ -53,4 +53,4 @@ namespace Wintermute {
     }
 }
 
-#endif // end SPEECHD_PLUGIN_SPHINX_HPP
+#endif // end POCKETSPHINX_PLUGIN_SPHINX_HPP

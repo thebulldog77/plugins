@@ -36,15 +36,27 @@ namespace Wintermute {
 
         class Framework : public AbstractFramework {
             Q_OBJECT
-            Q_DISABLE_COPY(Framework)
+            Q_DISABLE_COPY(Framework)            
+
+            signals:
+                void displayResponse(const QString&);
 
             public:
+                typedef enum {
+                    LowAlert = 0,
+                    MediumAlert,
+                    HighAlert,
+                    CriticalAlert
+                } AlertLevel;
+
                 Framework(QObject* = 0);
                 virtual ~Framework();
                 static Framework* instance();
 
             public slots:
-                static void showAbout();
+                void showAboutDialog();
+                void sendResponse(const QString&);
+                void displayAlert(const AlertLevel&, const QString&);
 
             private:
                 static Framework* s_inst;

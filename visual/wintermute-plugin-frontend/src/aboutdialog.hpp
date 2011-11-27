@@ -29,7 +29,7 @@
 namespace Ui { class AboutDialog; } //forward decl.
 
 namespace Wintermute {
-    namespace Graphics {
+    namespace Frontend {
         class AboutDialog : public QDialog {
             Q_OBJECT
 
