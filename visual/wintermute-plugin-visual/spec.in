@@ -1,0 +1,22 @@
+## Wintermute Frontend API
+
+[Plugin]
+Enabled=true
+Type=API
+
+[Version]
+Plugin=@WNTRFRONTEND_VERSION@
+UUID=@WNTRFRONTEND_UUID@
+Compat=@Wintermute_VERSION@
+Library=wintermute-plugin-frontend
+
+[Description]
+Name=Frontend API
+Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
+Blurb=A plug-in providing the underlying framework for introducing a frontend to Wintermute.
+WebPage=http://www.thesii.org/wiki/Wintermute:Plugin:FrontendAPI
+
+[Configuration]
+Factory:Defaults=78345566-cb12-11e0-b159-f51bb9111288
+Factory:StartMode=0
