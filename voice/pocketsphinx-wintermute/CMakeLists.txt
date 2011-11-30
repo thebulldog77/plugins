@@ -56,6 +56,9 @@ set_target_properties(pocketsphinx-wintermute PROPERTIES
 target_link_libraries(pocketsphinx-wintermute
     ${POCKETSPHINX_PLUGIN_LIBRARIES})
 
+configure_file("${PROJECT_SOURCE_DIR}/config.hpp.in"
+    "${PROJECT_SOURCE_DIR}/src/config.hpp" @ONLY)
+
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
     "${PROJECT_BINARY_DIR}/InstallFiles/${POCKETSPHINX_PLUGIN_UUID}.spec" @ONLY)
 

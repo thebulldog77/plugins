@@ -18,20 +18,37 @@
  */
 
 #include <wntr/plugins.hpp>
+#include <wntr/backend.hpp>
 #include <QtPlugin>
 
 namespace Wintermute {
     namespace Voice {
         namespace PocketSphinx {
             struct Plugin;
+            struct Backend;
 
             using Wintermute::Plugins::AbstractPlugin;
+
+            class Backend : public Backends::AbstractBackend {
+                Q_OBJECT
+                Q_DISABLE_COPY(Backend)
+
+                public:
+                    Backend();
+                    virtual ~Backend();
+                    virtual const QString id() const;
+                    virtual const bool isActive() const;
+
+                private:
+                    virtual void initialize();
+                    virtual void deinitialize();
+            };
 
             class Plugin : public AbstractPlugin {
                 Q_OBJECT
                 public:
                     Plugin() : AbstractPlugin() { }
-                    ~Plugin() { }
+                    virtual ~Plugin() { }
                     Plugin(Plugin const &k) : AbstractPlugin(k) { }
 
                     virtual void start() const;

@@ -24,15 +24,15 @@
 
 namespace Wintermute {
     namespace Voice {
-        struct System;
+        struct Framework;
 
         /**
          * @brief
          * @name System
          */
-        class System : private Backends::AbstractFramework {
+        class Framework : public Backends::AbstractFramework {
             Q_OBJECT
-            Q_DISABLE_COPY(System)
+            Q_DISABLE_COPY(Framework)
 
             signals:
                 void talkingStarted();
@@ -43,24 +43,27 @@ namespace Wintermute {
                 void phraseSaid(const QString&);
 
             public:
-                ~System();
-                static System* instance();
+                ~Framework();
+                static Framework* instance();
 
             public slots:
-                void startSpeaking();
-                void stopSpeaking();
+                void startSpeaking(const QString& = QString::null);
                 void startListening();
+                void start();
+                void stopSpeaking();
                 void stopListening();
+                void stop();
 
-            protected:
+
+            protected slots:
                 virtual void initialize();
                 virtual void deinitialize();
 
             private:
-                System();
+                Framework();
                 SynthesizedVoicesList m_voices;
                 RecognizerList m_recogs;
-                static System* s_inst;
+                static Framework* s_inst;
         };
     }
 }
