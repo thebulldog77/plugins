@@ -31,6 +31,7 @@ namespace Wintermute {
     namespace Graphics {
         struct Backend;
 
+        /// @todo Add bindings to responses from base Framework.
         class Backend : public AbstractBackend {
             Q_OBJECT
             Q_DISABLE_COPY(Backend)
