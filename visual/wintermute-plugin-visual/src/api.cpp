@@ -39,7 +39,7 @@ namespace Wintermute {
         void Framework::initialize() {
             qDebug() << "(frontend) [Frontend] Starting backends..";
 
-            foreach (AbstractBackend* l_bcknd, this->m_cmpLst.values())
+            foreach (AbstractBackend* l_bcknd, this->m_bckndLst.values())
                 l_bcknd->start();
 
             qDebug() << "(frontend) [Frontend] Backends started.";
@@ -47,7 +47,7 @@ namespace Wintermute {
 
         void Framework::deinitialize() {
             qDebug() << "(frontend) [Frontend] Stopping backends..";
-            foreach (AbstractBackend* l_bcknd, this->m_cmpLst.values())
+            foreach (AbstractBackend* l_bcknd, this->m_bckndLst.values())
                 l_bcknd->stop();
             qDebug() << "(frontend) [Frontend] Backends stopped..";
         }
@@ -55,6 +55,14 @@ namespace Wintermute {
         void Framework::showAboutDialog() {
             AboutDialog* l_abtDlg = new AboutDialog;
             l_abtDlg->exec();
+        }
+
+        void Framework::sendResponse(const QString &p_str) {
+            emit instance()->responseDisplayed(p_str);
+        }
+
+        void Framework::displayAlert(const AlertLevel &p_lvl, const QString &p_str) {
+            emit instance()->alertDisplayed(p_lvl,p_str);
         }
 
         Framework* Framework::instance() {

@@ -29,26 +29,38 @@ using Wintermute::Plugins::Factory;
 namespace Wintermute {
     namespace Voice {
         const SynthesizedVoice SynthesizedVoice::Null = SynthesizedVoice();
-        System* System::s_inst = NULL;
+        Framework* Framework::s_inst = NULL;
 
-        System::System() : AbstractFramework(Factory::currentPlugin()), m_voices(), m_recogs() {
+        Framework::Framework() : AbstractFramework(Factory::currentPlugin()), m_voices(), m_recogs() {
             s_inst = this;
         }
 
-        System::~System () { }
+        Framework::~Framework () { }
 
-        System* System::instance () {
+        Framework* Framework::instance () {
             if (!s_inst)
-                s_inst = new System;
+                s_inst = new Framework;
 
             return s_inst;
         }
 
-        void System::initialize() {
+        void Framework::start() {
+            AbstractFramework::start();
+            foreach (Backends::AbstractBackend* l_bcknd, this->defaultBackend())
+                l_bcknd->start();
+        }
+
+        void Framework::stop() {
+
+        }
+
+        void Framework::initialize() {
+            start();
             emit s_inst->started ();
         }
 
-        void System::deinitialize() {
+        void Framework::deinitialize() {
+            stop();
             emit s_inst->stopped ();
         }
     }

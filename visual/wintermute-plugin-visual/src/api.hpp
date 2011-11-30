@@ -34,12 +34,12 @@ namespace Wintermute {
     namespace Frontend {
         struct Framework;
 
+        /// @todo Produce a D-Bus adaptor & interface for this (interface would require linking to library, avoid the dependency?)
+        /// @todo Introduce support for asking a question and getting a response.
         class Framework : public AbstractFramework {
             Q_OBJECT
-            Q_DISABLE_COPY(Framework)            
-
-            signals:
-                void displayResponse(const QString&);
+            Q_DISABLE_COPY(Framework)
+            Q_ENUMS(AlertLevel)
 
             public:
                 typedef enum {
@@ -62,6 +62,10 @@ namespace Wintermute {
                 static Framework* s_inst;
                 virtual void initialize();
                 virtual void deinitialize();
+
+            signals:
+                void responseDisplayed(const QString&);
+                void alertDisplayed(const AlertLevel&, const QString&);
         };
     }
 }

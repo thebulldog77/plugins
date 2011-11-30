@@ -20,6 +20,7 @@
  */
 
 #include "plugin.hpp"
+#include "voice.hpp"
 #include <iostream>
 #include <QtPlugin>
 
@@ -31,12 +32,12 @@ using std::endl;
 namespace Wintermute {
     namespace Voice {
         void Plugin::start () const {
+            connect(this,SIGNAL(started()),Framework::instance(),SLOT(start()));
+            connect(this,SIGNAL(stopped()),Framework::instance(),SLOT(stop()));
         }
 
         void Plugin::stop () const {
         }
-
-        QObject* Plugin::instance () const { return NULL; }
     }
 }
 

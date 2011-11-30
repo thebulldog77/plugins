@@ -21,12 +21,26 @@
 
 #include "plugin.hpp"
 #include "sphinx.hpp"
+#include "config.hpp"
 #include <QtPlugin>
 #include <QDebug>
 
 namespace Wintermute {
     namespace Voice {
         namespace PocketSphinx {
+            Backend::Backend() : AbstractBackend(Plugins::Factory::currentPlugin(),Plugins::Factory::currentPlugin()) {
+            }
+
+            const QString Backend::id() const { return WNTR_POCKETSPHINX_UUID; }
+
+            const bool Backend::isActive() const { }
+
+            void Backend::initialize() { }
+
+            void Backend::deinitialize() { }
+
+            Backend::~Backend() { }
+
             void Plugin::start () const {
                 SphinxRecognizer l_sphinx;
                 qDebug() << l_sphinx.waitToListen ();
@@ -37,4 +51,4 @@ namespace Wintermute {
     }
 }
 
-Q_EXPORT_PLUGIN2(PocketSphinx-Plugin, Wintermute::Voice::PocketSphinx::Plugin)
+Q_EXPORT_PLUGIN2(PocketSphinx-Wintermute, Wintermute::Voice::PocketSphinx::Plugin)

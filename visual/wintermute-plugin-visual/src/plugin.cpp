@@ -29,20 +29,20 @@
 namespace Wintermute {
     namespace Frontend {
 
-        Plugin::Plugin() { }
-
-        Plugin::~Plugin() { }
+        Plugin::Plugin() : AbstractPlugin() {
+            connect(this,SIGNAL(started()),Framework::instance(),SLOT(start()));
+            connect(this,SIGNAL(stopped()),Framework::instance(),SLOT(stop()));
+        }
 
         void Plugin::start () const {
-            Framework::instance()->start();
         }
 
         void Plugin::stop () const {
-            Framework::instance()->stop();
         }
 
+        Plugin::~Plugin() { }
     }
 }
 
-Q_EXPORT_PLUGIN2(WntrFrontend, Wintermute::Frontend::Plugin)
+Q_EXPORT_PLUGIN2(Wintermute-Plugin-Frontend, Wintermute::Frontend::Plugin)
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

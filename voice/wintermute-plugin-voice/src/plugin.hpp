@@ -31,12 +31,11 @@ namespace Wintermute {
             Q_OBJECT
             public:
                 Plugin() : AbstractPlugin() { }
-                ~Plugin() { }
+                virtual ~Plugin() { }
                 Plugin(Plugin const &k) : AbstractPlugin(k) { }
 
                 virtual void start() const;
                 virtual void stop() const;
-                virtual QObject* instance() const;
         };
     }
 }

@@ -99,7 +99,7 @@ namespace Wintermute {
             switch (index){
                 case 0: {
                     ui->lcdWord->display(Data::Linguistics::Lexical::Cache::countSymbols());
-                    ui->lcdOnto->display(Data::Ontology::Resource::countConcepts());
+                    //ui->lcdOnto->display(Data::Ontology::Resource::countConcepts());
                     ui->lcdConc->display(Data::Ontology::Repository::countOntologies());
                     ui->lcdLink->display(Data::Linguistics::Lexical::Cache::countFlags());
                 } break;
