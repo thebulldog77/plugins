@@ -76,7 +76,7 @@ namespace Wintermute {
                 const QString l_sym = ui->symbolLineEdit->text ().toLower ();
                 const QString l_lcl = ui->localeComboBox->currentText ();
                 Data::Linguistics::Lexical::Data l_dt(Data::Linguistics::Lexical::Data::idFromString (l_sym),l_lcl,l_sym);
-                Data::Linguistics::Lexical::FlagMapping l_flgs;
+                QVariantMap l_flgs;
                 for (int i = 0; i < ui->tableWidgetLinks->rowCount(); i++){
                     const QString l_id = ui->tableWidgetLinks->item(i,0)->text();
                     const QString l_flg = ui->tableWidgetLinks->item(i,1)->text();
@@ -173,8 +173,8 @@ namespace Wintermute {
                 Lexical::Data l_dt(l_ndID,p_lcl);
                 Lexical::Cache::read (l_dt);
                 QTreeWidgetItem* l_item = new QTreeWidgetItem(QString(l_dt.symbol ()).split(","));
-                for (Lexical::FlagMapping::ConstIterator l_itr = l_dt.flags ().begin (); l_itr != l_dt.flags ().end (); l_itr++)
-                    l_item->addChild ((new QTreeWidgetItem(QString(l_itr.key() + "," + l_itr.value()).split (","))));
+                for (QVariantMap::ConstIterator l_itr = l_dt.flags ().begin (); l_itr != l_dt.flags ().end (); l_itr++)
+                    l_item->addChild ((new QTreeWidgetItem(QString(l_itr.key() + "," + l_itr.value().toString()).split (","))));
 
                 ui->treeWidgetDelete->addTopLevelItem(l_item);
             }
@@ -201,9 +201,9 @@ namespace Wintermute {
                 int i = 0;
                 ui->tableWidgetLinks->setRowCount(l_dt.flags ().size ());
                 ui->tableWidgetLinks->setColumnCount(2);
-                for (Data::Linguistics::Lexical::FlagMapping::ConstIterator l_itr = l_dt.flags ().begin (); l_itr != l_dt.flags ().end (); l_itr ++, i++){
+                for (QVariantMap::ConstIterator l_itr = l_dt.flags ().begin (); l_itr != l_dt.flags ().end (); l_itr ++, i++){
                     ui->tableWidgetLinks->setItem(i,0,(new QTableWidgetItem(l_itr.key ())));
-                    ui->tableWidgetLinks->setItem(i,1,(new QTableWidgetItem(l_itr.value ())));
+                    ui->tableWidgetLinks->setItem(i,1,(new QTableWidgetItem(l_itr.value ().toString())));
                 }
             } else {
                 ui->tableWidgetLinks->setRowCount(0);

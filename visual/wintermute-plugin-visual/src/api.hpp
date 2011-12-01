@@ -23,18 +23,18 @@
 #define __API_HPP__
 
 #include <QObject>
-#include <QString>
 #include <backend.hpp>
 #include <wntr/plugins.hpp>
+#include <wntr/config.hpp>
 
 using Wintermute::Backends::AbstractBackend;
 using Wintermute::Backends::AbstractFramework;
+class QString;
 
 namespace Wintermute {
     namespace Frontend {
         struct Framework;
 
-        /// @todo Produce a D-Bus adaptor & interface for this (interface would require linking to library, avoid the dependency?)
         /// @todo Introduce support for asking a question and getting a response.
         class Framework : public AbstractFramework {
             Q_OBJECT
