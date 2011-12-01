@@ -14,6 +14,7 @@ ing:
     2. Run the following commands:
         $ cd visual/wintermute-plugin-frontend
         $ mkdir -p build && cd build
+        $ cmake -DCMAKE_INSTALL_PREFIX=~/usr -DCMAKE_BUILD_TYPE=Debug ..
         $ make
         # make install
         $ cd ../gui-wintermute
