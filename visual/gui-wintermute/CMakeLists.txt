@@ -1,4 +1,4 @@
-project(Gui-Wintermute)
+project(wntr-gui)
 cmake_minimum_required(VERSION 2.8)
 
 set(WINTERMUTE_IS_PLUGIN ON)
@@ -56,13 +56,13 @@ set(WNTRGUI_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/WntrGui" CACHE PATH "
 include_directories(${WNTRGUI_INCLUDE_DIRS})
 
 ## Targets
-add_library(gui-wintermute SHARED ${WNTRGUI_SCPP})
+add_library(wntr-gui SHARED ${WNTRGUI_SCPP})
 
-set_target_properties(gui-wintermute PROPERTIES
+set_target_properties(wntr-gui PROPERTIES
     VERSION ${GENERIC_LIB_VERSION}
     SOVERSION ${GENERIC_LIB_SOVERSION})
 
-target_link_libraries(gui-wintermute ${WNTRGUI_LIBRARIES})
+target_link_libraries(wntr-gui ${WNTRGUI_LIBRARIES})
 
 ## Configs
 configure_file("${PROJECT_SOURCE_DIR}/cmake/main.ui.in" "${PROJECT_SOURCE_DIR}/ui/main.ui")
@@ -80,7 +80,7 @@ configure_file("${PROJECT_SOURCE_DIR}/spec.in"
     "${PROJECT_BINARY_DIR}/InstallFiles/${WNTRGUI_UUID}.spec" @ONLY)
 
 ## Installs
-install(TARGETS gui-wintermute
+install(TARGETS wntr-gui
     EXPORT WntrGuiLibraryDepends
     LIBRARY DESTINATION "${WNTRGUI_LIB_DIR}"
     RENAME WNTRGUI_UUID)

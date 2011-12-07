@@ -9,7 +9,7 @@ API=5f0741d0-026b-11e1-8f4e-5999c633b9c0
 Plugin=@WNTRGUI_VERSION@
 UUID=@WNTRGUI_UUID@
 Compat=@Wintermute_VERSION@
-Library=gui-wintermute
+Library=wntr-gui
 
 [Description]
 Name=Wintermute Graphical User Interface
