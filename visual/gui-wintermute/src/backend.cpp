@@ -27,10 +27,18 @@
 #include <QDebug>
 
 using Wintermute::Plugins::AbstractPlugin;
+using namespace Wintermute::Frontend;
 
 namespace Wintermute {
     namespace Graphics {
-        Backend::Backend(AbstractPlugin* p_plgn) : AbstractBackend(p_plgn) { }
+        Backend::Backend(AbstractPlugin* p_plgn) : AbstractBackend(p_plgn) {
+            connect(Framework::instance(),SIGNAL(alertDisplayed(AlertLevel,QString)),
+                    this,SLOT(alertDisplayed(AlertLevel,QString)));
+        }
+
+        void Backend::alertDisplayed(const AlertLevel& l_alertLevel, const QString& l_message){
+
+        }
 
         void Backend::initialize() {
             qDebug() << "(gui) [Backend] Initializing...";

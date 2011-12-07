@@ -28,6 +28,9 @@ using Wintermute::Backends::AbstractBackend;
 using Wintermute::Plugins::AbstractPlugin;
 
 namespace Wintermute {
+    namespace Frontend {
+        struct AlertLevel; // Forward declaration.
+    }
     namespace Graphics {
         struct Backend;
 
@@ -41,6 +44,9 @@ namespace Wintermute {
                 virtual ~Backend();
                 virtual const QString id() const;
                 virtual const bool isActive() const;
+
+            public slots:
+                void alertDisplayed(const Frontend::AlertLevel&, const QString&);
 
             private:
                 virtual void initialize();
