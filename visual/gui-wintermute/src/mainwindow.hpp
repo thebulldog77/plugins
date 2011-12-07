@@ -44,14 +44,7 @@ namespace Wintermute {
 
         private:
             Ui::MainWindow *ui;
-
-        private slots:
-            void on_actnAbout_clicked();
-            void on_actnReply_clicked();
-            void on_actnFullscreen_clicked();
-            void on_atcnClose_clicked();
-            void on_actnPreferences_triggered();
-            void messageRecieved(const Message&);
+            void buildMenu();
         };
     }
 }
