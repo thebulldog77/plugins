@@ -8,7 +8,7 @@ Type=API
 Plugin=@WNTRMINING_VERSION@
 UUID=@WNTRMINING_UUID@
 Compat=@WINTERMUTE_VERSION@
-Library=wintermute-plugin-mining
+Library=wplugin-mining
 
 [Description]
 Name=Mining API

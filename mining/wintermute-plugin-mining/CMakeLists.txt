@@ -36,15 +36,15 @@ set(WNTRMINING_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/WntrMining" CACHE 
 include_directories(${WNTRMINING_INCLUDE_DIRS})
 
 ## Targets
-add_library(wintermute-plugin-mining SHARED
+add_library(wplugin-mining SHARED
     ${WNTRMINING_SHPP}
     ${WNTRMINING_SCPP})
 
-set_target_properties(wintermute-plugin-mining PROPERTIES
+set_target_properties(wplugin-mining PROPERTIES
     VERSION ${GENERIC_LIB_VERSION}
     SOVERSION ${GENERIC_LIB_SOVERSION})
 
-target_link_libraries(wintermute-plugin-mining
+target_link_libraries(wplugin-mining
     ${WNTRMINING_LIBRARIES})
 
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
@@ -58,7 +58,7 @@ configure_file("cmake/WntrMiningConfigVersion.cmake.in"
 
 ## Installs
 
-install(TARGETS wintermute-plugin-mining
+install(TARGETS wplugin-mining
     EXPORT WntrMiningLibraryDepends
     LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}")
 
