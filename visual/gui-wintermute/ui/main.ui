@@ -157,7 +157,7 @@ color: #fff;</string>
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="res.qrc">:/img/logo</pixmap>
+          <pixmap resource="/usr/share/wintermute/plugins/frontend/res.qrc">:/img/wm-logo.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
