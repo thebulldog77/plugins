@@ -1,6 +1,6 @@
 /**
  * @file plugins.cpp
- * This file is part of Wintermute Frontend.
+ * This file is part of Wintermute Visual.
  *
  * Copyright (C) 2011 - Wintermute Developers <wintermute-devel@lists.launchpad.net>
  *
@@ -27,7 +27,7 @@
 #include <QStringList>
 
 namespace Wintermute {
-    namespace Frontend {
+    namespace Visual {
 
         Plugin::Plugin() : AbstractPlugin() {
             connect(this,SIGNAL(started()),Framework::instance(),SLOT(start()));
@@ -44,5 +44,5 @@ namespace Wintermute {
     }
 }
 
-Q_EXPORT_PLUGIN2(Wintermute-Plugin-Frontend, Wintermute::Frontend::Plugin)
+Q_EXPORT_PLUGIN2(Wintermute-Plugin-Visual, Wintermute::Visual::Plugin)
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

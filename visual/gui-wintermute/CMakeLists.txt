@@ -15,11 +15,11 @@ list(APPEND CMAKE_MODULE_PATH "cmake/modules")
 include(WintermuteDefaults)
 include(WintermuteMacros)
 
-find_package(WntrFrontend 0.01 REQUIRED)
-find_package(WntrData 0.01 REQUIRED)
-find_package(WntrLing 0.01 REQUIRED)
-find_package(WntrNtwk 0.01 REQUIRED)
-find_package(Wintermute 0.01 REQUIRED)
+find_package(WntrVisual 0.1 REQUIRED)
+find_package(WntrData 0.1 REQUIRED)
+find_package(WntrLing 0.1 REQUIRED)
+find_package(WntrNtwk 0.1 REQUIRED)
+find_package(Wintermute 0.1 REQUIRED)
 find_package(Qt4 4.4.3 COMPONENTS
      QtGui
      QtDBus
@@ -28,28 +28,28 @@ find_package(Qt4 4.4.3 COMPONENTS
 
 file(GLOB WNTRGUI_SHPP "src/*.hpp")
 file(GLOB WNTRGUI_SCPP "src/*.cpp")
-file(GLOB WNTRGUI_UIC "ui/*.ui" "${WINTER_PLUGIN_DATA_INSTALL_DIR}/frontend/*.ui")
+file(GLOB WNTRGUI_UIC "ui/*.ui" "${WINTER_PLUGIN_DATA_INSTALL_DIR}/Visual/*.ui")
 file(GLOB CMAKE_MODULES "${PROJECT_SOURCE_DIR}/cmake/Modules/*.cmake")
 
 ## Qt4
 QT4_WRAP_CPP(WNTRGUI_SCPP "${WNTRGUI_SHPP}")
 QT4_WRAP_UI(WNTRGUI_SCPP "${WNTRGUI_UIC}")
-QT4_ADD_RESOURCES(WNTRGUI_SCPP "${WNTRFRONTEND_DEFAULT_QRC}")
+QT4_ADD_RESOURCES(WNTRGUI_SCPP "${WNTRVisual_DEFAULT_QRC}")
 
 include("${QT_USE_FILE}")
 
 ## Main variables
 set(VS_KEYWORD Qt4VSv1.0)
-set(VS_SCC_PROJECTNAME "Wintermute Graphics Frontend")
+set(VS_SCC_PROJECTNAME "Wintermute Graphics Visual")
 set(WNTRGUI_LIB_DIR "${WINTER_PLUGIN_INSTALL_DIR}")
 set(WNTRGUI_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/gui")
 set(WNTRGUI_INCLUDE_DIRS "${WINTERMUTE_INCLUDE_DIRS}"
-        ${WNTRFRONTEND_INCLUDE_DIRS}
+        ${WNTRVISUAL_INCLUDE_DIRS}
         ${WNTRLING_INCLUDE_DIRS}
         ${WNTRDATA_INCLUDE_DIRS}
         ${WNTRNTWK_INCLUDE_DIRS}
         ${Qt_INCLUDE_DIRS})
-set(WNTRGUI_LIBRARIES ${QT_LIBRARIES} ${WINTERMUTE_LIBRARIES} ${WNTRFRONTEND_LIBRARIES} ${WNTRLING_LIBRARIES} ${WNTRNTWK_LIBRARIES} ${WNTRDATA_LIBRARIES})
+set(WNTRGUI_LIBRARIES ${QT_LIBRARIES} ${WINTERMUTE_LIBRARIES} ${WNTRVISUAL_LIBRARIES} ${WNTRLING_LIBRARIES} ${WNTRNTWK_LIBRARIES} ${WNTRDATA_LIBRARIES})
 set(WNTRGUI_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/WntrGui" CACHE PATH "CMake directory.")
 
 

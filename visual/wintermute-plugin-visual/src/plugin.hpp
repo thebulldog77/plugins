@@ -1,6 +1,6 @@
 /**
  * @file plugin.hpp
- * This file is part of Wintermute Frontend.
+ * This file is part of Wintermute Visual.
  *
  * Copyright (C) 2011 - Wintermute Developers <wintermute-devel@lists.launchpad.net>
  *
@@ -29,7 +29,7 @@
 #include "config.hpp"
 
 namespace Wintermute {
-    namespace Frontend {
+    namespace Visual {
         struct Plugin;
         /**
         * @brief

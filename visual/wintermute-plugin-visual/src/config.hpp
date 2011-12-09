@@ -22,8 +22,8 @@
  * Required for the Wintermute GUI plugin.
  */
 
-#ifndef _WNTRFRONTEND_CONFIG_HPP__
-#define _WNTRFRONTEND_CONFIG_HPP__
+#ifndef _WNTRVisual_CONFIG_HPP__
+#define _WNTRVisual_CONFIG_HPP__
 
 /* #undef DEBUG */
 

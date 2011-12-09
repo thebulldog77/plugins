@@ -27,7 +27,7 @@
 #include <QStringList>
 #include <wntrdata.hpp>
 #include <wntrling.hpp>
-#include <frontend/api.hpp>
+#include <visual/api.hpp>
 
 namespace Wintermute {
     namespace Graphics {
@@ -35,15 +35,15 @@ namespace Wintermute {
 
         Plugin::~Plugin() { }
 
-        /// @todo Register its component to the Frontend component.
+        /// @todo Register its component to the Visual component.
         void Plugin::start () const {
             Core::start(const_cast<Plugin*>(this));
-            Frontend::Framework::instance()->addBackend(Core::backend());
+            Visual::Framework::instance()->addBackend(Core::backend());
         }
 
-        /// @todo Unregister its component from the Frontend component.
+        /// @todo Unregister its component from the Visual component.
         void Plugin::stop () const {
-            Frontend::Framework::instance()->removeBackend(Core::backend());
+            Visual::Framework::instance()->removeBackend(Core::backend());
             Core::stop();
         }
     }

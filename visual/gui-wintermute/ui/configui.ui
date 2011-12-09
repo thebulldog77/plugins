@@ -15,7 +15,7 @@
    <string>Wintermute - Preferences</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../../../../../../../../../../usr/share/wintermute/plugins/frontend/res.qrc">
+   <iconset resource="../../../../../../../../../../../usr/share/wintermute/plugins/Visual/res.qrc">
     <normaloff>:/img/wm-logo</normaloff>:/img/wm-logo</iconset>
   </property>
   <property name="modal">
@@ -758,7 +758,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../../../../../../../../../../../usr/share/wintermute/plugins/frontend/res.qrc"/>
+  <include location="../../../../../../../../../../../usr/share/wintermute/plugins/Visual/res.qrc"/>
  </resources>
  <connections>
   <connection>

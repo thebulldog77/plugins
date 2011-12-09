@@ -24,10 +24,9 @@
 #include "configui.hpp"
 #include "ui_main.h"
 #include "gui.hpp"
-#include <frontend/aboutdialog.hpp>
+#include <visual/aboutdialog.hpp>
 #include <wntrling.hpp>
 #include <wntrntwk.hpp>
-#include <aboutdialog.hpp>
 #include <QtDebug>
 #include <QString>
 #include <QFile>
@@ -36,7 +35,7 @@
 #include <QMessageBox>
 #include <QInputDialog>
 
-using Wintermute::Frontend::AboutDialog;
+using Wintermute::Visual::AboutDialog;
 
 namespace Wintermute {
     namespace Graphics {

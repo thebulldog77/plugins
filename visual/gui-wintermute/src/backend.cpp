@@ -27,7 +27,7 @@
 #include <QDebug>
 
 using Wintermute::Plugins::AbstractPlugin;
-using namespace Wintermute::Frontend;
+using namespace Wintermute::Visual;
 
 namespace Wintermute {
     namespace Graphics {

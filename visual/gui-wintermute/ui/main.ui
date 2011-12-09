@@ -24,7 +24,7 @@
    <string>Wintermute</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="/usr/share/wintermute/plugins/frontend/res.qrc">
+   <iconset resource="">
     <normaloff>:/img/wm-logo</normaloff>:/img/wm-logo</iconset>
   </property>
   <property name="toolTip">
@@ -157,7 +157,7 @@ color: #fff;</string>
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="/usr/share/wintermute/plugins/frontend/res.qrc">:/img/wm-logo.png</pixmap>
+          <pixmap resource="res.qrc">:/img/logo</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -379,7 +379,7 @@ color: button-text;</string>
  </widget>
  <layoutdefault spacing="4" margin="4"/>
  <resources>
-  <include location="/usr/share/wintermute/plugins/frontend/res.qrc"/>
+  <include location=""/>
  </resources>
  <connections/>
  <designerdata>

@@ -24,7 +24,7 @@
    <string>Wintermute</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="@WNTRFRONTEND_DEFAULT_QRC@">
+   <iconset resource="@WNTRVisual_DEFAULT_QRC@">
     <normaloff>:/img/wm-logo</normaloff>:/img/wm-logo</iconset>
   </property>
   <property name="toolTip">
@@ -379,7 +379,7 @@ color: button-text;</string>
  </widget>
  <layoutdefault spacing="4" margin="4"/>
  <resources>
-  <include location="@WNTRFRONTEND_DEFAULT_QRC@"/>
+  <include location="@WNTRVisual_DEFAULT_QRC@"/>
  </resources>
  <connections/>
  <designerdata>

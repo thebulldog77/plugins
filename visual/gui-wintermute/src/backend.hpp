@@ -21,14 +21,14 @@
 
 #ifndef __BACKEND_HPP__
 #define __BACKEND_HPP__
-#include <frontend/api.hpp>
+#include <visual/api.hpp>
 #include <wntr/plugins.hpp>
 
 using Wintermute::Backends::AbstractBackend;
 using Wintermute::Plugins::AbstractPlugin;
 
 namespace Wintermute {
-    namespace Frontend {
+    namespace Visual {
         struct AlertLevel; // Forward declaration.
     }
     namespace Graphics {
@@ -46,7 +46,7 @@ namespace Wintermute {
                 virtual const bool isActive() const;
 
             public slots:
-                void alertDisplayed(const Frontend::AlertLevel&, const QString&);
+                void alertDisplayed(const Visual::AlertLevel&, const QString&);
 
             private:
                 virtual void initialize();

@@ -25,7 +25,7 @@
 #include "ui_aboutdialog.h"
 
 namespace Wintermute {
-    namespace Frontend {
+    namespace Visual {
         AboutDialog::AboutDialog(QWidget *parent) : QDialog(parent),
             ui(new Ui::AboutDialog) {
             ui->setupUi(this);
