@@ -1,0 +1,28 @@
+##
+# Be sure to remove this!
+# Rename this file to <PLUGIN_NICK_F>, a pretty formatted version of <PLUGIN_NICK>
+# (i.e: PLUGIN_NICK   = HELLOWORLD
+#  	PLUGIN_NICK_F = HelloWorld)
+# Similar to CamelCasing.
+##
+
+# - Configuration for the @PROJECT_LABEL@ plug-in to Wintermute.
+# It defines the following variables
+#  <PLUGIN_NICK>_INCLUDE_DIRS - include directories for <PLUGIN_NICK>
+#  <PLUGIN_NICK>_LIBRARY_DIRS - library directories for <PLUGIN_NICK> (normally not used!)
+#  <PLUGIN_NICK>_LIBRARIES    - libraries to link against
+
+# Tell the user project where to find our headers and libraries
+set(<PLUGIN_NICK>_INCLUDE_DIRS "@<PLUGIN_NICK>_INCLUDE_DIRS@")
+set(<PLUGIN_NICK>_LIBRARY_DIRS "@<PLUGIN_NICK>_LIB_DIR@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+include("@<PLUGIN_NICK>_CMAKE_DIR@/<PLUGIN_NICK_F>LibraryDepends.cmake")
+
+# These are IMPORTED targets created by <PLUGIN_NICK_F>LibraryDepends.cmake
+set(<PLUGIN_NICK>_LIBRARIES <LIBRARY_NAME>)
+
+# This variable helps people link to the binary resources of Wintermute.
+# If this is an API plug-in, change A to API_NAME (i.e: Visual for WntrVisual)
+# Otherwise, change it to BCKD_NAME (i.e: WntrGui for Gui-Wintermute)
+set(<PLUGIN_NICK>_QRC "@WINTER_PLUGIN_DATA_INSTALL_DIR@/<A>/res.qrc")

@@ -1,0 +1,30 @@
+## This is the plug-in specification file which
+## tells Wintermute information about the plug-in.
+##
+## The values enclosed by @ are parsed by CMake.
+
+[Plugin]
+Enabled=true
+Type=API
+
+[Version]
+Plugin=@[[PLUGIN_NICK]]_VERSION@
+UUID=@[[PLUGIN_NICK]]_UUID@
+Compat=@Wintermute_VERSION@
+Library=[[PLUGIN_LIBRAY_NAME]]
+
+[Description]
+Name=<PLUGIN_NAME>
+Author=<YOUR_NAME> <YOUR_EMAIL>
+Vendor=<VENDOR_NAME> <VENDOR_EMAIL>
+Blurb=<DESCRIPTION>
+WebPage=<URI>
+
+## This permits you to obtain and modify configurations for
+## the plug-in. The group and key would be parsed as Group0/Key0
+## for <GROUP0>/<KEY0> without the angle brackets.
+[Configuration]
+<GROUP0>/<KEY0>=Hello
+<GROUP0>/<KEY1>=World
+<GROUP1>/<KEY0>=Foo
+<GROUP1>/<KEY1>=Bar

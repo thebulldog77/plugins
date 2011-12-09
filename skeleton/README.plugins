@@ -1,0 +1,12 @@
+Skeleton for Plug-in Building
+===============================================
+
+The art of building plug-ins might be a bit daunting. This folder
+serves a skeletal layout to simplify the process.
+
+Wintermute needs a specification file that should be automatically
+filled with verisoning information but also has a bit of information
+that needs to be manually filled. Such information is labeled as [[SUCH]].
+
+Examine each of the source code files and the CMakeLists.txt file to learn more
+about the plug-in building process.
