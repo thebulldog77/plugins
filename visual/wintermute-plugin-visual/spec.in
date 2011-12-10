@@ -8,7 +8,7 @@ Type=API
 Plugin=@WNTRVisual_VERSION@
 UUID=@WNTRVisual_UUID@
 Compat=@Wintermute_VERSION@
-Library=wplugin-Visual
+Library=wplugin-visual
 
 [Description]
 Name=Visual API
