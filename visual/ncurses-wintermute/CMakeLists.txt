@@ -12,12 +12,12 @@ set(WNCURSES_VERSION
 list(APPEND CMAKE_MODULE_PATH "cmake/modules")
 
 
-find_package(WntrFrontend 0.01 REQUIRED)
+find_package(WntrVisual 0.1 REQUIRED)
 find_package(Curses REQUIRED)
-find_package(Wintermute 0.01 REQUIRED)
+find_package(Wintermute 0.1 REQUIRED)
 find_package(Qt4 COMPONENTS
-     QtCore
-     REQUIRED)
+    QtCore
+    REQUIRED)
 
 include(WintermuteDefaults)
 include(WintermuteMacros)

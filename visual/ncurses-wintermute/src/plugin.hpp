@@ -42,9 +42,8 @@ namespace Wintermute {
             public:
                 Plugin();
                 virtual ~Plugin();
-                virtual void initialize() const;
-                virtual void deinitialize() const;
-                virtual QObject* instance();
+                virtual void start() const;
+                virtual void stop() const;
         };
     }
 }

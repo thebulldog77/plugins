@@ -33,20 +33,15 @@ namespace Wintermute {
 
         Plugin::~Plugin() { }
 
-        void Plugin::initialize () const {
+        void Plugin::start () const {
             connect(Wintermute::Core::instance(),SIGNAL(started()),
                     Wintermute::Curses::Curses::instance(),SLOT(start()));
             connect(Wintermute::Core::instance(),SIGNAL(started()),
                     Wintermute::Curses::Curses::instance(),SLOT(stop()));
         }
 
-        void Plugin::deinitialize () const {
+        void Plugin::stop () const {
         }
-
-        QObject* Plugin::instance () {
-            return NULL;
-        }
-
     }
 }
 
