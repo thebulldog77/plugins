@@ -1,0 +1,15 @@
+# - Config file for the WntrReasoning package
+# It defines the following variables
+#  WNTRREASONING_INCLUDE_DIRS - include directories for WntrReasoning
+#  WNTRREASONING_LIBRARY_DIRS - library directories for WntrReasoning(normally not used!)
+#  WNTRREASONING_LIBRARIES    - libraries to link against
+
+# Tell the user project where to find our headers and libraries
+set(WNTRREASONING_INCLUDE_DIRS "@WNTRREASONING_INCLUDE_DIRS@")
+set(WNTRREASONING_LIBRARY_DIRS "@WNTRREASONING_LIB_DIR@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+include("@WNTRREASONING_CMAKE_DIR@/WntrReasoningLibraryDepends.cmake" OPTIONAL)
+
+# These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
+set(WNTRREASONING_LIBRARIES wintermute-plugin-reasoning)
