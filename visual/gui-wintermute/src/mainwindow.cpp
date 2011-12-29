@@ -38,7 +38,7 @@
 using Wintermute::Visual::AboutDialog;
 
 namespace Wintermute {
-    namespace Graphics {
+    namespace Visual {
         MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
             ui->setupUi(this);
             ui->coreWidget->setLayout (ui->centralLayout);

@@ -27,24 +27,26 @@
 #include "gui.hpp"
 
 namespace Wintermute {
-    namespace Graphics {
-        MainWindow* Core::s_wndw = NULL;
-        Backend* Core::s_bcknd = NULL;
+    namespace Visual {
+        namespace Graphics {
+            MainWindow* Core::s_wndw = NULL;
+            Backend* Core::s_bcknd = NULL;
 
-        void Core::start (AbstractPlugin* p_plgn) {
-            qDebug() << "(gui) [Core] Initialized.";
-            s_wndw = new MainWindow;
-            s_bcknd = new Backend(p_plgn);
-        }
+            void Core::start (AbstractPlugin* p_plgn) {
+                qDebug() << "(gui) [Core] Initialized.";
+                s_wndw = new MainWindow;
+                s_bcknd = new Backend(p_plgn);
+            }
 
-        void Core::stop () {
-            qDebug() << "(gui) [Core] Deinitialized.";
-            s_wndw->deleteLater ();
-            Wintermute::Core::endProgram();
-        }
+            void Core::stop () {
+                qDebug() << "(gui) [Core] Deinitialized.";
+                s_wndw->deleteLater ();
+                Wintermute::Core::exit(0,false);
+            }
 
-        Backend* Core::backend() {
-            return s_bcknd;
+            Backend* Core::backend() {
+                return s_bcknd;
+            }
         }
     }
 }

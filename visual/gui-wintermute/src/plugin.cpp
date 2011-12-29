@@ -30,24 +30,26 @@
 #include <visual/api.hpp>
 
 namespace Wintermute {
-    namespace Graphics {
-        Plugin::Plugin() { }
+    namespace Visual {
+        namespace Graphics {
+            Plugin::Plugin() { }
 
-        Plugin::~Plugin() { }
+            Plugin::~Plugin() { }
 
-        /// @todo Register its component to the Visual component.
-        void Plugin::start () const {
-            Core::start(const_cast<Plugin*>(this));
-            Visual::Framework::instance()->addBackend(Core::backend());
-        }
+            /// @todo Register its component to the Visual component.
+            void Plugin::start () const {
+                Core::start(const_cast<Plugin*>(this));
+                Visual::Framework::instance()->addBackend(Core::backend());
+            }
 
-        /// @todo Unregister its component from the Visual component.
-        void Plugin::stop () const {
-            Visual::Framework::instance()->removeBackend(Core::backend());
-            Core::stop();
+            /// @todo Unregister its component from the Visual component.
+            void Plugin::stop () const {
+                Visual::Framework::instance()->removeBackend(Core::backend());
+                Core::stop();
+            }
         }
     }
 }
 
-Q_EXPORT_PLUGIN2(Gui-Wintermute, Wintermute::Graphics::Plugin)
+Q_EXPORT_PLUGIN2(wntr-gui, Wintermute::Visual::Graphics::Plugin)
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

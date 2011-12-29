@@ -29,22 +29,25 @@
 #include "config.hpp"
 
 namespace Wintermute {
-    namespace Graphics {
-        struct Plugin;
-        struct Core;
-        /**
-        * @brief
-        * @class Plugin plugin.hpp "gui/plugin.hpp"
-        */
-        class Plugin : public Wintermute::Plugins::AbstractPlugin {
-            Q_OBJECT
+    namespace Visual {
+        namespace Graphics {
+            struct Plugin;
+            struct Core;
 
-            public:
-                Plugin();
-                virtual ~Plugin();
-                virtual void start() const;
-                virtual void stop() const;
-        };
+            /**
+            * @brief
+            * @class Plugin plugin.hpp "gui/plugin.hpp"
+            */
+            class Plugin : public Wintermute::Plugins::AbstractPlugin {
+                Q_OBJECT
+
+                public:
+                    Plugin();
+                    virtual ~Plugin();
+                    virtual void start() const;
+                    virtual void stop() const;
+            };
+        }
     }
 }
 

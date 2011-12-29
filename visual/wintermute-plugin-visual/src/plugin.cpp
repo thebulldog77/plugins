@@ -28,21 +28,17 @@
 
 namespace Wintermute {
     namespace Visual {
-
         Plugin::Plugin() : AbstractPlugin() {
             connect(this,SIGNAL(started()),Framework::instance(),SLOT(start()));
             connect(this,SIGNAL(stopped()),Framework::instance(),SLOT(stop()));
         }
 
-        void Plugin::start () const {
-        }
-
-        void Plugin::stop () const {
-        }
+        void Plugin::start () const { }
+        void Plugin::stop () const { }
 
         Plugin::~Plugin() { }
     }
 }
 
-Q_EXPORT_PLUGIN2(Wintermute-Plugin-Visual, Wintermute::Visual::Plugin)
+Q_EXPORT_PLUGIN2(wplugin-visual, Wintermute::Visual::Plugin)
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

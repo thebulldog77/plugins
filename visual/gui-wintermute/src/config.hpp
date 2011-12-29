@@ -27,7 +27,7 @@
 
 /* #undef DEBUG */
 
-#define WNTRGUI_VERSION 0.01
+#define WNTRGUI_VERSION 0.1
 #define WNTRGUI_UUID "78345566-cb12-11e0-b159-f51bb9111288"
 
 #endif // __CONFIG_HPP__

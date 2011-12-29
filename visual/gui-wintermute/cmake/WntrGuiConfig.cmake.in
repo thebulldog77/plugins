@@ -12,4 +12,4 @@ set(WNTRGUI_LIBRARY_DIRS "@WNTRGUI_LIB_DIR@")
 include("@WNTRGUI_CMAKE_DIR@/WntrGuiLibraryDepends.cmake")
 
 # These are IMPORTED targets created by WntrGuiLibraryDepends.cmake
-set(WNTRGUI_LIBRARIES wntrgui)
+set(WNTRGUI_LIBRARIES wntr-gui)

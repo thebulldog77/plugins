@@ -30,28 +30,28 @@ using Wintermute::Plugins::AbstractPlugin;
 namespace Wintermute {
     namespace Visual {
         struct AlertLevel; // Forward declaration.
-    }
-    namespace Graphics {
-        struct Backend;
+        namespace Graphics {
+            struct Backend;
 
-        /// @todo Add bindings to responses from base Framework.
-        class Backend : public AbstractBackend {
-            Q_OBJECT
-            Q_DISABLE_COPY(Backend)
+            /// @todo Add bindings to responses from base Framework.
+            class Backend : public AbstractBackend {
+                Q_OBJECT
+                Q_DISABLE_COPY(Backend)
 
-            public:
-                Backend(AbstractPlugin* );
-                virtual ~Backend();
-                virtual const QString id() const;
-                virtual const bool isActive() const;
+                public:
+                    Backend(AbstractPlugin* );
+                    virtual ~Backend();
+                    virtual const QString id() const;
+                    virtual const bool isActive() const;
 
-            public slots:
-                void alertDisplayed(const Visual::AlertLevel&, const QString&);
+                public slots:
+                    void alertDisplayed(const AlertLevel&, const QString&);
 
-            private:
-                virtual void initialize();
-                virtual void deinitialize();
-        };
+                private:
+                    virtual void initialize();
+                    virtual void deinitialize();
+            };
+        }
     }
 }
 

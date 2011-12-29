@@ -29,22 +29,20 @@
 #include "config.hpp"
 
 namespace Wintermute {
-    namespace nCurses {
-        struct Plugin;
+    namespace Visual {
+        namespace nCurses {
+            struct Plugin;
 
-        /**
-        * @brief
-        * @class Plugin plugin.hpp "src/plugin.hpp"
-        */
-        class Plugin : public Wintermute::Plugins::AbstractPlugin {
-            Q_OBJECT
+            class Plugin : public Wintermute::Plugins::AbstractPlugin {
+                Q_OBJECT
 
-            public:
-                Plugin();
-                virtual ~Plugin();
-                virtual void start() const;
-                virtual void stop() const;
-        };
+                public:
+                    Plugin();
+                    virtual ~Plugin();
+                    virtual void start() const;
+                    virtual void stop() const;
+            };
+        }
     }
 }
 

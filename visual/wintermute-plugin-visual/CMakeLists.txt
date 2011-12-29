@@ -13,8 +13,8 @@ list(APPEND CMAKE_MODULE_PATH "cmake/modules")
 include(WintermuteDefaults)
 include(WintermuteMacros)
 
-find_package(Wintermute 0.01 REQUIRED)
-find_package(Qt4 4.4.3 COMPONENTS
+find_package(Wintermute 0.1 REQUIRED)
+find_package(Qt4 4.7.4 COMPONENTS
 		 QtDBus
 		 QtCore
 		 REQUIRED)

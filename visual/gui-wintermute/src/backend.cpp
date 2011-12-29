@@ -30,32 +30,34 @@ using Wintermute::Plugins::AbstractPlugin;
 using namespace Wintermute::Visual;
 
 namespace Wintermute {
-    namespace Graphics {
-        Backend::Backend(AbstractPlugin* p_plgn) : AbstractBackend(p_plgn) {
-            connect(Framework::instance(),SIGNAL(alertDisplayed(AlertLevel,QString)),
-                    this,SLOT(alertDisplayed(AlertLevel,QString)));
+    namespace Visual {
+        namespace Graphics {
+            Backend::Backend(AbstractPlugin* p_plgn) : AbstractBackend(p_plgn) {
+                connect(Framework::instance(),SIGNAL(alertDisplayed(AlertLevel,QString)),
+                        this,SLOT(alertDisplayed(AlertLevel,QString)));
+            }
+
+            void Backend::alertDisplayed(const AlertLevel& l_alertLevel, const QString& l_message){
+
+            }
+
+            void Backend::initialize() {
+                qDebug() << "(gui) [Backend] Initializing...";
+                Core::s_wndw->show();
+                qDebug() << "(gui) [Backend] Initializied.";
+            }
+
+            void Backend::deinitialize() {
+                qDebug() << "(gui) [Backend] Deinitializing...";
+                Core::s_wndw->close();
+                qDebug() << "(gui) [Backend] Deinitializied.";
+            }
+
+            const QString Backend::id() const { return WNTRGUI_UUID; }
+
+            const bool Backend::isActive() const { return Core::s_wndw != NULL; }
+
+            Backend::~Backend() { }
         }
-
-        void Backend::alertDisplayed(const AlertLevel& l_alertLevel, const QString& l_message){
-
-        }
-
-        void Backend::initialize() {
-            qDebug() << "(gui) [Backend] Initializing...";
-            Graphics::Core::s_wndw->show();
-            qDebug() << "(gui) [Backend] Initializied.";
-        }
-
-        void Backend::deinitialize() {
-            qDebug() << "(gui) [Backend] Deinitializing...";
-            Graphics::Core::s_wndw->close();
-            qDebug() << "(gui) [Backend] Deinitializied.";
-        }
-
-        const QString Backend::id() const { return WNTRGUI_UUID; }
-
-        const bool Backend::isActive() const { return Graphics::Core::s_wndw != NULL; }
-
-        Backend::~Backend() { }
     }
 }

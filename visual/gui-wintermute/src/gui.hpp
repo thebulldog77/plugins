@@ -30,35 +30,37 @@
 #include "backend.hpp"
 
 namespace Wintermute {
-    namespace Graphics {
-        struct Core;
+    namespace Visual {
+        namespace Graphics {
+            struct Core;
 
-        /**
-         * @brief
-         * @class Core gui.hpp "gui/gui.hpp"
-         */
+            /**
+             * @brief
+             * @class Core gui.hpp "gui/gui.hpp"
+             */
 
-        class Core : public QObject {
-            friend class Backend;
-            Q_OBJECT
-            public:
-                /**
-                 * @brief Starts the graphics core.
-                 * @fn Initialize
-                 */
-                static void start(AbstractPlugin* );
-                /**
-                 * @brief Stops the graphics core.
-                 * @fn Deinitialize
-                 */
-                static void stop();
+            class Core : public QObject {
+                friend class Backend;
+                Q_OBJECT
+                public:
+                    /**
+                     * @brief Starts the graphics core.
+                     * @fn Initialize
+                     */
+                    static void start(AbstractPlugin* );
+                    /**
+                     * @brief Stops the graphics core.
+                     * @fn Deinitialize
+                     */
+                    static void stop();
 
-                static Backend* backend();
+                    static Backend* backend();
 
-            private:
-                static MainWindow* s_wndw;
-                static Backend* s_bcknd;
-        };
+                private:
+                    static MainWindow* s_wndw;
+                    static Backend* s_bcknd;
+            };
+        }
     }
 }
 

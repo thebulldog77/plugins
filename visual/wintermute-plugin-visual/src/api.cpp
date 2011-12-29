@@ -32,9 +32,7 @@ namespace Wintermute {
     namespace Visual {
         Framework* Framework::s_inst = 0;
 
-        Framework::Framework(QObject *p_prnt) : AbstractFramework(Factory::currentPlugin(),p_prnt) {
-
-        }
+        Framework::Framework(QObject *p_prnt) : AbstractFramework() { }
 
         void Framework::initialize() {
             qDebug() << "(Visual) [Visual] Starting backends..";
@@ -47,8 +45,10 @@ namespace Wintermute {
 
         void Framework::deinitialize() {
             qDebug() << "(Visual) [Visual] Stopping backends..";
+
             foreach (AbstractBackend* l_bcknd, this->m_bckndLst.values())
                 l_bcknd->stop();
+
             qDebug() << "(Visual) [Visual] Backends stopped..";
         }
 

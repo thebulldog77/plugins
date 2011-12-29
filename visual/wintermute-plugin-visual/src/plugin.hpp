@@ -39,7 +39,7 @@ namespace Wintermute {
             Q_OBJECT
 
             public:
-                Plugin();
+                explicit Plugin();
                 virtual ~Plugin();
                 virtual void start() const;
                 virtual void stop() const;

@@ -31,38 +31,40 @@ namespace Ui {
 }
 
 namespace Wintermute {
-    namespace Graphics {
-        class ConfigurationDialog : public QDialog {
-            Q_OBJECT
+    namespace Visual {
+        namespace Graphics {
+            class ConfigurationDialog : public QDialog {
+                Q_OBJECT
 
-        public:
-            explicit ConfigurationDialog(QWidget *parent = 0);
-            ~ConfigurationDialog();
+            public:
+                explicit ConfigurationDialog(QWidget *parent = 0);
+                ~ConfigurationDialog();
 
-        protected:
-            void changeEvent(QEvent *e);
+            protected:
+                void changeEvent(QEvent *e);
 
-        private slots:
-            void on_tabWidget_currentChanged(int index);
-            void on_btnRefresh_clicked();
-            void on_symbolLineEdit_editingFinished();
-            void on_pushButtonAdd_clicked();
-            void on_pushButtonUpdate_clicked();
-            void on_tabWidget_2_currentChanged(int index);
-            void on_comboBoxLingDeleteLocale_activated(const QString& );
-            void on_pushButtonDelete_all();
-            void on_pushButtonDelete_selected();
-            void on_btnLingSaveURI_clicked();
-            void on_btnLingSerialDo_clicked();
-            void on_listWidgetPlugins_itemSelectionChanged();
-            void on_checkBoxEnabled_clicked();
-            void on_checkBoxAutoStart_clicked();
-            void on_pushButtonPlgnActn_clicked();
+            private slots:
+                void on_tabWidget_currentChanged(int index);
+                void on_btnRefresh_clicked();
+                void on_symbolLineEdit_editingFinished();
+                void on_pushButtonAdd_clicked();
+                void on_pushButtonUpdate_clicked();
+                void on_tabWidget_2_currentChanged(int index);
+                void on_comboBoxLingDeleteLocale_activated(const QString& );
+                void on_pushButtonDelete_all();
+                void on_pushButtonDelete_selected();
+                void on_btnLingSaveURI_clicked();
+                void on_btnLingSerialDo_clicked();
+                void on_listWidgetPlugins_itemSelectionChanged();
+                void on_checkBoxEnabled_clicked();
+                void on_checkBoxAutoStart_clicked();
+                void on_pushButtonPlgnActn_clicked();
 
-        private:
-            Ui::ConfigurationDialog *ui;
-            void loadLocale(const QString&);
-        };
+            private:
+                Ui::ConfigurationDialog *ui;
+                void loadLocale(const QString&);
+            };
+        }
     }
 }
 

@@ -28,22 +28,24 @@
 #include <QStringList>
 
 namespace Wintermute {
-    namespace nCurses {
-        Plugin::Plugin() { }
+    namespace Visual {
+        namespace nCurses {
+            Plugin::Plugin() { }
 
-        Plugin::~Plugin() { }
+            Plugin::~Plugin() { }
 
-        void Plugin::start () const {
-            connect(Wintermute::Core::instance(),SIGNAL(started()),
-                    Wintermute::Curses::Curses::instance(),SLOT(start()));
-            connect(Wintermute::Core::instance(),SIGNAL(started()),
-                    Wintermute::Curses::Curses::instance(),SLOT(stop()));
-        }
+            void Plugin::start () const {
+                connect(Wintermute::Core::instance(),SIGNAL(started()),
+                        Wintermute::Curses::Curses::instance(),SLOT(start()));
+                connect(Wintermute::Core::instance(),SIGNAL(started()),
+                        Wintermute::Curses::Curses::instance(),SLOT(stop()));
+            }
 
-        void Plugin::stop () const {
+            void Plugin::stop () const {
+            }
         }
     }
 }
 
-Q_EXPORT_PLUGIN2(nCurses-wintermute, Wintermute::nCurses::Plugin)
+Q_EXPORT_PLUGIN2(nCurses-wintermute, Wintermute::Visual::nCurses::Plugin)
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

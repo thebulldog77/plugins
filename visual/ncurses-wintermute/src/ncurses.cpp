@@ -23,75 +23,75 @@
 #include "ncurses.hpp"
 #include <curses.h>
 
-namespace Wintermute {
-    static WINDOW* s_mnWndw = NULL;
-    Curses* Curses::s_inst = NULL;
-    
-    Text::Text() : QObject() { }    
-    
-    Text::Text(const Text& p_txtObj) : QObject(p_txtObj.parent()), m_txt(p_txtObj.m_txt),
-                                       m_algn(p_txtObj.m_algn) { }
-                                       
-    Text::Text(const QString& p_str) : QObject(), m_txt(p_str), m_algn(Text::Left) { }
-    
-    Text::Text(const QStringList& p_strLst) : QObject(), m_txt(p_strLst.join("\n")), m_algn(Text::Left) { }
-    
-    void Text::setAlignment(const Alignment& p_algn) { m_algn = p_algn; }
-    
-    void Text::setText(const QString& p_str) { m_txt = p_str; }
-    
-    const Text::Alignment& Text::alignment() const { return m_algn; }
-    
-    const QString& Text::text() const { return m_txt; }
-    
-    Curses::Curses() : QObject(), m_pn(Curses::Welcome) { }
-    
-    Curses::Curses(const Curses& p_crs) : QObject(p_crs.parent()), m_pn(p_crs.m_pn) { }
-    
-    Curses* Curses::instance() {
-        if (s_inst == NULL)
-            s_inst = new Curses();
-            
-        return s_inst;
-    }
-    
-    const int Curses::windowWidth() { }
-    
-    const int Curses::windowHeight() { }
-    
-    void Curses::_update() { }
-    
-    void Curses::start() {
-        initscr();
-    }
-    
-    void Curses::stop() {
-        endwin();
-    }
-    
-    void Curses::clear(const Panes& p_pn) {
-        ::clear();
-    }
-    
-    void Curses::getText(QString& p_input) const { }
-    
-    void Curses::setText(const Text& p_txtObj) { }    
-    
-    void Curses::setPane(const Panes& p_pn) { 
-        m_pn = p_pn;
-        _update();
-    }
-    
-    void Curses::setStatus(const QString& p_stsTxt ) { }
-    
-    void Curses::setProgress(const double& p_prg) { }
+using namespace Wintermute;
 
-    const int Curses::showDialog(const QString& p_txt, const QMap<int,QString>& p_opts, const int p_dft) {
-    
-    }
-            
-    const Curses::Panes& Curses::pane() const { return m_pn; }
-    
-    Curses::~Curses() { }
+static WINDOW* s_mnWndw = NULL;
+Curses* Curses::s_inst = NULL;
+
+Text::Text() : QObject() { }
+
+Text::Text(const Text& p_txtObj) : QObject(p_txtObj.parent()), m_txt(p_txtObj.m_txt),
+                                   m_algn(p_txtObj.m_algn) { }
+
+Text::Text(const QString& p_str) : QObject(), m_txt(p_str), m_algn(Text::Left) { }
+
+Text::Text(const QStringList& p_strLst) : QObject(), m_txt(p_strLst.join("\n")), m_algn(Text::Left) { }
+
+void Text::setAlignment(const Alignment& p_algn) { m_algn = p_algn; }
+
+void Text::setText(const QString& p_str) { m_txt = p_str; }
+
+const Text::Alignment& Text::alignment() const { return m_algn; }
+
+const QString& Text::text() const { return m_txt; }
+
+Curses::Curses() : QObject(), m_pn(Curses::Welcome) { }
+
+Curses::Curses(const Curses& p_crs) : QObject(p_crs.parent()), m_pn(p_crs.m_pn) { }
+
+Curses* Curses::instance() {
+    if (s_inst == NULL)
+        s_inst = new Curses();
+
+    return s_inst;
 }
+
+const int Curses::windowWidth() { }
+
+const int Curses::windowHeight() { }
+
+void Curses::_update() { }
+
+void Curses::start() {
+    initscr();
+}
+
+void Curses::stop() {
+    endwin();
+}
+
+void Curses::clear(const Panes& p_pn) {
+    ::clear();
+}
+
+void Curses::getText(QString& p_input) const { }
+
+void Curses::setText(const Text& p_txtObj) { }
+
+void Curses::setPane(const Panes& p_pn) {
+    m_pn = p_pn;
+    _update();
+}
+
+void Curses::setStatus(const QString& p_stsTxt ) { }
+
+void Curses::setProgress(const double& p_prg) { }
+
+const int Curses::showDialog(const QString& p_txt, const QMap<int,QString>& p_opts, const int p_dft) {
+
+}
+
+const Curses::Panes& Curses::pane() const { return m_pn; }
+
+Curses::~Curses() { }
 // kate: indent-mode cstyle; space-indent on; indent-width 4;

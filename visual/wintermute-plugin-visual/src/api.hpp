@@ -38,7 +38,6 @@ namespace Wintermute {
         /// @todo Introduce support for asking a question and getting a response.
         class Framework : public AbstractFramework {
             Q_OBJECT
-            Q_DISABLE_COPY(Framework)
             Q_ENUMS(AlertLevel)
 
             public:

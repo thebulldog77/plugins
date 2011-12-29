@@ -29,7 +29,7 @@ namespace Ui { class MainWindow; } //forward decl.
 
 namespace Wintermute {
     namespace Network { struct Message; }
-    namespace Graphics {
+    namespace Visual {
         struct MainWindow;
         using Network::Message;
 
