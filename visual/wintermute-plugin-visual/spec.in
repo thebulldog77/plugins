@@ -11,7 +11,7 @@ Compat=@Wintermute_VERSION@
 Library=wplugin-visual
 
 [Description]
-Name=Visual API for Wintermute
+Name=Visual API
 Author=Jacky Alcine <jacky.alcine@thesii.org>
 Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
 Blurb=A plug-in providing the underlying framework for introducing a Visual to Wintermute.
