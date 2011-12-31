@@ -1,2 +1,28 @@
 project(WntrMessaging)
 cmake_minimum_required(VERSION 2.8)
+
+set(WINTERMUTE_IS_PLUGIN ON)
+
+find_package(Wintermute 0.1 REQUIRED)
+find_package(Qt4 4.7 COMPONENTS
+    QtCore
+    QtXml
+    REQUIRED)
+
+include(WintermuteDefaults)
+include(WintermuteMacros)
+include("${QT_INCLUDE_DIR}")
+
+
+set(WNTRMESSAGING_UUID "1e473ae4-3400-11e1-b7dd-020054746872")
+set(WNTRMESSAGING_VERSION_MINOR 0)
+set(WNTRMESSAGING_VERSION_MAJOR 1)
+set(WNTRMESSAGING_VERSION "${WNTRMESSAGING_VERSION_MAJOR}.${WNTRMESSAGING_VERSION_MINOR}")
+set(WNTRMESSAGING_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/messaging")
+set(WNTRMESSAGING_INCLUDE_DIRS "${Boost_INCLUDE_DIRS}"
+    ${WINTERMUTE_INCLUDE_DIRS}
+    ${WNTRMESSAGING_INCLUDE_DIR}
+    ${QT_INCLUDE_DIR})
+
+include_directories(${WNTRMESSAGING_INCLUDE_DIRS})
+add_subdirectory(src)
