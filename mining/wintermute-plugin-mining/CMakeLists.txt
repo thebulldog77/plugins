@@ -1,4 +1,4 @@
-project(WntrMining)
+project(WntrMiningApi)
 cmake_minimum_required(VERSION 2.8)
 
 set(WINTERMUTE_IS_PLUGIN ON)
@@ -19,12 +19,12 @@ find_package(Qt4 COMPONENTS
 
 include(WintermuteDefaults)
 include(WintermuteMacros)
+include("${QT_USE_FILE}")
 
 file(GLOB WNTRMINING_SHPP "src/*.hpp")
 file(GLOB WNTRMINING_SCPP "src/*.cpp")
 QT4_WRAP_CPP(MOC_CODE "${WNTRMINING_SHPP}")
 
-include("${QT_USE_FILE}")
 
 ## Main variables
 set(WNTRMINING_INCLUDE_DIRS "${WNTRDATA_INCLUDE_DIRS}"

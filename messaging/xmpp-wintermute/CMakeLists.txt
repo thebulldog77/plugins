@@ -1,4 +1,4 @@
-project(XmppWintermute)
+project(WntrMessaging-XMPP)
 cmake_minimum_required(VERSION 2.8)
 
 ## Versioning definitions

@@ -10,3 +10,16 @@ set_target_properties(wplugin-messaging
     PROPERTIES
     VERSION ${GENERIC_LIB_VERSION}
     SOVERSION ${GENERIC_LIB_SOVERSION})
+
+target_link_libraries(wplugin-messaging ${WNTRMESSAGING_LIBRARIES})
+
+install(TARGETS wplugin-messaging
+    EXPORT WntrMessagingLibraryDepends
+    LIBRARY DESTINATION "${WINTER_PLUGIN_INSTALL_DIR}")
+
+install(EXPORT WntrMessagingLibraryDepends
+    DESTINATION "${WNTRMESSAGING_CMAKE_DIR}")
+
+install(FILES ${WNTRMESSAGING_HEADERS}
+    DESTINATION "${WNTRMESSAGING_INCLUDE_DIR}"
+    COMPONENT dev)

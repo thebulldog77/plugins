@@ -1,4 +1,4 @@
-## The adaptive computer vision algorithm, Predator for Wintermute.
+## Wintermute Messaging API
 
 [Plugin]
 Enabled=true
@@ -8,11 +8,15 @@ Type=API
 Plugin=@WNTRMESSAGING_VERSION@
 UUID=@WNTRMESSAGING_UUID@
 Compat=@Wintermute_VERSION@
-Library=wintermute-plugin-messaging
+Library=wplugin-messaging
 
 [Description]
 Name=Messaging API
-Author=Wintermute Developers <wintermute-devel@lists.launchpad.net>
+Author=Jacky Alcine <jacky.alcine@thesii.org>
 Vendor=Synthetic Intellect Institute <sii@lists.launchpad.net>
-Blurb=A plug-in providing communication from Wintermute to other computers by means of commom messaging protocols.
+Blurb=A plug-in providing the underlying framework allowing Wintermute to communicate using messaging protocols.
 WebPage=http://www.thesii.org/wiki/Wintermute:Plugin:MessagingAPI
+
+[Configuration]
+Factory:Defaults=afa601c8-33f1-11e1-b64b-020054746872
+Factory:StartMode=0

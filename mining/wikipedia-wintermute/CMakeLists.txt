@@ -1,5 +1,15 @@
-project(WikipediaWintermute)
+project(WntrMining-Wiki)
 cmake_minimum_required(VERSION 2.8)
 
+find_package(Wintermute 0.01 REQUIRED)
+find_package(Qt4 4.7.4 COMPONENTS
+    QtCore
+    QtXml
+    QtNetwork
+    REQUIRED)
+
 set(WINTERMUTE_IS_PLUGIN ON)
-set(WIKIPEDIAWINTERMUTE_UUID "f77024a7-743d-454e-bc6d-1a483d117271")
+set(WIKIWNTR_UUID "f77024a7-743d-454e-bc6d-1a483d117271")
+set(WIKIWNTR_MAJOR_VERSION 0)
+set(WIKIWNTR_MINOR_VERSION 1)
+set(WIKIWNTR_VERSION "${WIKIWNTR_MAJOR_VERSION}.${WIKIWNTR_MINOR_VERSION}")

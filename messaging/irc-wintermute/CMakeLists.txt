@@ -1,4 +1,4 @@
-project(IrcWintermute)
+project(WntrMessaging-IRC)
 cmake_minimum_required(VERSION 2.8)
 
 find_package(Wintermute 0.1 REQUIRED)
@@ -27,5 +27,5 @@ set(IRCWNTR_LIBRARIES
     ${WINTERMUTE_LIBRARIES}
     ${QT_LIBRARIES})
 
-set(WINTERMUTE_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/Wintermute" CACHE PATH "CMake directory.")
+set(IRCWNTR_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/irc-wintermute" CACHE PATH "CMake directory.")
 add_subdirectory(src)

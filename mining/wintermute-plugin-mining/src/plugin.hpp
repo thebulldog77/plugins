@@ -24,21 +24,21 @@
 namespace Wintermute {
     namespace Data {
     	namespace Mining {
-		    struct Plugin;
+            struct Plugin;
 
-		    using Wintermute::Plugins::AbstractPlugin;
+            using Wintermute::Plugins::AbstractPlugin;
 
-		    class Plugin : public AbstractPlugin {
-		        Q_OBJECT
-		        public:
-		            Plugin() : AbstractPlugin() { }
-		            ~Plugin() { }
-		            Plugin(Plugin const &k) : AbstractPlugin(k) { }
+            class Plugin : public AbstractPlugin {
+                Q_OBJECT
+                public:
+                    Plugin() : AbstractPlugin() { }
+                    ~Plugin() { }
+                    Plugin(Plugin const &k) : AbstractPlugin(k) { }
 
-		            virtual void initialize() const;
-		            virtual void deinitialize() const;
-		            virtual QObject* instance() const;
-		    };
+                    virtual void start() const;
+                    virtual void stop() const;
+                    virtual QObject* instance() const;
+            };
     	}
     }
 }

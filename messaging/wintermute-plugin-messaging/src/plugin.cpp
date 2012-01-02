@@ -21,13 +21,14 @@
  */
 
 #include "plugin.hpp"
+#include <libircclient/libircclient.h>
 #include <QtPlugin>
 
 namespace Wintermute {
     namespace Messaging {
         Plugin::Plugin() : AbstractPlugin() {
-            connect(this,SIGNAL(started()),Framework::instance(),SLOT(start()));
-            connect(this,SIGNAL(stopped()),Framework::instance(),SLOT(stop()));
+            //connect(this,SIGNAL(started()),Framework::instance(),SLOT(start()));
+            //connect(this,SIGNAL(stopped()),Framework::instance(),SLOT(stop()));
         }
 
         void Plugin::start () const {

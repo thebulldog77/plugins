@@ -31,13 +31,10 @@ using std::endl;
 namespace Wintermute {
     namespace Data {
 	namespace Mining {
-		    void Plugin::initialize () const {}
-
-		    void Plugin::deinitialize () const {}
-
-		    QObject* Plugin::instance () const { return NULL; }
+            void Plugin::start() const {}
+            void Plugin::stop () const {}
     	}
     }
 }
 
-Q_EXPORT_PLUGIN2(WntrMining, Wintermute::Data::Mining::Plugin)
+Q_EXPORT_PLUGIN2(WPlugin-Mining, Wintermute::Data::Mining::Plugin)

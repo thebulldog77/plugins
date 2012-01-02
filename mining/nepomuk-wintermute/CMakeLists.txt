@@ -1,4 +1,4 @@
-project(NepomukWintermute)
+project(WntrMining-Nepomuk)
 cmake_minimum_required(VERSION 2.8)
 
 set(WINTERMUTE_IS_PLUGIN ON)
@@ -14,9 +14,9 @@ include(WintermuteDefaults)
 include(WintermuteMacros)
 include("${QT_USE_FILE}")
 
-set(NEPOMUKWINTERMUTE_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/nepomuk-wintermute")
-set(NEPOMUKWINTERMUTE_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/NepomukWintermute")
-set(NEPOMUKWINTERMUTE_LIBRARIES "${QT_LIBRARIES}"
+set(NEPOMUKWNTR_INCLUDE_DIR "${WINTER_PLUGIN_INCLUDE_INSTALL_DIR}/nepomuk-wintermute")
+set(NEPOMUKWNTR_CMAKE_DIR "${CMAKE_INSTALL_PREFIX}/share/cmake/NepomukWintermute")
+set(NEPOMUKWNTR_LIBRARIES "${QT_LIBRARIES}"
         ${WNTRMINING_LIBRARIES}
         ${WINTERMUTE_LIBRARIES})
 add_subdirectory(src)

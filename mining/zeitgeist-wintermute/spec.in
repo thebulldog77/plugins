@@ -8,7 +8,7 @@ Type=Backend
 Plugin=@ZEITGEISTWINTERMUTE_VERSION@
 UUID=@ZEITGEISTWINTERMUTE_UUID@
 Compat=@WINTERMUTE_VERSION@
-Library=sysinfo-wintermute
+Library=zeitgeist-wintermute
 
 [Description]
 Name=Zeitgeist for Wintermute

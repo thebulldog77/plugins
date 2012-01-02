@@ -16,6 +16,8 @@ There's over 15 plug-ins available in these folders, but the average user may on
 take advantage of 9 or 10 of them. The rest add miscellaneous functionality to
 Wintermute that may not be directly useful but otherwise improve performance.
 
+In the future, it should be possible to build all of the plug-ins in a monolithic manner.
+
 3. Reporting and Contributing to the Cause
 
 We here at the Synthetic Intellect Institute, the makers and maintainers

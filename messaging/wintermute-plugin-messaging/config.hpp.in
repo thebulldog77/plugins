@@ -19,16 +19,16 @@
  * @endlegalese
  *
  * File providing compile-time data about runtime-configuration.
- * Required for the Wintermute GUI plugin.
+ * Required for the Wintermute Messaging API plugin.
  */
 
-#ifndef _WNTRGUI_CONFIG_HPP__
-#define _WNTRGUI_CONFIG_HPP__
+#ifndef _WNTRMESSAGING_CONFIG_HPP__
+#define _WNTRMESSAGING_CONFIG_HPP__
 
 #cmakedefine DEBUG
 
-#define WNTRGUI_VERSION @WNTRGUI_VERSION@
-#define WNTRGUI_UUID "78345566-cb12-11e0-b159-f51bb9111288"
+#define WNTRMESSAGING_VERSION @WNTRMESSAGING_VERSION@
+#define WNTRMESSAGING_UUID "@WNTRMESSAGING_UUID@"
 
 #endif // __CONFIG_HPP__
 

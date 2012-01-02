@@ -1,5 +1,5 @@
 /**
- * @file plugins.hpp
+ * @file user.hpp
  * This file is part of Wintermute Messaging.
  *
  * Copyright (C) 2011 - Jacky Alcine <jacky.alcine@thesii.org>
@@ -20,34 +20,27 @@
  * Boston, MA  02110-1301  USA
  */
 
-#ifndef _PLUGIN_HPP_
-#define _PLUGIN_HPP_
+#ifndef WNTRMESSAGING_USER_HPP
+#define WNTRMESSAGING_USER_HPP
 
-#include <plugins.hpp>
-#include "config.hpp"
+#include <QObject>
 
-using Wintermute::Plugins::AbstractPlugin;
-
-/// See plugin.cpp for more information.
 namespace Wintermute {
     namespace Messaging {
-        struct Plugin;
-        
-        /**
-        * @brief
-        * @class Plugin plugin.hpp "src/plugin.hpp"
-        */
-        class Plugin : public Wintermute::Plugins::AbstractPlugin {
+        class User : public QObject
+        {
             Q_OBJECT
+            Q_DISABLE_COPY(User)
+        public:
+            virtual ~User();
 
-            public:
-                Plugin();
-                virtual ~Plugin();
-                virtual void start() const;
-                virtual void stop() const;
+        public slots:
+
+        private:
+            explicit User(QObject *parent = 0);
+
         };
     }
 }
 
-#endif /** _PLUGIN_HPP */
-// kate: indent-mode cstyle; space-indent on; indent-width 4;
+#endif // USER_HPP
