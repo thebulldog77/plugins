@@ -1,4 +1,4 @@
-project(WntrVisual)
+project(WntrVisualApi)
 cmake_minimum_required(VERSION 2.8)
 
 set(WINTERMUTE_IS_PLUGIN ON)

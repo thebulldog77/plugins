@@ -1,4 +1,4 @@
-project(PredatorWintermute)
+project(WntrVision-Predator)
 cmake_minimum_required(VERSION 2.8)
 
 set(WINTERMUTE_IS_PLUGIN ON)
